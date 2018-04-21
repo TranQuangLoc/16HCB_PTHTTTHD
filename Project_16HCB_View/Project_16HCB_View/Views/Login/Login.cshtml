@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+@using Project_16HCB_View.Models
+@model ACCOUNT
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Login.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Scripts/login.css" />
+
+<div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="name" />
+            <input type="password" placeholder="password" />
+            <input type="text" placeholder="email address" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        @*<form class="login-form" action="/Login/Login" method="post" id="fr_login">
+            <input type="text" placeholder="username" id="lg_user" name="username" />
+            <input type="password" placeholder="password" id="lg_pass" name="password" />
+            <button id="btnLogin" type="button">Login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>*@
+        <form class="login-form" action="/Login/Login" method="post" id="fr_login">
+            <input type="text" placeholder="username" id="lg_user" name="username" />
+            <input type="password" placeholder="password" id="lg_pass" name="password" />
+            <button id="btnLogin" >Login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+
+    <div id="hien">
+
+    </div>
+</div>
+
