@@ -20,7 +20,7 @@ public class ApplicationConfig extends Application {
 	
 	private void addRestResourceClass(Set<Class<?>> resources)
 	{
-		
 		resources.add(AtmRestful.class);
+		resources.add(VanTayRestful.class);
 	}
 }
