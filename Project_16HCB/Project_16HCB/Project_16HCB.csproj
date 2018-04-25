@@ -197,6 +197,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Account\EnableCorsAttribute.cs" />
+    <Compile Include="Controllers\Account\Login1Controller.cs" />
     <Compile Include="Controllers\Account\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -204,10 +205,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ACCOUNT.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DIEM.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DiemDanh.Context.cs">
       <AutoGen>True</AutoGen>
@@ -224,47 +225,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DiemDanh.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityModel_SanLe.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel_SanLe.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModel_SanLe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModel_SanLe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN_MONHOC.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOCKY.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KETQUADIEMDANH.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHOA.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOPHOC.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MAIL.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC_HOCKY.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHONG.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VANTAY.cs">
-      <DependentUpon>DiemDanh.tt</DependentUpon>
+      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -284,6 +303,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiemDanh.edmx</DependentUpon>
       <LastGenOutput>DiemDanh.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EntityModel_SanLe.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
+      <LastGenOutput>EntityModel_SanLe.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EntityModel_SanLe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
+      <LastGenOutput>EntityModel_SanLe.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\AdminLTE.min.css" />
     <Content Include="Scripts\bootstrap-datepicker.min.css" />
@@ -318,6 +347,13 @@
     </EntityDeploy>
     <Content Include="Models\DiemDanh.edmx.diagram">
       <DependentUpon>DiemDanh.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\EntityModel_SanLe.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityModel_SanLe.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityModel_SanLe.edmx.diagram">
+      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-wysihtml5.min.css" />

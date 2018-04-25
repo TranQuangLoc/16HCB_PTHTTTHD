@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Project_16HCB_CSDLModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_username" Type="nvarchar" MaxLength="50" />
+    <Property Name="_password" Type="nvarchar" MaxLength="50" />
+    <Property Name="_userId" Type="int" Nullable="false" />
+    <Property Name="_ngayLap" Type="date" />
+  </EntityType>
+  <EntityType Name="DIEM">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_mssv" Type="int" />
+    <Property Name="_maMH" Type="int" />
+    <Property Name="_maHK" Type="int" />
+    <Property Name="_tinhTrang" Type="nvarchar" MaxLength="50" />
+    <Property Name="_diem" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN">
+    <Key>
+      <PropertyRef Name="_maGV" />
+    </Key>
+    <Property Name="_maGV" Type="int" Nullable="false" />
+    <Property Name="_soNamDay" Type="int" />
+    <Property Name="_userID" Type="int" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN_MONHOC">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_stt" Type="int" />
+    <Property Name="_maGV" Type="int" />
+    <Property Name="_idMH_HK" Type="int" />
+  </EntityType>
+  <EntityType Name="HOCKY">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_tenHocKy" Type="nvarchar" MaxLength="50" />
+    <Property Name="_nam" Type="int" />
+  </EntityType>
+  <EntityType Name="KETQUADIEMDANH">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_mssv" Type="int" />
+    <Property Name="_maMH" Type="int" />
+    <Property Name="_maPhong" Type="int" />
+    <Property Name="_ngayHoc" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KHOA">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_tenKhoa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOPHOC">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_tenLop" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MAIL">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_tieuDe" Type="nvarchar" MaxLength="50" />
+    <Property Name="_maNguoiGui" Type="int" />
+    <Property Name="_maNguoiNhan" Type="int" />
+    <Property Name="_noiDung" Type="nvarchar(max)" />
+    <Property Name="_loaiThu" Type="nvarchar" MaxLength="50" />
+    <Property Name="_ngay" Type="date" />
+  </EntityType>
+  <EntityType Name="MONHOC">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_tenMH" Type="nvarchar" MaxLength="50" />
+    <Property Name="_maKhoa" Type="int" />
+    <Property Name="_soBuoi" Type="int" />
+  </EntityType>
+  <EntityType Name="MONHOC_HOCKY">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_stt" Type="int" />
+    <Property Name="_maMH" Type="int" />
+    <Property Name="_maHK" Type="int" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_maPhong" Type="int" />
+    <Property Name="_loaiPhong" Type="int" />
+    <Property Name="_trangthai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SINHVIEN">
+    <Key>
+      <PropertyRef Name="_mssv" />
+    </Key>
+    <Property Name="_mssv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_userId" Type="int" />
+    <Property Name="_heDaoTao" Type="nvarchar" MaxLength="50" />
+    <Property Name="_ngayBatDau" Type="date" />
+    <Property Name="_trangThai" Type="nvarchar" MaxLength="50" />
+    <Property Name="_maLop" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="THOIKHOABIEU">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_stt" Type="int" />
+    <Property Name="_thu" Type="int" />
+    <Property Name="_ngayBatDau" Type="datetime" />
+    <Property Name="_ngayKetThuc" Type="datetime" />
+    <Property Name="_idGV_MH" Type="int" />
+    <Property Name="_idLop" Type="int" />
+    <Property Name="_idPhong" Type="int" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="_userId" />
+    </Key>
+    <Property Name="_userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_username" Type="nvarchar" MaxLength="50" />
+    <Property Name="_email" Type="varchar" MaxLength="50" />
+    <Property Name="_sdt" Type="nchar" MaxLength="11" />
+    <Property Name="_cmnd" Type="nchar" MaxLength="11" />
+    <Property Name="_ngaysinh" Type="date" />
+    <Property Name="_diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="_loaiUS" Type="int" />
+  </EntityType>
+  <EntityType Name="VANTAY">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_userID" Type="int" />
+    <Property Name="_maVanTay" Type="varchar" MaxLength="50" />
+    <Property Name="_ngayTao" Type="date" />
+  </EntityType>
+  <EntityContainer Name="Project_16HCB_CSDLModel1StoreContainer">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAOVIEN_MONHOC" EntityType="Self.GIAOVIEN_MONHOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOCKY" EntityType="Self.HOCKY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KETQUADIEMDANH" EntityType="Self.KETQUADIEMDANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOPHOC" EntityType="Self.LOPHOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAIL" EntityType="Self.MAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THOIKHOABIEU" EntityType="Self.THOIKHOABIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VANTAY" EntityType="Self.VANTAY" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

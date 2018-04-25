@@ -17,7 +17,7 @@ namespace Project_16HCB.Models
         public int C_id { get; set; }
         public string C_username { get; set; }
         public string C_password { get; set; }
-        public Nullable<int> C_userId { get; set; }
+        public int C_userId { get; set; }
         public Nullable<System.DateTime> C_ngayLap { get; set; }
     }
 }

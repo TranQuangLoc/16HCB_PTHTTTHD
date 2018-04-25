@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Project_16HCB_CSDLModelStoreContainer" CdmEntityContainer="Project_16HCB_CSDLEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_username" ColumnName="_username" />
+          <ScalarProperty Name="C_password" ColumnName="_password" />
+          <ScalarProperty Name="C_userId" ColumnName="_userId" />
+          <ScalarProperty Name="C_ngayLap" ColumnName="_ngayLap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIEMs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.DIEM">
+        <MappingFragment StoreEntitySet="DIEM">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+          <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+          <ScalarProperty Name="C_maHK" ColumnName="_maHK" />
+          <ScalarProperty Name="C_tinhTrang" ColumnName="_tinhTrang" />
+          <ScalarProperty Name="C_diem" ColumnName="_diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAOVIENs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN">
+        <MappingFragment StoreEntitySet="GIAOVIEN">
+          <ScalarProperty Name="C_maGV" ColumnName="_maGV" />
+          <ScalarProperty Name="C_soNamDay" ColumnName="_soNamDay" />
+          <ScalarProperty Name="C_userID" ColumnName="_userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAOVIEN_MONHOC">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN_MONHOC">
+        <MappingFragment StoreEntitySet="GIAOVIEN_MONHOC">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_stt" ColumnName="_stt" />
+          <ScalarProperty Name="C_maGV" ColumnName="_maGV" />
+          <ScalarProperty Name="C_idMH_HK" ColumnName="_idMH_HK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOCKies">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.HOCKY">
+        <MappingFragment StoreEntitySet="HOCKY">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_tenHocKy" ColumnName="_tenHocKy" />
+          <ScalarProperty Name="C_nam" ColumnName="_nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KETQUADIEMDANHs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUADIEMDANH">
+        <MappingFragment StoreEntitySet="KETQUADIEMDANH">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+          <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+          <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
+          <ScalarProperty Name="C_ngayHoc" ColumnName="_ngayHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOAs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KHOA">
+        <MappingFragment StoreEntitySet="KHOA">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_tenKhoa" ColumnName="_tenKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPHOCs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.LOPHOC">
+        <MappingFragment StoreEntitySet="LOPHOC">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAILs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MAIL">
+        <MappingFragment StoreEntitySet="MAIL">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_tieuDe" ColumnName="_tieuDe" />
+          <ScalarProperty Name="C_maNguoiGui" ColumnName="_maNguoiGui" />
+          <ScalarProperty Name="C_maNguoiNhan" ColumnName="_maNguoiNhan" />
+          <ScalarProperty Name="C_noiDung" ColumnName="_noiDung" />
+          <ScalarProperty Name="C_loaiThu" ColumnName="_loaiThu" />
+          <ScalarProperty Name="C_ngay" ColumnName="_ngay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONHOCs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC">
+        <MappingFragment StoreEntitySet="MONHOC">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
+          <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
+          <ScalarProperty Name="C_soBuoi" ColumnName="_soBuoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONHOC_HOCKY">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC_HOCKY">
+        <MappingFragment StoreEntitySet="MONHOC_HOCKY">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_stt" ColumnName="_stt" />
+          <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+          <ScalarProperty Name="C_maHK" ColumnName="_maHK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
+          <ScalarProperty Name="C_loaiPhong" ColumnName="_loaiPhong" />
+          <ScalarProperty Name="C_trangthai" ColumnName="_trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SINHVIENs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.SINHVIEN">
+        <MappingFragment StoreEntitySet="SINHVIEN">
+          <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+          <ScalarProperty Name="C_userId" ColumnName="_userId" />
+          <ScalarProperty Name="C_heDaoTao" ColumnName="_heDaoTao" />
+          <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
+          <ScalarProperty Name="C_trangThai" ColumnName="_trangThai" />
+          <ScalarProperty Name="C_maLop" ColumnName="_maLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THOIKHOABIEUx">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.THOIKHOABIEU">
+        <MappingFragment StoreEntitySet="THOIKHOABIEU">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_stt" ColumnName="_stt" />
+          <ScalarProperty Name="C_thu" ColumnName="_thu" />
+          <ScalarProperty Name="C_gioBatDau" ColumnName="_gioBatDau" />
+          <ScalarProperty Name="C_gioKetThuc" ColumnName="_gioKetThuc" />
+          <ScalarProperty Name="C_idGV_MH" ColumnName="_idGV_MH" />
+          <ScalarProperty Name="C_idLop" ColumnName="_idLop" />
+          <ScalarProperty Name="C_idPhong" ColumnName="_idPhong" />
+          <ScalarProperty Name="C_ngay" ColumnName="_ngay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="C_userId" ColumnName="_userId" />
+          <ScalarProperty Name="C_username" ColumnName="_username" />
+          <ScalarProperty Name="C_email" ColumnName="_email" />
+          <ScalarProperty Name="C_sdt" ColumnName="_sdt" />
+          <ScalarProperty Name="C_cmnd" ColumnName="_cmnd" />
+          <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
+          <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
+          <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VANTAYs">
+      <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.VANTAY">
+        <MappingFragment StoreEntitySet="VANTAY">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_userID" ColumnName="_userID" />
+          <ScalarProperty Name="C_maVanTay" ColumnName="_maVanTay" />
+          <ScalarProperty Name="C_ngayTao" ColumnName="_ngayTao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

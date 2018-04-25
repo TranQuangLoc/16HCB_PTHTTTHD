@@ -17,11 +17,10 @@ namespace Project_16HCB.Models
         public int C_id { get; set; }
         public Nullable<int> C_stt { get; set; }
         public Nullable<int> C_thu { get; set; }
-        public Nullable<System.TimeSpan> C_gioBatDau { get; set; }
-        public Nullable<System.TimeSpan> C_gioKetThuc { get; set; }
+        public Nullable<System.DateTime> C_ngayBatDau { get; set; }
+        public Nullable<System.DateTime> C_ngayKetThuc { get; set; }
         public Nullable<int> C_idGV_MH { get; set; }
         public Nullable<int> C_idLop { get; set; }
         public Nullable<int> C_idPhong { get; set; }
-        public Nullable<System.DateTime> C_ngay { get; set; }
     }
 }
