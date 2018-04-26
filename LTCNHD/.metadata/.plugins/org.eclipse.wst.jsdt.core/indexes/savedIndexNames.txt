@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\LOCTQ\Desktop\?? Án 16HCB\LTCNHD\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3596820795.index
-3147209661.index
-290943009.index
-248222460.index
-2586119274.index
-1208210454.index

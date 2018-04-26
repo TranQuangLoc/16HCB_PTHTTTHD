@@ -3,7 +3,7 @@ package backend.config;
 public class DBConfig {
 	private static String m_userid = "sa";
     private static String m_password = "123456";
-    private static String m_database = "ATMDB";
+    private static String m_database = "Project_16HCB_CSDL";
     
 	public static String getM_userid() {
 		return m_userid;
