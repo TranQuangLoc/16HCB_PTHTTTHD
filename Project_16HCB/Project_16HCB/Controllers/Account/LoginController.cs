@@ -15,29 +15,39 @@ namespace Project_16HCB.Controllers.Account
     {
         // info { username: loc, password: sjdfsjdhfjshg }
         [HttpPost]
-        public HttpResponseMessage login([FromBody]object info)
+        public HttpResponseMessage Login([FromBody]object info)
         {
-            var obj = JObject.Parse(info.ToString());
-            var username = obj["username"].ToObject<string>();
-            var password = obj["password"].ToObject<string>();
+            HttpResponseMessage resmsg;
 
-            using (var db = new Project_16HCB_CSDLEntities_SanLe())
+            if (info == null)
             {
-                var account = db.ACCOUNTs.Where(n => n.C_username == username
-                        && n.C_password == password).FirstOrDefault();
-                HttpResponseMessage resmsg;
-
-                if (account != null)
-                {
-                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(account));
-                }
-                else
-                {
-                    resmsg = Request.CreateResponse(HttpStatusCode.NoContent);
-                }
-
-                return resmsg;
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { msg = "Thông tin đăng nhập không chính xác!" }));
             }
+            else
+            {
+                var obj = JObject.Parse(info.ToString());
+                var username = obj["username"].ToObject<string>();
+                var password = obj["password"].ToObject<string>();
+
+                using (var db = new Project_16HCB_CSDLEntities_SanLe())
+                {
+                    var account = db.ACCOUNTs
+                            .Where(n => n.C_username == username && n.C_password == password)
+                            .FirstOrDefault();
+
+                    if (account != null)
+                    {
+                        resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(account));
+                    }
+                    else
+                    {
+                        resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                    }
+                }
+            }
+
+            return resmsg;
         }
     }
 }
