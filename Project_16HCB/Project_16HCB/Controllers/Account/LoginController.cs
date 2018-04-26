@@ -21,8 +21,6 @@ namespace Project_16HCB.Controllers.Account
             var username = obj["username"].ToObject<string>();
             var password = obj["password"].ToObject<string>();
 
-            //Response.AppendHeader("Access-Control-Allow-Origin", "*");
-
             using (var db = new Project_16HCB_CSDLEntities_SanLe())
             {
                 var account = db.ACCOUNTs.Where(n => n.C_username == username
@@ -39,7 +37,6 @@ namespace Project_16HCB.Controllers.Account
                 }
 
                 return resmsg;
-                //return Json(account);
             }
         }
     }
