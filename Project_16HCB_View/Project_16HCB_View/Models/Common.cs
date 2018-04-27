@@ -19,7 +19,8 @@ namespace Project_16HCB_View.Models
         public static void ConvertLst<T>(System.Net.Http.HttpResponseMessage res, ref List<T> lstReceiver)
         {
             string strResult = res.Content.ReadAsStringAsync().Result;
-            strResult = strResult.Replace("C", "");
+            
+            strResult = strResult.Replace("\"C_", "\"_");
 
             if (strResult.IndexOf('[') == -1)
             {
