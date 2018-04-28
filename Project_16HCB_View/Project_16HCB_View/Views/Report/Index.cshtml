@@ -50,7 +50,25 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-default"> Thống kê</button>
+        <button id="btnSubmit" type="submit" class="btn btn-default"> Thống kê</button>
+    </div>
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>MSSV</th>
+                    <th>Username</th>
+                    <th>Lớp</th>
+                    <th>Năm học</th>
+                    <th>Học kỳ</th>
+                    <th>Môn học</th>
+                    <th>Số ngày nghỉ</th>
+                </tr>
+            </thead>
+            <tbody id="bodyReport">
+               
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
@@ -59,6 +77,18 @@
 
     renderOption = (value, text) => `
         <option value='${value}'>${text}</option>
+    `;
+
+    renderRowReport = (data) => `
+        <tr>
+            <td>${data.MSSV}</td>
+            <td>${data.Username}</td>
+            <td>${data.TenLop}</td>
+            <td>${data.NamHoc}</td>
+            <td>${data.HocKy}</td>
+            <td>${data.MonHoc}</td>
+            <td>${data.SLNghi}</td>
+        </tr>
     `;
 
     renderHK = (hks) => {
@@ -90,6 +120,14 @@
         })
         return yearOptions;
     }
+
+    renderReport = (datas) => {
+        let reportRows = '';
+        datas.forEach(data => {
+            reportRows += renderRowReport(data);
+        })
+        return reportRows;
+    }
     function setDSNamHoc() {
         const namHocs = _.uniq(data.dsHocKy.map(h => h.C_nam));
         var yearOptions = renderYears(namHocs);
@@ -99,6 +137,22 @@
     }
 
     document.addEventListener("DOMContentLoaded", function (event) {
+        $('#btnSubmit').click(() => {
+            let hocky = $('#cmbHocKy option:selected').val();
+            let namhoc = $('#cmbNamHoc option:selected').val();
+            let monhoc = $('#cmbMonHoc option:selected').val();
+            let lop = $('#cmbLopHoc option:selected').val();
+
+            if (hocky === 'all') hocky = -1;
+            if (namhoc === 'all') namhoc = -1;
+            if (monhoc === 'all') monhoc = -1;
+            if (lop === 'all') lop = -1;
+
+            $.get(`${apiUrl}Report?Nam=${namhoc}&HocKy=${hocky}&MonHoc=${monhoc}&Lop=${lop}`, (results) => {
+                const contentReport = renderReport(results);
+                $('#bodyReport').empty().append(contentReport);
+            });
+        });
 
         $('#cmbMonHoc').on('change', () => {
             let hocky = $('#cmbHocKy option:selected').val();
