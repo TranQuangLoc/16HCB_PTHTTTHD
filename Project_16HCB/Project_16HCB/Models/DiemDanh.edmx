@@ -12,14 +12,14 @@
           <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_username" Type="nvarchar" MaxLength="50" />
           <Property Name="_password" Type="nvarchar" MaxLength="50" />
-          <Property Name="_userId" Type="int" />
+          <Property Name="_userId" Type="int" Nullable="false" />
           <Property Name="_ngayLap" Type="date" />
         </EntityType>
         <EntityType Name="DIEM">
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_mssv" Type="int" />
           <Property Name="_maMH" Type="int" />
           <Property Name="_maHK" Type="int" />
@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="_maGV" />
           </Key>
-          <Property Name="_maGV" Type="int" Nullable="false" />
+          <Property Name="_maGV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_soNamDay" Type="int" />
           <Property Name="_userID" Type="int" />
         </EntityType>
@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_stt" Type="int" />
           <Property Name="_maGV" Type="int" />
           <Property Name="_idMH_HK" Type="int" />
@@ -47,7 +47,7 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenHocKy" Type="nvarchar" MaxLength="50" />
           <Property Name="_nam" Type="int" />
         </EntityType>
@@ -55,31 +55,32 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
-          <Property Name="_mssv" Type="int" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_maUser" Type="int" />
           <Property Name="_maMH" Type="int" />
           <Property Name="_maPhong" Type="int" />
           <Property Name="_ngayHoc" Type="datetime" />
+          <Property Name="_loaiUS" Type="int" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenKhoa" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LOPHOC">
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenLop" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MAIL">
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tieuDe" Type="nvarchar" MaxLength="50" />
           <Property Name="_maNguoiGui" Type="int" />
           <Property Name="_maNguoiNhan" Type="int" />
@@ -91,7 +92,7 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenMH" Type="nvarchar" MaxLength="50" />
           <Property Name="_maKhoa" Type="int" />
           <Property Name="_soBuoi" Type="int" />
@@ -100,7 +101,7 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_stt" Type="int" />
           <Property Name="_maMH" Type="int" />
           <Property Name="_maHK" Type="int" />
@@ -109,7 +110,7 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_maPhong" Type="int" />
           <Property Name="_loaiPhong" Type="int" />
           <Property Name="_trangthai" Type="nvarchar" MaxLength="50" />
@@ -129,15 +130,14 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_stt" Type="int" />
           <Property Name="_thu" Type="int" />
-          <Property Name="_gioBatDau" Type="time" Precision="7" />
-          <Property Name="_gioKetThuc" Type="time" Precision="7" />
+          <Property Name="_ngayBatDau" Type="datetime" />
+          <Property Name="_ngayKetThuc" Type="datetime" />
           <Property Name="_idGV_MH" Type="int" />
           <Property Name="_idLop" Type="int" />
           <Property Name="_idPhong" Type="int" />
-          <Property Name="_ngay" Type="date" />
         </EntityType>
         <EntityType Name="USERS">
           <Key>
@@ -156,11 +156,30 @@
           <Key>
             <PropertyRef Name="_id" />
           </Key>
-          <Property Name="_id" Type="int" Nullable="false" />
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_userID" Type="int" />
-          <Property Name="_maVanTay" Type="varchar" MaxLength="50" />
+          <Property Name="_maVanTay" Type="varchar" MaxLength="250" />
           <Property Name="_ngayTao" Type="date" />
         </EntityType>
+        <Function Name="sp_getVanTay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="maVantay" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_layThongTinThemKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_themBangMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tieuDe" Type="nvarchar" Mode="In" />
+          <Parameter Name="maNguoiGui" Type="int" Mode="In" />
+          <Parameter Name="maNguoiNhan" Type="int" Mode="In" />
+          <Parameter Name="noiDung" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="loaiThu" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_themKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="maUser" Type="int" Mode="In" />
+          <Parameter Name="maMH" Type="int" Mode="In" />
+          <Parameter Name="maPhong" Type="int" Mode="In" />
+          <Parameter Name="loaiUS" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="Project_16HCB_CSDLModelStoreContainer">
           <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
@@ -191,14 +210,14 @@
           <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="C_userId" Type="Int32" />
+          <Property Name="C_userId" Type="Int32" Nullable="false" />
           <Property Name="C_ngayLap" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="DIEM">
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_mssv" Type="Int32" />
           <Property Name="C_maMH" Type="Int32" />
           <Property Name="C_maHK" Type="Int32" />
@@ -209,7 +228,7 @@
           <Key>
             <PropertyRef Name="C_maGV" />
           </Key>
-          <Property Name="C_maGV" Type="Int32" Nullable="false" />
+          <Property Name="C_maGV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_soNamDay" Type="Int32" />
           <Property Name="C_userID" Type="Int32" />
         </EntityType>
@@ -217,7 +236,7 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_stt" Type="Int32" />
           <Property Name="C_maGV" Type="Int32" />
           <Property Name="C_idMH_HK" Type="Int32" />
@@ -226,7 +245,7 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenHocKy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_nam" Type="Int32" />
         </EntityType>
@@ -234,31 +253,32 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
-          <Property Name="C_mssv" Type="Int32" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_maUser" Type="Int32" />
           <Property Name="C_maMH" Type="Int32" />
           <Property Name="C_maPhong" Type="Int32" />
           <Property Name="C_ngayHoc" Type="DateTime" Precision="3" />
+          <Property Name="C_loaiUS" Type="Int32" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LOPHOC">
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MAIL">
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_maNguoiGui" Type="Int32" />
           <Property Name="C_maNguoiNhan" Type="Int32" />
@@ -270,7 +290,7 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_maKhoa" Type="Int32" />
           <Property Name="C_soBuoi" Type="Int32" />
@@ -279,7 +299,7 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_stt" Type="Int32" />
           <Property Name="C_maMH" Type="Int32" />
           <Property Name="C_maHK" Type="Int32" />
@@ -288,7 +308,7 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_maPhong" Type="Int32" />
           <Property Name="C_loaiPhong" Type="Int32" />
           <Property Name="C_trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -308,15 +328,14 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_stt" Type="Int32" />
           <Property Name="C_thu" Type="Int32" />
-          <Property Name="C_gioBatDau" Type="Time" Precision="7" />
-          <Property Name="C_gioKetThuc" Type="Time" Precision="7" />
+          <Property Name="C_ngayBatDau" Type="DateTime" Precision="3" />
+          <Property Name="C_ngayKetThuc" Type="DateTime" Precision="3" />
           <Property Name="C_idGV_MH" Type="Int32" />
           <Property Name="C_idLop" Type="Int32" />
           <Property Name="C_idPhong" Type="Int32" />
-          <Property Name="C_ngay" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
@@ -335,9 +354,9 @@
           <Key>
             <PropertyRef Name="C_id" />
           </Key>
-          <Property Name="C_id" Type="Int32" Nullable="false" />
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_userID" Type="Int32" />
-          <Property Name="C_maVanTay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_maVanTay" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="C_ngayTao" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityContainer Name="Project_16HCB_CSDLEntities" annotation:LazyLoadingEnabled="true">
@@ -357,7 +376,30 @@
           <EntitySet Name="THOIKHOABIEUx" EntityType="Self.THOIKHOABIEU" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
           <EntitySet Name="VANTAYs" EntityType="Self.VANTAY" />
+          <FunctionImport Name="sp_getVanTay">
+            <Parameter Name="maVantay" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_layThongTinThemKetQuaDiemDanh">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_themBangMail" ReturnType="Collection(Project_16HCB_CSDLModel.sp_themBangMail_Result)">
+            <Parameter Name="tieuDe" Mode="In" Type="String" />
+            <Parameter Name="maNguoiGui" Mode="In" Type="Int32" />
+            <Parameter Name="maNguoiNhan" Mode="In" Type="Int32" />
+            <Parameter Name="noiDung" Mode="In" Type="String" />
+            <Parameter Name="loaiThu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_themKetQuaDiemDanh" ReturnType="Collection(Int32)">
+            <Parameter Name="maUser" Mode="In" Type="Int32" />
+            <Parameter Name="maMH" Mode="In" Type="Int32" />
+            <Parameter Name="maPhong" Mode="In" Type="Int32" />
+            <Parameter Name="loaiUS" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="sp_themBangMail_Result">
+          <Property Type="Int32" Name="kq" Nullable="false" />
+          <Property Type="Int32" Name="err" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -419,10 +461,11 @@
             <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUADIEMDANH">
               <MappingFragment StoreEntitySet="KETQUADIEMDANH">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
-                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+                <ScalarProperty Name="C_maUser" ColumnName="_maUser" />
                 <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
                 <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
                 <ScalarProperty Name="C_ngayHoc" ColumnName="_ngayHoc" />
+                <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -503,12 +546,11 @@
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_stt" ColumnName="_stt" />
                 <ScalarProperty Name="C_thu" ColumnName="_thu" />
-                <ScalarProperty Name="C_gioBatDau" ColumnName="_gioBatDau" />
-                <ScalarProperty Name="C_gioKetThuc" ColumnName="_gioKetThuc" />
+                <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
+                <ScalarProperty Name="C_ngayKetThuc" ColumnName="_ngayKetThuc" />
                 <ScalarProperty Name="C_idGV_MH" ColumnName="_idGV_MH" />
                 <ScalarProperty Name="C_idLop" ColumnName="_idLop" />
                 <ScalarProperty Name="C_idPhong" ColumnName="_idPhong" />
-                <ScalarProperty Name="C_ngay" ColumnName="_ngay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -536,6 +578,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_getVanTay" FunctionName="Project_16HCB_CSDLModel.Store.sp_getVanTay" />
+          <FunctionImportMapping FunctionImportName="sp_layThongTinThemKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_layThongTinThemKetQuaDiemDanh" />
+          <FunctionImportMapping FunctionImportName="sp_themBangMail" FunctionName="Project_16HCB_CSDLModel.Store.sp_themBangMail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_themBangMail_Result">
+                <ScalarProperty Name="kq" ColumnName="kq" />
+                <ScalarProperty Name="err" ColumnName="err" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_themKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_themKetQuaDiemDanh" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

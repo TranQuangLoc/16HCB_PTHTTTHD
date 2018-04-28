@@ -56,10 +56,11 @@
       <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUADIEMDANH">
         <MappingFragment StoreEntitySet="KETQUADIEMDANH">
           <ScalarProperty Name="C_id" ColumnName="_id" />
-          <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+          <ScalarProperty Name="C_maUser" ColumnName="_maUser" />
           <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
           <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
           <ScalarProperty Name="C_ngayHoc" ColumnName="_ngayHoc" />
+          <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -140,12 +141,11 @@
           <ScalarProperty Name="C_id" ColumnName="_id" />
           <ScalarProperty Name="C_stt" ColumnName="_stt" />
           <ScalarProperty Name="C_thu" ColumnName="_thu" />
-          <ScalarProperty Name="C_gioBatDau" ColumnName="_gioBatDau" />
-          <ScalarProperty Name="C_gioKetThuc" ColumnName="_gioKetThuc" />
+          <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
+          <ScalarProperty Name="C_ngayKetThuc" ColumnName="_ngayKetThuc" />
           <ScalarProperty Name="C_idGV_MH" ColumnName="_idGV_MH" />
           <ScalarProperty Name="C_idLop" ColumnName="_idLop" />
           <ScalarProperty Name="C_idPhong" ColumnName="_idPhong" />
-          <ScalarProperty Name="C_ngay" ColumnName="_ngay" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -173,5 +173,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getVanTay" FunctionName="Project_16HCB_CSDLModel.Store.sp_getVanTay" />
+    <FunctionImportMapping FunctionImportName="sp_layThongTinThemKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_layThongTinThemKetQuaDiemDanh" />
+    <FunctionImportMapping FunctionImportName="sp_themBangMail" FunctionName="Project_16HCB_CSDLModel.Store.sp_themBangMail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_themBangMail_Result">
+          <ScalarProperty Name="kq" ColumnName="kq" />
+          <ScalarProperty Name="err" ColumnName="err" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_themKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_themKetQuaDiemDanh" />
   </EntityContainerMapping>
 </Mapping>

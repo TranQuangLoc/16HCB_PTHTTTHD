@@ -12,6 +12,8 @@ namespace Project_16HCB.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Project_16HCB_CSDLEntities : DbContext
     {
@@ -41,5 +43,69 @@ namespace Project_16HCB.Models
         public virtual DbSet<THOIKHOABIEU> THOIKHOABIEUx { get; set; }
         public virtual DbSet<USER> USERS { get; set; }
         public virtual DbSet<VANTAY> VANTAYs { get; set; }
+    
+        public virtual int sp_getVanTay(string maVantay)
+        {
+            var maVantayParameter = maVantay != null ?
+                new ObjectParameter("maVantay", maVantay) :
+                new ObjectParameter("maVantay", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_getVanTay", maVantayParameter);
+        }
+    
+        public virtual int sp_layThongTinThemKetQuaDiemDanh(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_layThongTinThemKetQuaDiemDanh", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_themBangMail_Result> sp_themBangMail(string tieuDe, Nullable<int> maNguoiGui, Nullable<int> maNguoiNhan, string noiDung, string loaiThu)
+        {
+            var tieuDeParameter = tieuDe != null ?
+                new ObjectParameter("tieuDe", tieuDe) :
+                new ObjectParameter("tieuDe", typeof(string));
+    
+            var maNguoiGuiParameter = maNguoiGui.HasValue ?
+                new ObjectParameter("maNguoiGui", maNguoiGui) :
+                new ObjectParameter("maNguoiGui", typeof(int));
+    
+            var maNguoiNhanParameter = maNguoiNhan.HasValue ?
+                new ObjectParameter("maNguoiNhan", maNguoiNhan) :
+                new ObjectParameter("maNguoiNhan", typeof(int));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("noiDung", noiDung) :
+                new ObjectParameter("noiDung", typeof(string));
+    
+            var loaiThuParameter = loaiThu != null ?
+                new ObjectParameter("loaiThu", loaiThu) :
+                new ObjectParameter("loaiThu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_themBangMail_Result>("sp_themBangMail", tieuDeParameter, maNguoiGuiParameter, maNguoiNhanParameter, noiDungParameter, loaiThuParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_themKetQuaDiemDanh(Nullable<int> maUser, Nullable<int> maMH, Nullable<int> maPhong, Nullable<int> loaiUS)
+        {
+            var maUserParameter = maUser.HasValue ?
+                new ObjectParameter("maUser", maUser) :
+                new ObjectParameter("maUser", typeof(int));
+    
+            var maMHParameter = maMH.HasValue ?
+                new ObjectParameter("maMH", maMH) :
+                new ObjectParameter("maMH", typeof(int));
+    
+            var maPhongParameter = maPhong.HasValue ?
+                new ObjectParameter("maPhong", maPhong) :
+                new ObjectParameter("maPhong", typeof(int));
+    
+            var loaiUSParameter = loaiUS.HasValue ?
+                new ObjectParameter("loaiUS", loaiUS) :
+                new ObjectParameter("loaiUS", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_themKetQuaDiemDanh", maUserParameter, maMHParameter, maPhongParameter, loaiUSParameter);
+        }
     }
 }

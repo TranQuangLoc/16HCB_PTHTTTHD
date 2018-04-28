@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Thống kê số lần nghỉ học sinh viên năm học/học kỳ</h2>
+        <p>
+            Vùi lòng chọn các mục và nhấn nút Thống kê để lấy kết quả !
+        </p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="cmbNamHoc">Năm học:</label>
+                        <select class="form-control" id="cmbNamHoc">
+                            <option value="all">
+                                Tất cả
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="cmbHocKy">Học kỳ:</label>
+                        <select class="form-control" id="cmbHocKy">
+                            <option value="all">
+                                Tất cả
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="cmbMonhoc">Môn học:</label>
+                        <select class="form-control" id="cmbMonHoc">
+                            <option value="all">
+                                Tất cả
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="cmbLopHoc">Lớp học</label>
+                        <select class="form-control" id="cmbLopHoc">
+                            <option value="all">
+                                Tất cả
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default"> Thống kê</button>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script>
+    let data = {};
+
+    renderOption = (value, text) => `
+        <option value='${value}'>${text}</option>
+    `;
+
+    renderHK = (hks) => {
+        let yearOptions = "<option value='all'>Tất cả</option>";
+        hks.forEach((hk) => {
+            yearOptions = yearOptions.concat(renderOption(hk.id, hk.name));
+        })
+        return yearOptions;
+    }
+    renderYears = (years) => {
+        let yearOptions = "<option value='all'>Tất cả</option>";
+        years.forEach((year) => {
+            yearOptions = yearOptions.concat(renderOption(year, year));
+        })
+        return yearOptions;
+    }
+    renderMH = (dsMonHoc) => {
+        let yearOptions = "<option value='all'>Tất cả</option>";
+        dsMonHoc.forEach((mh) => {
+            yearOptions = yearOptions.concat(renderOption(mh.id, mh.name));
+        })
+        return yearOptions;
+    }
+
+    renderLH = (dsLopHoc) => {
+        let yearOptions = "<option value='all'>Tất cả</option>";
+        dsLopHoc.forEach((mh) => {
+            yearOptions = yearOptions.concat(renderOption(mh.id, mh.name));
+        })
+        return yearOptions;
+    }
+    function setDSNamHoc() {
+        const namHocs = _.uniq(data.dsHocKy.map(h => h.C_nam));
+        var yearOptions = renderYears(namHocs);
+        $('#cmbNamHoc').empty().append(yearOptions);
+        $('#cmbNamHoc').change();
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        $('#cmbMonHoc').on('change', () => {
+            let hocky = $('#cmbHocKy option:selected').val();
+            let namhoc = $('#cmbNamHoc option:selected').val();
+            let monhoc = $('#cmbMonHoc option:selected').val();
+            if (hocky === 'all') hocky = -1;
+            if (namhoc === 'all') namhoc = -1;
+            if (monhoc === 'all') monhoc = -1;
+
+
+            $.get(`${apiUrl}LopHoc?NamHoc=${namhoc}&HocKy=${hocky}&MonHoc=${monhoc}`, (result) => {
+
+                const dsLop = result.map(h => ({
+                    id: h.C_id,
+                    name: h.C_tenLop,
+                }));
+
+                const dsLopOptions = renderLH(dsLop);
+                $('#cmbLopHoc').empty().append(dsLopOptions);
+            })
+        });
+        $('#cmbHocKy').on('change', () => {
+            const hocky = $('#cmbHocKy option:selected').val();
+            const namhoc = $('#cmbNamHoc option:selected').val();
+            if (hocky) {
+                let monHocs = data.dsMonHocHK.filter(h => h.C_maHK == hocky || (
+                        hocky === 'all' && namhoc === 'all'
+                ) || (
+                        hocky === 'all' && namhoc !== 'all' && data.dsHocKy.find(hk => hk.C_nam === namhoc && hk.C_id === h.C_maHK)
+                    ))
+                    .map(mh => ({
+                        id: mh.C_maMH,
+                        name: data.dsMonHoc.find(m => m.C_id == mh.C_maMH).C_tenMH,
+                    }))
+                monHocOptions = renderMH(monHocs);
+                $('#cmbMonHoc').empty().append(monHocOptions)
+                $('#cmbMonHoc').change();
+            }
+        });
+        $('#cmbNamHoc').on('change', () => {
+            const namHoc = $('#cmbNamHoc option:selected').val();
+            if (namHoc) {
+                let hocKys = data.dsHocKy.filter(h => h.C_nam == namHoc || namHoc === 'all')
+                    .map(h => ({
+                        id: h.C_id,
+                        name: h.C_tenHocKy,
+                    }));
+                const optionHKS = renderHK(hocKys);
+                $('#cmbHocKy').empty().append(optionHKS);
+                $('#cmbHocKy').change();
+            }
+        });
+
+        data = {
+            dsHocKy: [],
+            dsMonHocHK: [],
+            dsMonHoc: [],
+        }
+
+        const apiUrl = 'http://localhost:52740/api/';
+
+        
+        const fetchDsHocKy = $.get(`${apiUrl}HocKy`);
+        const fetchMonHocHK = $.get(`${apiUrl}MonHocHK`);
+        const fetchMonHoc = $.get(`${apiUrl}MonHoc`);
+
+        Promise.all([fetchDsHocKy, fetchMonHocHK, fetchMonHoc]).then((results) => {
+            data.dsHocKy = results[0];
+            data.dsMonHocHK = results[1];
+            data.dsMonHoc = results[2];
+            setDSNamHoc();
+        }).catch((error) => {
+            console.log('error', error);
+        });
+    });
+        
+   
+</script>

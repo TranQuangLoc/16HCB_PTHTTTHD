@@ -7,14 +7,14 @@
     <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_username" Type="nvarchar" MaxLength="50" />
     <Property Name="_password" Type="nvarchar" MaxLength="50" />
-    <Property Name="_userId" Type="int" />
+    <Property Name="_userId" Type="int" Nullable="false" />
     <Property Name="_ngayLap" Type="date" />
   </EntityType>
   <EntityType Name="DIEM">
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_mssv" Type="int" />
     <Property Name="_maMH" Type="int" />
     <Property Name="_maHK" Type="int" />
@@ -25,7 +25,7 @@
     <Key>
       <PropertyRef Name="_maGV" />
     </Key>
-    <Property Name="_maGV" Type="int" Nullable="false" />
+    <Property Name="_maGV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_soNamDay" Type="int" />
     <Property Name="_userID" Type="int" />
   </EntityType>
@@ -33,7 +33,7 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_stt" Type="int" />
     <Property Name="_maGV" Type="int" />
     <Property Name="_idMH_HK" Type="int" />
@@ -42,7 +42,7 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_tenHocKy" Type="nvarchar" MaxLength="50" />
     <Property Name="_nam" Type="int" />
   </EntityType>
@@ -50,31 +50,32 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
-    <Property Name="_mssv" Type="int" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_maUser" Type="int" />
     <Property Name="_maMH" Type="int" />
     <Property Name="_maPhong" Type="int" />
     <Property Name="_ngayHoc" Type="datetime" />
+    <Property Name="_loaiUS" Type="int" />
   </EntityType>
   <EntityType Name="KHOA">
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_tenKhoa" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LOPHOC">
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_tenLop" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MAIL">
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_tieuDe" Type="nvarchar" MaxLength="50" />
     <Property Name="_maNguoiGui" Type="int" />
     <Property Name="_maNguoiNhan" Type="int" />
@@ -86,7 +87,7 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_tenMH" Type="nvarchar" MaxLength="50" />
     <Property Name="_maKhoa" Type="int" />
     <Property Name="_soBuoi" Type="int" />
@@ -95,7 +96,7 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_stt" Type="int" />
     <Property Name="_maMH" Type="int" />
     <Property Name="_maHK" Type="int" />
@@ -104,7 +105,7 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_maPhong" Type="int" />
     <Property Name="_loaiPhong" Type="int" />
     <Property Name="_trangthai" Type="nvarchar" MaxLength="50" />
@@ -124,15 +125,14 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_stt" Type="int" />
     <Property Name="_thu" Type="int" />
-    <Property Name="_gioBatDau" Type="time" Precision="7" />
-    <Property Name="_gioKetThuc" Type="time" Precision="7" />
+    <Property Name="_ngayBatDau" Type="datetime" />
+    <Property Name="_ngayKetThuc" Type="datetime" />
     <Property Name="_idGV_MH" Type="int" />
     <Property Name="_idLop" Type="int" />
     <Property Name="_idPhong" Type="int" />
-    <Property Name="_ngay" Type="date" />
   </EntityType>
   <EntityType Name="USERS">
     <Key>
@@ -151,11 +151,30 @@
     <Key>
       <PropertyRef Name="_id" />
     </Key>
-    <Property Name="_id" Type="int" Nullable="false" />
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="_userID" Type="int" />
-    <Property Name="_maVanTay" Type="varchar" MaxLength="50" />
+    <Property Name="_maVanTay" Type="varchar" MaxLength="250" />
     <Property Name="_ngayTao" Type="date" />
   </EntityType>
+  <Function Name="sp_getVanTay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maVantay" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_layThongTinThemKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_themBangMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tieuDe" Type="nvarchar" Mode="In" />
+    <Parameter Name="maNguoiGui" Type="int" Mode="In" />
+    <Parameter Name="maNguoiNhan" Type="int" Mode="In" />
+    <Parameter Name="noiDung" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="loaiThu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_themKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maUser" Type="int" Mode="In" />
+    <Parameter Name="maMH" Type="int" Mode="In" />
+    <Parameter Name="maPhong" Type="int" Mode="In" />
+    <Parameter Name="loaiUS" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="Project_16HCB_CSDLModelStoreContainer">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
