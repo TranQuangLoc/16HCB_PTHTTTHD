@@ -15,9 +15,10 @@ namespace Project_16HCB.Models
     public partial class KETQUADIEMDANH
     {
         public int C_id { get; set; }
-        public Nullable<int> C_mssv { get; set; }
+        public Nullable<int> C_maUser { get; set; }
         public Nullable<int> C_maMH { get; set; }
         public Nullable<int> C_maPhong { get; set; }
         public Nullable<System.DateTime> C_ngayHoc { get; set; }
+        public Nullable<int> C_loaiUS { get; set; }
     }
 }

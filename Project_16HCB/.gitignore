@@ -327,3 +327,14 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+=======
+Project_16HCB/bin/
+Project_16HCB/obj/
+
+BUS/bin/
+BUS/obj/
+
+UnitTestProjectDiemDanh/bin/
+UnitTestProjectDiemDanh/obj/
+

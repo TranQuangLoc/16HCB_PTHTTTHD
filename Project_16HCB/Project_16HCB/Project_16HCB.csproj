@@ -200,90 +200,85 @@
     <Compile Include="Controllers\Account\Login1Controller.cs" />
     <Compile Include="Controllers\Account\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ACCOUNT.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DIEM.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DiemDanh.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanh.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DiemDanh.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanh.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DiemDanh.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanh.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityModel_SanLe.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel_SanLe.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityModel_SanLe.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityModel_SanLe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN_MONHOC.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOCKY.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KETQUADIEMDANH.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHOA.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOPHOC.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MAIL.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC_HOCKY.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHONG.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_themBangMail_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VANTAY.cs">
-      <DependentUpon>EntityModel_SanLe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -294,25 +289,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DiemDanh.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanh.edmx</DependentUpon>
-      <LastGenOutput>DiemDanh.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DiemDanh.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanh.edmx</DependentUpon>
-      <LastGenOutput>DiemDanh.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EntityModel_SanLe.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
-      <LastGenOutput>EntityModel_SanLe.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EntityModel_SanLe.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
-      <LastGenOutput>EntityModel_SanLe.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\AdminLTE.min.css" />
     <Content Include="Scripts\bootstrap-datepicker.min.css" />
@@ -341,19 +326,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\DiemDanh.edmx">
+    <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DiemDanh.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DiemDanh.edmx.diagram">
-      <DependentUpon>DiemDanh.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\EntityModel_SanLe.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModel_SanLe.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EntityModel_SanLe.edmx.diagram">
-      <DependentUpon>EntityModel_SanLe.edmx</DependentUpon>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-wysihtml5.min.css" />
@@ -404,6 +382,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{6e887a68-be85-4568-897f-fb669f7bfc10}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
