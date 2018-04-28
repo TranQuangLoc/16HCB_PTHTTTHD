@@ -15,6 +15,7 @@ namespace Project_16HCB.Controllers
 {
     public class StudentController : ApiController
     {
+        [Route("Student/kiemtraSVTonTai")]
         [HttpPost]
         public HttpResponseMessage kiemtraSVTonTai([FromBody]object info)
         {
@@ -36,6 +37,39 @@ namespace Project_16HCB.Controllers
                 if (result == true)
                 {
                     resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(new { confirm = result }));
+                }
+                else
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+            }
+
+            return resmsg;
+        }
+
+        [Route("Student/GetDanhSachHP")]
+        [HttpPost]
+        public HttpResponseMessage GetDanhSachHP([FromBody]object info)
+        {
+            HttpResponseMessage resmsg;
+
+            if (info == null)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { error = 0 }));
+            }
+            else
+            {
+                var obj = JObject.Parse(info.ToString());
+                var mssv = obj["mssv"].ToObject<int>();
+
+                IInfoDiemDanhService idds = new InfoDiemDanhService();
+
+                var result = idds.GetDanhSachHP(mssv);
+                if (result != null)
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(result));
                 }
                 else
                 {

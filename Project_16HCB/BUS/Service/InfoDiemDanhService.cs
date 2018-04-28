@@ -1,5 +1,6 @@
 ﻿using BUS.Interface;
 using BUS.Model;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -31,5 +32,17 @@ namespace BUS.Service
                 }
             }
         }
+
+        public List<HOCPHAN> GetDanhSachHP(int mssv)
+        {
+            using (var db = new Project_16HCB_CSDLEntities())
+            {
+                SqlParameter parameter1 = new SqlParameter("@MSSV", mssv);
+                var result = db.Database.SqlQuery<HOCPHAN>("exec GetDanhSachHP @MSSV", parameter1).ToList();
+
+                return result;
+            }
+        }
+
     }
 }

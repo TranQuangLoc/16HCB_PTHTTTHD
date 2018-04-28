@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectDiemDanh", "UnitTestProjectDiemDanh\UnitTestProjectDiemDanh.csproj", "{ABFB634C-4B72-4412-8977-C8F3688D7985}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{97682762-689B-4ACF-95D0-DA5A53976796}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ABFB634C-4B72-4412-8977-C8F3688D7985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABFB634C-4B72-4412-8977-C8F3688D7985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABFB634C-4B72-4412-8977-C8F3688D7985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97682762-689B-4ACF-95D0-DA5A53976796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97682762-689B-4ACF-95D0-DA5A53976796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97682762-689B-4ACF-95D0-DA5A53976796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97682762-689B-4ACF-95D0-DA5A53976796}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

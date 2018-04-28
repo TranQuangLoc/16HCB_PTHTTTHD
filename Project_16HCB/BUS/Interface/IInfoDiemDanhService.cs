@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace BUS.Interface
     public interface IInfoDiemDanhService
     {
         bool KiemTraSVTonTai(int mssv);
+        List<HOCPHAN> GetDanhSachHP(int mssv);
     }
 }
