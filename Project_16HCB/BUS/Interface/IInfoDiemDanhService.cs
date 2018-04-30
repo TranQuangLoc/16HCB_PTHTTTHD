@@ -1,4 +1,6 @@
-﻿using DTO;
+﻿using BUS.Model;
+using DTO;
+using DTO.InfoDiemDanhDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,6 @@ namespace BUS.Interface
     {
         bool KiemTraSVTonTai(int mssv);
         List<HOCPHAN> GetDanhSachHP(int mssv);
+        List<InfoDiemDanhContainer> GetInfoDiemDanh(int mssv, int tkb);
     }
 }
