@@ -13,7 +13,9 @@ namespace Project_16HCB.Controllers.Account
 {
     public class LoginController : ApiController
     {
-        // info { username: loc, password: sjdfsjdhfjshg }
+        /**
+         * info: json object { username:loc, password:md5_String }
+         */
         [HttpPost]
         public HttpResponseMessage Login([FromBody]object info)
         {
@@ -30,7 +32,7 @@ namespace Project_16HCB.Controllers.Account
                 var username = obj["username"].ToObject<string>();
                 var password = obj["password"].ToObject<string>();
 
-                using (var db = new Project_16HCB_CSDLEntities_SanLe())
+                using (var db = new Project_16HCB_CSDLEntities())
                 {
                     var account = db.ACCOUNTs
                             .Where(n => n.C_username == username && n.C_password == password)
@@ -39,6 +41,7 @@ namespace Project_16HCB.Controllers.Account
                     if (account != null)
                     {
                         resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(account));
+                        HttpContext.Current.Session.Add("userId", account.C_userId);
                     }
                     else
                     {
