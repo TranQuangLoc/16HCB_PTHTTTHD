@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Infodiemdanh";
+    Layout = "~/Views/Shared/_LayoutTemp.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row area-control">
+            <div class="panel panel-blue">
+                <div class="panel-heading">
+                    Xem thông tin điểm danh sinh viên
+                </div>
+                <div class="row area-control">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="form-inline">
+                                <form action="/Student/DetailInfoDiemDanh" id="frmCheckMSSV">
+                                    <label class="header-control col-sm-2" style="margin-left:10px;">Nhập MSSV</label>
+                                    <input class="form-control col-sm-9" type="number" id="txtMSSV" name="txtMSSV" value="0" min="0" />
+                                    <button type="button" style="margin-left:10px;" class="btn btn-primary" id="btnSearch" onclick="Search()" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Đang xử lý"><i class="fa fa-plus"></i>Tìm kiếm</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p style="color:red;margin-left:10px;" id="lbvalidateMSSV" name="lbvalidateMSSV"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/customscript/student/infodiemdanh/InfoDiemDanhSVScript.js"></script>
+}

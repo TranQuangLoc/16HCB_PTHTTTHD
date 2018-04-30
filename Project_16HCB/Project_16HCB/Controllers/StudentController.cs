@@ -34,14 +34,7 @@ namespace Project_16HCB.Controllers
                 IInfoDiemDanhService idds = new InfoDiemDanhService();
 
                 bool result = idds.KiemTraSVTonTai(mssv);
-                if (result == true)
-                {
-                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(new { confirm = result }));
-                }
-                else
-                {
-                    resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
-                }
+                resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(new { confirm = result }));
 
             }
 
@@ -69,7 +62,7 @@ namespace Project_16HCB.Controllers
                     IInfoDiemDanhService idds = new InfoDiemDanhService();
 
                     var result = idds.GetDanhSachHP(mssv);
-                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(result));
+                    resmsg = Request.CreateResponse(HttpStatusCode.OK, result);
                 } catch(Exception ex)
                 {
                     resmsg = Request.CreateResponse(HttpStatusCode.InternalServerError);

@@ -30,7 +30,7 @@ namespace Project_16HCB.Controllers.Account
                 var username = obj["username"].ToObject<string>();
                 var password = obj["password"].ToObject<string>();
 
-                using (var db = new Project_16HCB_CSDLEntities_SanLe())
+                using (var db = new Project_16HCB_CSDLEntities())
                 {
                     var account = db.ACCOUNTs
                             .Where(n => n.C_username == username && n.C_password == password)
