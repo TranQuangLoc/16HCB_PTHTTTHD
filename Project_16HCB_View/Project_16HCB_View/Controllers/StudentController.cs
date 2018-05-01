@@ -19,6 +19,9 @@ namespace Project_16HCB_View.Controllers
 
         public ActionResult Infodiemdanh()
         {
+            if(Session["userid"] != null){
+                return RedirectToAction("DetailInfoDiemDanh", "Student");
+            }
             return View();
         }
 
@@ -28,6 +31,39 @@ namespace Project_16HCB_View.Controllers
             if (txtMSSV != null)
             {
                 mssv = int.Parse(txtMSSV);
+                ViewBag.mssv = mssv;
+            }
+            else if (Session["userid"] != null)
+            {
+                var hcuserid = new HttpClient();
+                var userid = Session["userid"];
+                hcuserid.DefaultRequestHeaders.Accept.Clear();
+                hcuserid.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                string urluserid = "http://localhost:52740/Student/convertUserId";
+                var resuserid = hcuserid.PostAsJsonAsync(urluserid, new
+                {
+                    userid
+                }).Result;
+
+                if (resuserid.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    mssv = resuserid.Content.ReadAsAsync<int>().Result;
+                    if (mssv > 0)
+                    {
+                        ViewBag.mssv = mssv;
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("InfoDiemDanh", "Student");
             }
 
             var hc = new HttpClient();

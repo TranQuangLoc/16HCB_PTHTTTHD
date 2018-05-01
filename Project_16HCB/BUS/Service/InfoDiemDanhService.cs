@@ -54,5 +54,16 @@ namespace BUS.Service
             }
         }
 
+        public int convertUserId(int userid)
+        {
+            using (var db = new Project_16HCB_CSDLEntities())
+            {
+                SqlParameter parameter1 = new SqlParameter("@userid", userid);
+                var result = db.Database.SqlQuery<int>("exec ConverUserIDToMSSV @userid", parameter1).FirstOrDefault();
+
+                return result;
+            }
+        }
+
     }
 }

@@ -41,6 +41,33 @@ namespace Project_16HCB.Controllers
             return resmsg;
         }
 
+
+        [Route("Student/convertUserId")]
+        [HttpPost]
+        public HttpResponseMessage convertUserId([FromBody]object info)
+        {
+            HttpResponseMessage resmsg;
+
+            if (info == null)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { error = 0 }));
+            }
+            else
+            {
+                var obj = JObject.Parse(info.ToString());
+                var userid = obj["userid"].ToObject<int>();
+
+                IInfoDiemDanhService idds = new InfoDiemDanhService();
+
+                int result = idds.convertUserId(userid);
+                resmsg = Request.CreateResponse(HttpStatusCode.OK, result);
+
+            }
+
+            return resmsg;
+        }
+
         [Route("Student/GetDanhSachHP")]
         [HttpPost]
         public HttpResponseMessage GetDanhSachHP([FromBody]object info)

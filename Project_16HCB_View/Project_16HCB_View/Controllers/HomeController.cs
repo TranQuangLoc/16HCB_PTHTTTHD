@@ -16,7 +16,6 @@ namespace Project_16HCB_View.Controllers
                 var rs = (List<ACCOUNT>)TempData["login"];
                 return View(rs);
             }
-            
             return View();
         }
 

@@ -178,6 +178,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\customscript\student\infodiemdanh\DetailInfoDiemDanhSVScript.js" />
     <Content Include="Scripts\customscript\student\infodiemdanh\InfoDiemDanhSVScript.js" />
     <Content Include="Scripts\data\flot-data.js" />
     <Content Include="Scripts\data\morris-data.js" />

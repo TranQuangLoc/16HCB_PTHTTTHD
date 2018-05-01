@@ -25,7 +25,6 @@
         success: function (data) {
             var obj = JSON.parse(data);
             if (obj.confirm == true) {
-                $.notify("Kiểm tra đúng", "success");
                 $('#frmCheckMSSV').submit();
             } else {
                 $.notify("MSSV không tồn tại", "error");

@@ -24,6 +24,40 @@ namespace UnitTestProjectDiemDanh
             Assert.IsFalse(result, "Lỗi: TestKiemTraSVTonTai_KhongKetQua: trả về được kết quả.");
         }
 
+        [TestMethod]
+        public void TestconvertUserId_CoKetQua()
+        {
+            IInfoDiemDanhService idds = new InfoDiemDanhService();
+            bool result = false;
+            int resultget = idds.convertUserId(1);
+            if (resultget > 0)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            Assert.IsTrue(result, "Lỗi: TestconvertUserId_CoKetQua: không trả về kết quả.");
+        }
+
+        [TestMethod]
+        public void TestconvertUserId_KhongKetQua()
+        {
+            IInfoDiemDanhService idds = new InfoDiemDanhService();
+            bool result = false;
+            int resultget = idds.convertUserId(0);
+            if (resultget > 0)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            Assert.IsFalse(result, "Lỗi: TestconvertUserId_KhongKetQua: trả về kết quả.");
+        }
+
 
 
         [TestMethod]

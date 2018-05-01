@@ -14,5 +14,6 @@ namespace BUS.Interface
         bool KiemTraSVTonTai(int mssv);
         List<HOCPHAN> GetDanhSachHP(int mssv);
         List<InfoDiemDanhContainer> GetInfoDiemDanh(int mssv, int tkb);
+        int convertUserId(int userid);
     }
 }
