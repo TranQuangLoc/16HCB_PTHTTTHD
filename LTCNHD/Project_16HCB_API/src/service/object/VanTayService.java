@@ -39,16 +39,12 @@ public class VanTayService implements IVanTayService{
 	}
 
 	@Override
-	public IVanTay getObjectIVanTay(String maVanTay) throws Exception {
+	public int getObjectIVanTay(String maVanTay) throws Exception {
 		// TODO Auto-generated method stub
-		IVanTay vanTay = (IVanTay) VanTayDAL.layVanTay(maVanTay);
-		return vanTay;
+		int ketqua =  VanTayDAL.layVanTay(maVanTay);
+		return ketqua;
 	}
 
-	@Override
-	public int themKetQuaDiemDanh(String maVanTay) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }
