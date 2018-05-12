@@ -1,0 +1,6 @@
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\bin\Debug\DTO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\bin\Debug\DTO.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\obj\Debug\DTO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\DTO\obj\Debug\DTO.pdb

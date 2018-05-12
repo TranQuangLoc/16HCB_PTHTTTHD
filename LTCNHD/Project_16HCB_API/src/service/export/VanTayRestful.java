@@ -37,7 +37,8 @@ public class VanTayRestful {
 			else
 			{
 				System.out.println("Lấy thất bại");
-				return ResponseConfig.NOT_FOUND();
+				return ResponseConfig.OK(ketqua_diemdanh);
+				//return ResponseConfig.NOT_FOUND();
 			}
 				
 		}

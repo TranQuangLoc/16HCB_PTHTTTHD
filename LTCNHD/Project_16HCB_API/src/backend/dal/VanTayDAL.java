@@ -27,7 +27,7 @@ public class VanTayDAL {
 	        
 	        while(rs.next())
 	        {
-	        	if (rs.getInt("err") == 0)
+	        	if (rs.getInt("kq") == 1)
 	        	{
 	        		 
 	        		ketqua = rs.getInt("kq");
