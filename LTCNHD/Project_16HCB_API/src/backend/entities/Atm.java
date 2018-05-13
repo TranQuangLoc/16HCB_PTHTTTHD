@@ -6,6 +6,7 @@ public class Atm {
 	private int id;
 	private String NameBank;
 	private String DiaChi;
+	
 	@XmlElement
 	public int getId() {
 		return id;

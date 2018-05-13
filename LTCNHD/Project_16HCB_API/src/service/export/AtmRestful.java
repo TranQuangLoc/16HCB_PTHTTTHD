@@ -14,8 +14,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.sun.media.jfxmedia.Media;
-
 import backend.entities.*;
 import service.config.ResponseConfig;
 import service.object.AtmService;

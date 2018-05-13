@@ -1,0 +1,17 @@
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\APP_VANTAY.exe.config
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\APP_VANTAY.exe
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\APP_VANTAY.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\DTO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\DTO.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.csprojResolveAssemblyReference.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.Form1.resources
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.Properties.Resources.resources
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.csproj.GenerateResource.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.csproj.CoreCompileInputs.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.csproj.CopyComplete
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.exe
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\APP_FORM\APP_VANTAY\APP_VANTAY\obj\Debug\APP_VANTAY.pdb

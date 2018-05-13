@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import backend.entities.IVanTay;
 import backend.entities.IVanTay_Properties;
+import backend.entities.KetQuaDiemDanh_Properties;
 import service.config.ResponseConfig;
 import service.object.VanTayService;
 
@@ -24,17 +25,20 @@ public class VanTayRestful {
 		{
 		
 			VanTayService ivantay = new VanTayService();
-			IVanTay vanTay = ivantay.getObjectIVanTay(vantayPro.getMaVanTay());
-					
-			if(vanTay != null)
+			int ketqua = ivantay.getObjectIVanTay(vantayPro.getMaVanTay());
+			KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
+			ketqua_diemdanh.setKetqua(ketqua);
+			if(ketqua == 1)
 			{				
+				
 				System.out.println("Lấy thành công");
-				return ResponseConfig.OK(vanTay);
+				return ResponseConfig.OK(ketqua_diemdanh);
 			}				
 			else
 			{
 				System.out.println("Lấy thất bại");
-				return ResponseConfig.NOT_FOUND();
+				return ResponseConfig.OK(ketqua_diemdanh);
+				//return ResponseConfig.NOT_FOUND();
 			}
 				
 		}
@@ -45,27 +49,4 @@ public class VanTayRestful {
 		}
 	} 
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/themketquadiemdanh")
-	public Response themKetquaDiemDanh(String maVanTay)
-	{
-		try
-		{
-			System.out.println(maVanTay);
-			VanTayService ivantay = new VanTayService();
-			IVanTay vanTay = ivantay.getObjectIVanTay(maVanTay);
-					
-			if(vanTay != null)
-				return ResponseConfig.OK("themThanhCong");
-			else
-				return ResponseConfig.NOT_FOUND();
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-			return ResponseConfig.SERVER_ERROR();
-		}
-	} 
 }
