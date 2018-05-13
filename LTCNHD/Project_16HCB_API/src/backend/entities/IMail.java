@@ -7,26 +7,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class IMail {
-	private int _id;
+	
 	private String _tieuDe;
-	private int _maNguoiGui;
-	private int _maNguoiNhan;
-    private String _noiDung;
-    private String _loaiThu;
-    private Date _ngay;
-    
+    private String _noiDung; 
 	private int userID;
 	private String irecipients;
-
-
-    @XmlElement
-	public int get_id() {
-		return _id;
-	}
-	public void set_id(int _id) {
-		this._id = _id;
-	}
 	
+    public IMail() {
+		// TODO Auto-generated constructor stub
+	}
+    
 	@XmlElement
 	public String get_tieuDe() {
 		return _tieuDe;
@@ -35,21 +25,7 @@ public class IMail {
 		this._tieuDe = _tieuDe;
 	}
 	
-	@XmlElement
-	public int get_maNguoiGui() {
-		return _maNguoiGui;
-	}
-	public void set_maNguoiGui(int _maNguoiGui) {
-		this._maNguoiGui = _maNguoiGui;
-	}
 	
-	@XmlElement
-	public int get_maNguoiNhan() {
-		return _maNguoiNhan;
-	}
-	public void set_maNguoiNhan(int _maNguoiNhan) {
-		this._maNguoiNhan = _maNguoiNhan;
-	}
 	
 	@XmlElement
 	public String get_noiDung() {
@@ -59,22 +35,7 @@ public class IMail {
 		this._noiDung = _noiDung;
 	}
 	
-	@XmlElement
-	public String get_loaiThu() {
-		return _loaiThu;
-	}
-	public void set_loaiThu(String _loaiThu) {
-		this._loaiThu = _loaiThu;
-	}
 	
-	@XmlElement
-	public Date get_ngay() {
-		return _ngay;
-	}
-	public void set_ngay(Date _ngay) {
-		this._ngay = _ngay;
-	}
-    
 	@XmlElement
 	public int getUserID() {
 		return userID;
@@ -91,6 +52,4 @@ public class IMail {
 		this.irecipients = irecipients;
 	}
 	
-	
-
 }

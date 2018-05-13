@@ -14,6 +14,12 @@ namespace Project_16HCB_View
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "TrangChu",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "TrangChu", action = "TrangChu", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
