@@ -43,6 +43,7 @@ function Mail() {
     }).done(function (data) {
         if (data.ketqua === "1") {
             alert("Thêm thành công")
+
         }
         else
             alert("Thêm thất bại")
