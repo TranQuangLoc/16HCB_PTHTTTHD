@@ -13,16 +13,14 @@ namespace Project_16HCB.Controllers
         /* Xem danh sách tất cả môn học */
         [HttpGet]
         [Route("api/monhoc")]
-        public HttpResponseMessage XemDanhSachMonHoc()
+        public List<MONHOC> XemDanhSachMonHoc()
         {
-            HttpResponseMessage res = null;
+
 
             using (var db = new Project_16HCB_CSDLEntities())
             {
-                res = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(db.MONHOCs.ToList()));
+                return db.MONHOCs.ToList();
             }
-
-            return res;
         }
 
         /* Xem thông tin môn học theo id môn học */
