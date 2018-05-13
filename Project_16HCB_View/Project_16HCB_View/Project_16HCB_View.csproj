@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -145,10 +147,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SendMailController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\ThoiKhoaBieuController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,7 +184,54 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\README.md" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-brands.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-regular.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-solid.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fontawesome.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_animated.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_bordered-pulled.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_core.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_fixed-width.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_icons.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_larger.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_list.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_mixins.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_rotated-flipped.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_screen-reader.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_stacked.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\_variables.less" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-brands.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-regular.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-solid.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\fontawesome.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_animated.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_bordered-pulled.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_core.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_fixed-width.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_icons.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_larger.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_list.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_mixins.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_rotated-flipped.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_screen-reader.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_stacked.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\scss\_variables.scss" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.eot" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.ttf" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.woff" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.woff2" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.eot" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.ttf" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.woff" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.woff2" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.eot" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.ttf" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.woff" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\css\css.css" />
+    <Content Include="Scripts\css\w3.css" />
     <Content Include="Scripts\customscript\student\infodiemdanh\DetailInfoDiemDanhSVScript.js" />
     <Content Include="Scripts\customscript\student\infodiemdanh\InfoDiemDanhSVScript.js" />
     <Content Include="Scripts\data\flot-data.js" />
@@ -187,6 +240,24 @@
     <Content Include="Scripts\dist\css\sb-admin-2.min.css" />
     <Content Include="Scripts\dist\js\sb-admin-2.js" />
     <Content Include="Scripts\dist\js\sb-admin-2.min.js" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\LICENSE.txt" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-brands.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-brands.min.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-regular.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-regular.min.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-solid.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-solid.min.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome-all.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome-all.min.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.min.css" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.svg" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.svg" />
+    <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.svg" />
+    <Content Include="Scripts\images\gmail.png" />
+    <Content Include="Scripts\images\itec.png" />
+    <Content Include="Scripts\images\khtn.jpg" />
+    <Content Include="Scripts\images\ptnk.jpg" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -201,6 +272,7 @@
     <Content Include="Scripts\Library\notify.js" />
     <Content Include="Scripts\login.css" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\mail.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -350,7 +422,14 @@
     <Content Include="Scripts\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Scripts\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Views\Student\DetailInfoDiemDanh.cshtml" />
+    <Content Include="Views\SendMail\SendMail.cshtml" />
+    <Content Include="Views\TrangChu\TrangChu.cshtml" />
+    <Content Include="Views\Global\PartialViewMenu.cshtml" />
+    <Content Include="Views\Global\PartialViewTrangChu.cshtml" />
+    <Content Include="Views\Global\PartialViewTinTuc.cshtml" />
+    <Content Include="Views\Global\PartialViewChuongTrinhDaoTao.cshtml" />
     <Content Include="Views\Report\ReportStudent.cshtml" />
+    <Content Include="Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,11 +447,15 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

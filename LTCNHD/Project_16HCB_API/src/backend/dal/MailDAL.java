@@ -17,16 +17,18 @@ public class MailDAL {
 		{
 			
 			
-			String sql = "{call sp_themBangMail (?,?,?,?,?)}";
+			String sql = "{call sp_guiMail (?,?,?,?)}";
 			
 			CallableStatement pre = conn.prepareCall(sql);            
-            pre.setString(1, imail.get_tieuDe());
-            pre.setInt(2, imail.get_maNguoiGui());
-            pre.setInt(3, imail.get_maNguoiNhan());
+            pre.setInt(1, imail.getUserID());
+            pre.setString(2, imail.getIrecipients());
+            pre.setString(3, imail.get_tieuDe());
             pre.setString(4, imail.get_noiDung());
-            pre.setString(5, imail.get_loaiThu());
 	        ResultSet rs = pre.executeQuery();
-	        
+	        System.out.println(imail.getUserID());
+	        System.out.println(imail.getIrecipients());
+	        System.out.println(imail.get_tieuDe());
+	        System.out.println(imail.get_noiDung());
 	        while(rs.next())
 	        {
 	        	if (rs.getInt("err") == 0)
@@ -49,7 +51,7 @@ public class MailDAL {
 
 	}
 	
-	public static int kiemTraGuiMail(IMail imail)
+	/*public static int kiemTraGuiMail(IMail imail)
 
 	{
 		int ketqua = 0;
@@ -87,6 +89,6 @@ public class MailDAL {
 		
 		return ketqua;
 
-	}
+	}*/
 	
 }

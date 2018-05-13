@@ -7,6 +7,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import backend.entities.IMail;
 import backend.entities.IVanTay_Properties;
 import backend.entities.KetQuaDiemDanh_Properties;
@@ -18,33 +20,29 @@ import service.object.VanTayService;
 public class MailResful {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/guimail")
-	public Response themNoiDungGuiMail(IMail imail)
+	public Response themNoiDungGuiMail(String jsondata)
 	{
 		try
 		{
-			
+
+
+			ObjectMapper mapper = new ObjectMapper();
+			IMail imail = mapper.readValue(jsondata, IMail.class);
 			MailService im = new MailService();
-			int ketquacheck = im.guiMail(imail);
+			int ketquacheck = im.themNoiDungGuiMail(imail);
 			if(ketquacheck == 1){
-				int ketqua = im.themNoiDungGuiMail(imail);
+				
 				
 				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
-				ketqua_diemdanh.setKetqua(ketqua);
-				if(ketqua == 1)
-				{				
+				ketqua_diemdanh.setKetqua(ketquacheck);
 					
-					System.out.println("Lấy thành công");
-					return ResponseConfig.OK(ketqua_diemdanh);
-				}				
-				else
-				{
-					System.out.println("Lấy thất bại");
-					return ResponseConfig.NOT_FOUND();
-				}
+				
+				return ResponseConfig.OK(ketqua_diemdanh);
+				
 					
 			}else{
+				System.out.println("FAILD");
 				return ResponseConfig.NOT_FOUND();
 			}
 			

@@ -45,13 +45,5 @@ public class MailService implements IMailService{
 		return ketqua;
 	}
 
-	@Override
-	public int guiMail(IMail im) throws Exception {
-		// TODO Auto-generated method stub
-		int ketqua = MailDAL.kiemTraGuiMail(im);
-		return ketqua;
-	}
-
-	
 	
 }
