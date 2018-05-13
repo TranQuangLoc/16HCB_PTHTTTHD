@@ -183,7 +183,7 @@
                 let monHocs = data.dsMonHocHK.filter(h => h.C_maHK == hocky || (
                     hocky === 'all' && namhoc === 'all'
                 ) || (
-                        hocky === 'all' && namhoc !== 'all' && data.dsHocKy.find(hk => hk.C_nam === namhoc && hk.C_id === h.C_maHK)
+                        hocky === 'all' && namhoc !== 'all' && data.dsHocKy.find(hk => hk.C_nam == namhoc && hk.C_id == h.C_maHK)
                     ))
                     .map(mh => ({
                         id: mh.C_maMH,
@@ -199,7 +199,7 @@
         $('#cmbNamHoc').on('change', () => {
             const namHoc = $('#cmbNamHoc option:selected').val();
             if (namHoc) {
-                let hocKys = data.dsHocKy.filter(h => h.C_nam == namHoc || namHoc === 'all')
+                let hocKys = data.dsHocKy.filter(h => h.C_nam == namHoc || namHoc == 'all')
                     .map(h => ({
                         id: h.C_id,
                         name: h.C_tenHocKy,

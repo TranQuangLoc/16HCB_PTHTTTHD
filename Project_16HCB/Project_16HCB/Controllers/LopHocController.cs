@@ -11,7 +11,7 @@ namespace Project_16HCB.Controllers
     public class LopHocController : ApiController
     {
         // GET: api/LopHoc
-        public List<LOPHOC> Get(int NamHoc = -1, int HocKy = 1, int MonHoc = -1)
+        public List<LOPHOC> Get(int NamHoc = -1, int HocKy = -1, int MonHoc = -1)
         {
             var listLopHoc = new List<LOPHOC>();
 
