@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -30,6 +32,7 @@ namespace Project_16HCB_View.Controllers
             return View();
         }
 
+        // username: loc, password: qwertyui
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Login(string username, string password)
         {
@@ -37,7 +40,20 @@ namespace Project_16HCB_View.Controllers
             hc.DefaultRequestHeaders.Accept.Clear();
             hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            string url = "http://localhost:52740/Login/Login";
+            string url = "http://localhost:52740/api/Login";
+            StringBuilder sb = new StringBuilder();
+
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(Encoding.ASCII.GetBytes(password));
+            byte[] md5Bytes = md5.Hash;
+
+            foreach (byte b in md5Bytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+
+            password = sb.ToString();
+
             var res = hc.PostAsJsonAsync(url, new
             {
                 username,
@@ -46,23 +62,24 @@ namespace Project_16HCB_View.Controllers
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                // var result = res.Content.ReadAsAsync<List<ACCOUNT>>().Result;
+                // ACCOUNT
                 var result = res.Content.ReadAsAsync<ACCOUNT>().Result;
-                //var a = result[0].id;
 
                 //return View("~/Views/Home/Index",result);
-                TempData["login"] = result;
+                //TempData["login"] = result;
                 
                 if (result != null)
                 {
+                    Session.Add("userid", result._userId);
                     return RedirectToAction("Index", "Home");
                 }
 
             }
             else
             {
-
+                ViewBag.error = res.StatusCode; //res.Content.ReadAsAsync<string>().Result;
             }
+
             return View();
         }
     }

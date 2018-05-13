@@ -11,9 +11,9 @@ namespace Project_16HCB_View.Controllers
     {
         public ActionResult Index()
         {
-            if (TempData["login"] != null)
+            if (Session["userid"] != null)
             {
-                var rs = (List<ACCOUNT>)TempData["login"];
+                var rs = (int)Session["userid"];
                 return View(rs);
             }
             return View();

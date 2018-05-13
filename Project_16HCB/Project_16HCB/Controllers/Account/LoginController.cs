@@ -13,7 +13,7 @@ namespace Project_16HCB.Controllers.Account
 {
     public class LoginController : ApiController
     {
-        // info { username: loc, password: sjdfsjdhfjshg }
+        // info { username: loc, password: qwertyui }
         [HttpPost]
         public HttpResponseMessage Login([FromBody]object info)
         {
@@ -21,15 +21,14 @@ namespace Project_16HCB.Controllers.Account
 
             if (info == null)
             {
-                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
-                        new { msg = "Thông tin đăng nhập không chính xác!" }));
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, "Chưa nhập thông tin đăng nhập!");
             }
             else
             {
                 var obj = JObject.Parse(info.ToString());
                 var username = obj["username"].ToObject<string>();
                 var password = obj["password"].ToObject<string>();
-
+                
                 using (var db = new Project_16HCB_CSDLEntities())
                 {
                     var account = db.ACCOUNTs
@@ -38,11 +37,11 @@ namespace Project_16HCB.Controllers.Account
 
                     if (account != null)
                     {
-                        resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(account));
+                        resmsg = Request.CreateResponse(HttpStatusCode.OK, account);
                     }
                     else
                     {
-                        resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                        resmsg = Request.CreateResponse(HttpStatusCode.NotFound, "Thông tin đăng nhập không chính xác!");
                     }
                 }
             }

@@ -7,6 +7,8 @@ $(function () {
     //        username: $("#lg_user").val(),
     //        password: $("#lg_pass").val()
     //    };
+
+    //    console.log(us);
     //    //$.post("http://localhost:8080/Project_16HCB_API/rest/atm/getList", JSON.stringify(us), function (data, status) {
             
     //    //    console.log(data, status, 1);
@@ -23,19 +25,21 @@ $(function () {
     //    //});
         
     //    $.ajax({
-            
     //        //url: domain + 'http://localhost:52740/Login/Login',  
-    //        url: 'http://localhost:52740/Login/Login',  
+    //        type: "POST",
+    //        url: "http://localhost:52740/api/login",
     //        data: us,
-    //        //processData: false,
-    //        //contentType: 'application/json',
-    //        type: 'POST',
-    //        headers: {
-    //            //"Authorization": "Bearer " + $.cookie("access_token")
-    //        }
+    //        processData: false,
+    //        contentType: "application/json",
+    //        dataType: "json"
+    //        //headers: {
+    //        //    "Authorization": "Bearer " + $.cookie("access_token")
+    //        //}
     //    }).done(function (data) {
     //        if (data.status === "OK") {
-    //            alert("Thêm thành công")
+    //            alert(data);
+    //            //var sessionStorage = window.sessionStorage;
+    //            //sessionStorage.setItem('userid', data['userId']);
     //        }
     //        else
     //            alert("Thêm thất bại")
