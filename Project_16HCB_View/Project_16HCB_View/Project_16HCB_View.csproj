@@ -150,7 +150,11 @@
     <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+
     <Compile Include="Controllers\SendMailController.cs" />
+
+    <Compile Include="Controllers\ReportController.cs" />
+
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\ThoiGianBieuController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -421,12 +425,16 @@
     <Content Include="Scripts\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Scripts\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Views\Student\DetailInfoDiemDanh.cshtml" />
+
     <Content Include="Views\SendMail\SendMail.cshtml" />
     <Content Include="Views\TrangChu\TrangChu.cshtml" />
     <Content Include="Views\Global\PartialViewMenu.cshtml" />
     <Content Include="Views\Global\PartialViewTrangChu.cshtml" />
     <Content Include="Views\Global\PartialViewTinTuc.cshtml" />
     <Content Include="Views\Global\PartialViewChuongTrinhDaoTao.cshtml" />
+
+    <Content Include="Views\Report\ReportStudent.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
