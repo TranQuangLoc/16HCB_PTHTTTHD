@@ -1,0 +1,31 @@
+﻿
+<div class="w3-bar-block">
+    <div href="#" onclick="window.location.href = '#'; w3_close()" class="w3-bar-item w3-button w3-hover-white">Trang Chủ</div>
+    <div href="#designers" onclick="window.location.href = '#designers'; w3_close()" class="w3-bar-item w3-button w3-hover-white">Tin Tức</div>
+    <div href="#student" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white dropdown">
+        Sinh Viên
+        <div class="dropdown-content">
+            <div>
+                @Html.ActionLink("Gửi mail", "SendMail", "SendMail", null, new { style = "text-decoration: none;" })
+            </div>
+            <hr />
+            <div>
+                @Html.ActionLink("Thời Khóa Biểu", "SendMail", "SendMail", null, new { style = "text-decoration: none;" })
+            </div>
+            <hr />
+            <div>
+                @Html.ActionLink("Thông Tin Điểm Danh", "Infodiemdanh", "Student", null, new { style = "text-decoration: none;" })
+            </div>
+
+        </div>
+    </div>
+
+    <div href="#teacher" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white dropdown">
+        Giáo Viên
+        <div class="dropdown-content">
+            @Html.ActionLink("Gửi mail", "SendMail", "SendMail", null, new { style = "text-decoration: none;" })
+        </div>
+    </div>
+    <div href="#contact" onclick="window.location.href = '#contact'; w3_close()" class="w3-bar-item w3-button w3-hover-white">Chương Trình Đào Tạo</div>
+    <div href="#login" class="w3-bar-item w3-button w3-hover-white">Đăng Nhập</div>
+</div>
