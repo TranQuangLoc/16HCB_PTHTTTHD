@@ -27,5 +27,7 @@
         </div>
     </div>
     <div href="#contact" onclick="window.location.href = '#contact'; w3_close()" class="w3-bar-item w3-button w3-hover-white">Chương Trình Đào Tạo</div>
-    <div href="#login" class="w3-bar-item w3-button w3-hover-white">Đăng Nhập</div>
+    <div href="#login" class="w3-bar-item w3-button w3-hover-white">
+        @Html.ActionLink("Đăng nhập", "Login", "Login", null, new { style = "text-decoration: none;" })
+    </div>
 </div>

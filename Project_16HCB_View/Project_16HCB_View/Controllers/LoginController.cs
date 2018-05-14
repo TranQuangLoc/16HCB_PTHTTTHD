@@ -32,7 +32,6 @@ namespace Project_16HCB_View.Controllers
             return View();
         }
 
-        // username: loc, password: qwertyui
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Login(string username, string password)
         {
@@ -41,18 +40,8 @@ namespace Project_16HCB_View.Controllers
             hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             string url = "http://localhost:52740/api/Login";
-            StringBuilder sb = new StringBuilder();
-
-            MD5 md5 = new MD5CryptoServiceProvider();
-            md5.ComputeHash(Encoding.ASCII.GetBytes(password));
-            byte[] md5Bytes = md5.Hash;
-
-            foreach (byte b in md5Bytes)
-            {
-                sb.Append(b.ToString("x2"));
-            }
-
-            password = sb.ToString();
+            
+            password = Md5Hash(password);
 
             var res = hc.PostAsJsonAsync(url, new
             {
@@ -63,17 +52,18 @@ namespace Project_16HCB_View.Controllers
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 // ACCOUNT
-                var result = res.Content.ReadAsAsync<ACCOUNT>().Result;
+                var result = res.Content.ReadAsAsync<USER>().Result;
 
                 //return View("~/Views/Home/Index",result);
-                //TempData["login"] = result;
+                TempData["login"] = result;
                 
                 if (result != null)
                 {
-                    Session.Add("userid", result._userId);
-                    return RedirectToAction("Index", "Home");
+                    Session.Add("userid", result.C_userId);
+                    Session.Add("loaiUS", result.C_loaiUS);
+                    
+                    return RedirectToAction("TrangChu", "TrangChu");
                 }
-
             }
             else
             {
@@ -81,6 +71,22 @@ namespace Project_16HCB_View.Controllers
             }
 
             return View();
+        }
+
+        // Mã hóa mật khẩu
+        private string Md5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(Encoding.ASCII.GetBytes(text));
+            byte[] md5Bytes = md5.Hash;
+            StringBuilder sb = new StringBuilder();
+
+            foreach (byte b in md5Bytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+
+            return sb.ToString();
         }
     }
 }
