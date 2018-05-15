@@ -13,7 +13,7 @@ namespace Project_16HCB.Controllers.Account
 {
     public class LoginController : ApiController
     {
-        // info { username: loc, password: qwertyui }
+        // info { username:string, password:string }
         [HttpPost]
         public HttpResponseMessage Login([FromBody]object info)
         {
@@ -37,7 +37,8 @@ namespace Project_16HCB.Controllers.Account
 
                     if (account != null)
                     {
-                        resmsg = Request.CreateResponse(HttpStatusCode.OK, account);
+                        var user = db.USERS.Where(u => u.C_userId == account.C_userId).FirstOrDefault();
+                        resmsg = Request.CreateResponse(HttpStatusCode.OK, user);
                     }
                     else
                     {
