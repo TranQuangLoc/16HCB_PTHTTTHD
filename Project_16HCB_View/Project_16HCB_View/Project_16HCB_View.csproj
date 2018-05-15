@@ -160,6 +160,7 @@
     </Compile>
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\HOCPHAN.cs" />
+    <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
