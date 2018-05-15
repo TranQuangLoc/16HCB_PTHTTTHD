@@ -26,13 +26,10 @@ namespace Project_16HCB_View.Controllers
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var result = res.Content.ReadAsAsync<List<ACCOUNT>>().Result;
-                //var result = res.Content.ReadAsAsync<List<THOIKHOABIEU>>().Result;
-                //var a = result[0].id;
 
-                //return View("~/Views/Home/Index",result);
-                TempData["login"] = result;
-
+                // var result = res.Content.ReadAsAsync<List<ACCOUNT>>().Result;
+                var result = res.Content.ReadAsAsync<List<THOIKHOABIEU>>().Result;               
+           
                 if (result != null)
                 {
                     return RedirectToAction("TrangChu", "TrangChu");
