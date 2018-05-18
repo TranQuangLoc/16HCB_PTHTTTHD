@@ -22,6 +22,8 @@
     <link href="~/Scripts/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <link href="~/Content/css/tablecss.css" rel="stylesheet" />
     <link href="~/Content/css/checkboxcustom.css" rel="stylesheet" />
+
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
     @RenderSection("heads", required: false)
 
 </head>
@@ -37,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Quản lý điểm danh</a>
+                <a class="navbar-brand" href="/"></a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -109,6 +111,8 @@
     <script src="~/Scripts/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="~/Scripts/vendor/datatables-responsive/dataTables.responsive.js"></script>
     <script src="~/Scripts/vendor/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
         function showLoading(btnID) {

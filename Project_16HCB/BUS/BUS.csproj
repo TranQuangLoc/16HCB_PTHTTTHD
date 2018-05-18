@@ -41,6 +41,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IInfoDiemDanhService.cs" />
+    <Compile Include="Interface\ISinhVienService.cs" />
     <Compile Include="Model\ACCOUNT.cs">
       <DependentUpon>DiemDanhBUS.tt</DependentUpon>
     </Compile>
@@ -104,18 +106,6 @@
     <Compile Include="Model\SINHVIEN.cs">
       <DependentUpon>DiemDanhBUS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>DiemDanhBUS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sp_helpdiagrams_Result.cs">
-      <DependentUpon>DiemDanhBUS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sp_themBangMail_Result.cs">
-      <DependentUpon>DiemDanhBUS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>DiemDanhBUS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\THOIKHOABIEU.cs">
       <DependentUpon>DiemDanhBUS.tt</DependentUpon>
     </Compile>
@@ -127,31 +117,20 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\InfoDiemDanhService.cs" />
+    <Compile Include="Service\SinhVienService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Model\DiemDanhBUS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiemDanhBUS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Model\DiemDanhBUS.edmx.diagram">
       <DependentUpon>DiemDanhBUS.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\DiemDanhBUS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DiemDanhBUS.Context.cs</LastGenOutput>
-      <DependentUpon>DiemDanhBUS.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\DiemDanhBUS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanhBUS.edmx</DependentUpon>
-      <LastGenOutput>DiemDanhBUS.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -161,6 +140,18 @@
       <Project>{97682762-689b-4acf-95d0-da5a53976796}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DiemDanhBUS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiemDanhBUS.edmx</DependentUpon>
+      <LastGenOutput>DiemDanhBUS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DiemDanhBUS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiemDanhBUS.edmx</DependentUpon>
+      <LastGenOutput>DiemDanhBUS.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,94 +59,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ACCOUNT.cs">
+    <Compile Include="ACCOUNT.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DIEM.cs">
+    <Compile Include="DIEM.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DiemDanhModelUnitTest.Context.cs">
+    <Compile Include="DiemDanhModelUnitTest.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DiemDanhModelUnitTest.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DiemDanhModelUnitTest.cs">
+    <Compile Include="DiemDanhModelUnitTest.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DiemDanhModelUnitTest.Designer.cs">
+    <Compile Include="DiemDanhModelUnitTest.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\GIAOVIEN.cs">
+    <Compile Include="GIAOVIEN.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\GIAOVIEN_MONHOC.cs">
+    <Compile Include="GIAOVIEN_MONHOC.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\HOCKY.cs">
+    <Compile Include="HOCKY.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\KETQUADIEMDANH.cs">
+    <Compile Include="KETQUADIEMDANH.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\KHOA.cs">
+    <Compile Include="KHOA.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LOPHOC.cs">
+    <Compile Include="LOPHOC.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MAIL.cs">
+    <Compile Include="MAIL.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MONHOC.cs">
+    <Compile Include="MONHOC.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MONHOC_HOCKY.cs">
+    <Compile Include="MONHOC_HOCKY.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PHONG.cs">
+    <Compile Include="PHONG.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\SINHVIEN.cs">
+    <Compile Include="SINHVIEN.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+    <Compile Include="THOIKHOABIEU.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sp_helpdiagrams_Result.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sp_themBangMail_Result.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\THOIKHOABIEU.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\USER.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\VANTAY.cs">
+    <Compile Include="USER.cs">
       <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
     </Compile>
     <Compile Include="utInfoDiemDanhService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utSinhVienService.cs" />
+    <Compile Include="VANTAY.cs">
+      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\DiemDanhModelUnitTest.edmx">
+    <None Include="App.Config" />
+    <EntityDeploy Include="DiemDanhModelUnitTest.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiemDanhModelUnitTest.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
-    <None Include="Model\DiemDanhModelUnitTest.edmx.diagram">
+    <None Include="DiemDanhModelUnitTest.edmx.diagram">
       <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
@@ -159,19 +150,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\DiemDanhModelUnitTest.Context.tt">
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DiemDanhModelUnitTest.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DiemDanhModelUnitTest.Context.cs</LastGenOutput>
       <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
+      <LastGenOutput>DiemDanhModelUnitTest.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\DiemDanhModelUnitTest.tt">
+    <Content Include="DiemDanhModelUnitTest.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
       <LastGenOutput>DiemDanhModelUnitTest.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

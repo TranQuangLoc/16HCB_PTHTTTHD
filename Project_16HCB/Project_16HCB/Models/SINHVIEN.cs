@@ -21,5 +21,6 @@ namespace Project_16HCB.Models
         public string C_trangThai { get; set; }
         public Nullable<int> C_maLop { get; set; }
         public Nullable<System.DateTime> NGAY_NGHIHOC { get; set; }
+        public Nullable<bool> C_daXoa { get; set; }
     }
 }

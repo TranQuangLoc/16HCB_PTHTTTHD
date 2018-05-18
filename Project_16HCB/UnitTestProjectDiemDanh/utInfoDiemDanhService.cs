@@ -29,14 +29,10 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             bool result = false;
-            int resultget = idds.convertUserId(1);
+            int resultget = idds.convertUserId(5);
             if (resultget > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsTrue(result, "Lỗi: TestconvertUserId_CoKetQua: không trả về kết quả.");
         }
@@ -51,10 +47,6 @@ namespace UnitTestProjectDiemDanh
             {
                 result = true;
             }
-            else
-            {
-                result = false;
-            }
             Assert.IsFalse(result, "Lỗi: TestconvertUserId_KhongKetQua: trả về kết quả.");
         }
 
@@ -64,15 +56,12 @@ namespace UnitTestProjectDiemDanh
         public void TestGetDanhSachHP_CoKetQua()
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
-            var danhsach = idds.GetDanhSachHP(1);
-            bool result;
+            var danhsach = idds.GetDanhSachHP(5);
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            } else
-            {
-                result = false;
-            }
+            } 
             Assert.IsTrue(result, "Lỗi: TestGetDanhSachHP_CoKetQua: không trả về kết quả.");
         }
 
@@ -81,14 +70,10 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             var danhsach = idds.GetDanhSachHP(0);
-            bool result;
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsFalse(result, "Lỗi: TestGetDanhSachHP_KhongKetQua: trả về kết quả.");
         }
@@ -97,15 +82,11 @@ namespace UnitTestProjectDiemDanh
         public void TestGetInfoDiemDanh_CoKetQua()
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
-            var danhsach = idds.GetInfoDiemDanh(1,3);
-            bool result;
+            var danhsach = idds.GetInfoDiemDanh(5,3);
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsTrue(result, "Lỗi: TestGetInfoDiemDanh_CoKetQua: không trả về kết quả.");
         }
@@ -115,14 +96,10 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             var danhsach = idds.GetInfoDiemDanh(0,3);
-            bool result;
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsFalse(result, "Lỗi: TestGetInfoDiemDanh_KhongKetQua_SaiMSSV: trả về kết quả.");
         }
@@ -133,14 +110,10 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             var danhsach = idds.GetInfoDiemDanh(1, 0);
-            bool result;
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsFalse(result, "Lỗi: TestGetInfoDiemDanh_KhongKetQua_SaiTKB: trả về kết quả.");
         }
@@ -150,14 +123,10 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             var danhsach = idds.GetInfoDiemDanh(0, 0);
-            bool result;
+            bool result = false;
             if (danhsach.Count > 0)
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
             }
             Assert.IsFalse(result, "Lỗi: TestGetInfoDiemDanh_KhongKetQua_SaiALL: trả về kết quả.");
         }
