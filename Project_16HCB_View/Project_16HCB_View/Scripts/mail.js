@@ -1,11 +1,12 @@
 ﻿
 //tranquangloc2906@gmail.com
-$('#mail_nhan').val("tranquangloc2906@gmail.com");
+//$('#mail_nhan').val("tranquangloc2906@gmail.com");
 
-function Mail() {
+function Mail(userId) {
  
     var imail = {
-        userID: '1',
+        //userID: sessionStorage["userid"],
+        userID: userId,
         _tieuDe: $('#tieude').val(),
         irecipients: $('#mail_nhan').val(),
         _noiDung: $('#noidungmail').val()      
@@ -42,11 +43,11 @@ function Mail() {
         
     }).done(function (data) {
         if (data.ketqua === "1") {
-            alert("Thêm thành công")
+            alert("Gửi thành công")
 
         }
         else
-            alert("Thêm thất bại")
+            alert("Gửi thất bại")
     }).fail(function (a, b, c) {
         console.log(a, b, c);
     });

@@ -23,5 +23,6 @@ public class ApplicationConfig extends Application {
 		resources.add(AtmRestful.class);
 		resources.add(VanTayRestful.class);
 		resources.add(MailResful.class);
+		resources.add(ThoiKhoaBieuRestful.class);
 	}
 }

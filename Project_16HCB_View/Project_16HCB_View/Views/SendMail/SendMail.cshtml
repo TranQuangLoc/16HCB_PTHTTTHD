@@ -1,4 +1,5 @@
-﻿
+﻿@using Project_16HCB_View.Utilities;
+
 @{
     ViewBag.Title = "MAIL";
     Layout = null;
@@ -24,6 +25,7 @@
         padding: 16px
     }
 </style>
+
 <body>
 
     <!-- Side Navigation -->
@@ -76,7 +78,7 @@
                 <input class="w3-input w3-border w3-margin-bottom" style="height:150px" placeholder="What's on your mind?" id="noidungmail">
                 <div class="w3-section">
                     <a class="w3-button w3-red" onclick="document.getElementById('id01').style.display='none'">Cancel  <i class="fa fa-remove"></i></a>
-                    <a class="w3-button w3-right" onclick="Mail()">Send  <i class="fa fa-paper-plane"></i></a>
+                    <a class="w3-button w3-right" onclick="Mail('@SessionProvider.GetUserIdFromSession()')">Send  <i class="fa fa-paper-plane"></i></a>
                 </div>
             </div>
         </div>

@@ -215,70 +215,67 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ACCOUNT.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DIEM.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DiemDanhMain.Context.cs">
+    <Compile Include="Models\DIEMDANHVANTAY.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhMain.Context.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DiemDanhMain.cs">
+    <Compile Include="Models\DIEMDANHVANTAY.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DiemDanhMain.Designer.cs">
+    <Compile Include="Models\DIEMDANHVANTAY.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN_MONHOC.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOCKY.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KETQUADIEMDANH.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHOA.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOPHOC.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MAIL.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MONHOC_HOCKY.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHONG.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_themBangMail_Result.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VANTAY.cs">
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -289,15 +286,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DiemDanhMain.Context.tt">
+    <Content Include="Models\DIEMDANHVANTAY.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
-      <LastGenOutput>DiemDanhMain.Context.cs</LastGenOutput>
+      <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
+      <LastGenOutput>DIEMDANHVANTAY.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DiemDanhMain.tt">
+    <Content Include="Models\DIEMDANHVANTAY.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
-      <LastGenOutput>DiemDanhMain.cs</LastGenOutput>
+      <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
+      <LastGenOutput>DIEMDANHVANTAY.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\AdminLTE.min.css" />
     <Content Include="Scripts\bootstrap-datepicker.min.css" />
@@ -326,12 +323,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\DiemDanhMain.edmx">
+    <EntityDeploy Include="Models\DIEMDANHVANTAY.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DiemDanhMain.Designer.cs</LastGenOutput>
+      <LastGenOutput>DIEMDANHVANTAY.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DiemDanhMain.edmx.diagram">
-      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
+    <Content Include="Models\DIEMDANHVANTAY.edmx.diagram">
+      <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-wysihtml5.min.css" />
@@ -407,7 +404,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52740</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

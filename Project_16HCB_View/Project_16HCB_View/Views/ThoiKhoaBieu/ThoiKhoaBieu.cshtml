@@ -1,8 +1,83 @@
 ﻿
+@using Project_16HCB_View.Models;
+@model ListTHOIKHOABIEU
+
 @{
     ViewBag.Title = "ThoiKhoaBieu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ThoiKhoaBieu</h2>
+<style>
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        border-bottom: thin solid #ccc;
+    }
+
+    .tbl-tkb {
+        margin: 30px auto 0;
+        border: thin solid #ccc;
+    }
+
+        .tbl-tkb thead tr th {
+            background: #8300b9;
+            color: #fff;
+        }
+
+        .tbl-tkb tbody tr:nth-child(2n+1) td {
+            background: #f7f7f7;
+        }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table td, .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+</style>
+
+<div class='container'>
+    <table class="table tbl-tkb">
+        <thead>
+            <tr>
+                <th>Thứ</th>
+                <th>Giờ Bắt Đầu</th>
+                <th>Giờ Kết Thúc</th>
+                <th>Phòng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.iThoiKhoaBieu.Count; i++)
+              {
+                <tr>
+                    <td>@Model.iThoiKhoaBieu[i].thu</td>
+                    <td>@Model.iThoiKhoaBieu[i].ngayBatDau</td>
+                    <td>@Model.iThoiKhoaBieu[i].ngayKetThuc</td>
+                    <td>@Model.iThoiKhoaBieu[i].maPhong</td>
+                </tr>
+               }
+            @*@foreach (var item in @Model)
+    {
+
+    }*@
+
+        </tbody>
+    </table>
+</div>
 

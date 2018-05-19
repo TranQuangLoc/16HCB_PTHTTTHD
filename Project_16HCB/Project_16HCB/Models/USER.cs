@@ -22,6 +22,8 @@ namespace Project_16HCB.Models
         public Nullable<System.DateTime> C_ngaysinh { get; set; }
         public string C_diachi { get; set; }
         public Nullable<int> C_loaiUS { get; set; }
+        public string C_profileName { get; set; }
+        public string C_accName { get; set; }
         public Nullable<bool> C_daXoa { get; set; }
     }
 }

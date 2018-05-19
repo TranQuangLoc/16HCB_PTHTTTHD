@@ -19,5 +19,6 @@ namespace Project_16HCB.Models
         public string C_maVanTay { get; set; }
         public Nullable<System.DateTime> C_ngayTao { get; set; }
         public Nullable<bool> C_daXoa { get; set; }
+        public string C_url { get; set; }
     }
 }

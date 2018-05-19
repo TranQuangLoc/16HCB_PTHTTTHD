@@ -18,23 +18,26 @@ namespace Project_16HCB_View.Controllers
             hc.DefaultRequestHeaders.Accept.Clear();
             hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            string url = "http://localhost:52740/Login/Login";
+            int userId = 1;
+            string url = "http://localhost:8080/Project_16HCB_API/rest/thoikhoabieu/thoikhoabieu";
             var res = hc.PostAsJsonAsync(url, new
             {
-               userId = Session["userId"]     
+                //userId = Session["userid"]   
+                userId
             }).Result;
-
+            
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-
-                // var result = res.Content.ReadAsAsync<List<ACCOUNT>>().Result;
-                var result = res.Content.ReadAsAsync<List<THOIKHOABIEU>>().Result;               
-           
-                if (result != null)
+            {                 
+                var result = res.Content.ReadAsAsync<ListTHOIKHOABIEU>().Result;
+                
+                if (result == null)
                 {
                     return RedirectToAction("TrangChu", "TrangChu");
                 }
-
+                else
+                {
+                    return View(result);
+                }
             }
             else
             {

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="_id" />
@@ -68,6 +68,7 @@
           </Key>
           <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenKhoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maKhoa" Type="int" />
         </EntityType>
         <EntityType Name="LOPHOC">
           <Key>
@@ -127,6 +128,7 @@
           <Property Name="_trangThai" Type="nvarchar" MaxLength="50" />
           <Property Name="_maLop" Type="int" />
           <Property Name="_daXoa" Type="bit" />
+          <Property Name="NGAY_NGHIHOC" Type="date" />
         </EntityType>
         <EntityType Name="THOIKHOABIEU">
           <Key>
@@ -153,6 +155,8 @@
           <Property Name="_ngaysinh" Type="date" />
           <Property Name="_diachi" Type="nvarchar" MaxLength="50" />
           <Property Name="_loaiUS" Type="int" />
+          <Property Name="_profileName" Type="varchar" MaxLength="250" />
+          <Property Name="_accName" Type="varchar" MaxLength="250" />
           <Property Name="_daXoa" Type="bit" />
         </EntityType>
         <EntityType Name="VANTAY">
@@ -164,26 +168,8 @@
           <Property Name="_maVanTay" Type="varchar" MaxLength="250" />
           <Property Name="_ngayTao" Type="date" />
           <Property Name="_daXoa" Type="bit" />
+          <Property Name="_url" Type="varchar" MaxLength="250" />
         </EntityType>
-        <Function Name="sp_getVanTay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="maVantay" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="sp_layThongTinThemKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userId" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_themBangMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="tieuDe" Type="nvarchar" Mode="In" />
-          <Parameter Name="maNguoiGui" Type="int" Mode="In" />
-          <Parameter Name="maNguoiNhan" Type="int" Mode="In" />
-          <Parameter Name="noiDung" Type="nvarchar(max)" Mode="In" />
-          <Parameter Name="loaiThu" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_themKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="maUser" Type="int" Mode="In" />
-          <Parameter Name="maMH" Type="int" Mode="In" />
-          <Parameter Name="maPhong" Type="int" Mode="In" />
-          <Parameter Name="loaiUS" Type="int" Mode="In" />
-        </Function>
         <EntityContainer Name="Project_16HCB_CSDLModelStoreContainer">
           <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
@@ -202,7 +188,8 @@
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VANTAY" EntityType="Self.VANTAY" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Project_16HCB_CSDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -269,6 +256,7 @@
           </Key>
           <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maKhoa" Type="Int32" />
         </EntityType>
         <EntityType Name="LOPHOC">
           <Key>
@@ -328,6 +316,7 @@
           <Property Name="C_trangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_maLop" Type="Int32" />
           <Property Name="C_daXoa" Type="Boolean" />
+          <Property Name="NGAY_NGHIHOC" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="THOIKHOABIEU">
           <Key>
@@ -354,6 +343,8 @@
           <Property Name="C_ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="C_diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_loaiUS" Type="Int32" />
+          <Property Name="C_profileName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C_accName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="C_daXoa" Type="Boolean" />
         </EntityType>
         <EntityType Name="VANTAY">
@@ -365,6 +356,7 @@
           <Property Name="C_maVanTay" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="C_ngayTao" Type="DateTime" Precision="0" />
           <Property Name="C_daXoa" Type="Boolean" />
+          <Property Name="C_url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="Project_16HCB_CSDLEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
@@ -383,36 +375,7 @@
           <EntitySet Name="THOIKHOABIEUx" EntityType="Self.THOIKHOABIEU" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
           <EntitySet Name="VANTAYs" EntityType="Self.VANTAY" />
-          <FunctionImport Name="sp_getVanTay">
-          <Parameter Name="maVantay" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_layThongTinThemKetQuaDiemDanh">
-          <Parameter Name="userId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_ReportStudent">
-            <Parameter Name="Nam" Mode="In" Type="Int32" />
-            <Parameter Name="HocKy" Mode="In" Type="Int32" />
-            <Parameter Name="MonHoc" Mode="In" Type="Int32" />
-            <Parameter Name="LopHoc" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_themBangMail" ReturnType="Collection(Project_16HCB_CSDLModel.sp_themBangMail_Result)">
-            <Parameter Name="tieuDe" Mode="In" Type="String" />
-            <Parameter Name="maNguoiGui" Mode="In" Type="Int32" />
-            <Parameter Name="maNguoiNhan" Mode="In" Type="Int32" />
-            <Parameter Name="noiDung" Mode="In" Type="String" />
-            <Parameter Name="loaiThu" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_themKetQuaDiemDanh" ReturnType="Collection(Int32)">
-            <Parameter Name="maUser" Mode="In" Type="Int32" />
-            <Parameter Name="maMH" Mode="In" Type="Int32" />
-            <Parameter Name="maPhong" Mode="In" Type="Int32" />
-            <Parameter Name="loaiUS" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="sp_themBangMail_Result">
-          <Property Type="Int32" Name="kq" Nullable="false" />
-          <Property Type="Int32" Name="err" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -487,15 +450,16 @@
               <MappingFragment StoreEntitySet="KHOA">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenKhoa" ColumnName="_tenKhoa" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOPHOCs">
             <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.LOPHOC">
               <MappingFragment StoreEntitySet="LOPHOC">
-                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -545,13 +509,14 @@
           <EntitySetMapping Name="SINHVIENs">
             <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.SINHVIEN">
               <MappingFragment StoreEntitySet="SINHVIEN">
-                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
                 <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
                 <ScalarProperty Name="C_userId" ColumnName="_userId" />
                 <ScalarProperty Name="C_heDaoTao" ColumnName="_heDaoTao" />
                 <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
                 <ScalarProperty Name="C_trangThai" ColumnName="_trangThai" />
                 <ScalarProperty Name="C_maLop" ColumnName="_maLop" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+                <ScalarProperty Name="NGAY_NGHIHOC" ColumnName="NGAY_NGHIHOC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -572,7 +537,6 @@
           <EntitySetMapping Name="USERS">
             <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.USER">
               <MappingFragment StoreEntitySet="USERS">
-                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
                 <ScalarProperty Name="C_userId" ColumnName="_userId" />
                 <ScalarProperty Name="C_username" ColumnName="_username" />
                 <ScalarProperty Name="C_email" ColumnName="_email" />
@@ -581,31 +545,24 @@
                 <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
                 <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
                 <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
+                <ScalarProperty Name="C_profileName" ColumnName="_profileName" />
+                <ScalarProperty Name="C_accName" ColumnName="_accName" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VANTAYs">
             <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.VANTAY">
               <MappingFragment StoreEntitySet="VANTAY">
-                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_userID" ColumnName="_userID" />
                 <ScalarProperty Name="C_maVanTay" ColumnName="_maVanTay" />
                 <ScalarProperty Name="C_ngayTao" ColumnName="_ngayTao" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+                <ScalarProperty Name="C_url" ColumnName="_url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_getVanTay" FunctionName="Project_16HCB_CSDLModel.Store.sp_getVanTay" />
-          <FunctionImportMapping FunctionImportName="sp_layThongTinThemKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_layThongTinThemKetQuaDiemDanh" />
-          <FunctionImportMapping FunctionImportName="sp_themBangMail" FunctionName="Project_16HCB_CSDLModel.Store.sp_themBangMail">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_themBangMail_Result">
-                <ScalarProperty Name="kq" ColumnName="kq" />
-                <ScalarProperty Name="err" ColumnName="err" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_themKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_themKetQuaDiemDanh" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
