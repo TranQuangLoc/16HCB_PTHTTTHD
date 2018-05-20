@@ -43,11 +43,7 @@ namespace Project_16HCB_View.Controllers
             
             password = Md5Hash(password);
 
-            var res = hc.PostAsJsonAsync(url, new
-            {
-                username,
-                password
-            }).Result;
+            var res = hc.PostAsJsonAsync(url, new { username, password }).Result;
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -61,7 +57,7 @@ namespace Project_16HCB_View.Controllers
                 {
                     Session.Add("userid", result.C_userId);
                     Session.Add("loaiUS", result.C_loaiUS);
-
+                    
                     return RedirectToAction("TrangChu", "TrangChu");
                 }
             }

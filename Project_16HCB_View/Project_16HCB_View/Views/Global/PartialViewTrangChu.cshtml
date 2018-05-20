@@ -1,9 +1,18 @@
-﻿<div class="w3-container" style="margin-top:80px" id="showcase">
+﻿@model Project_16HCB_View.Models.USER
+
+@if (ViewBag.user != null)
+{
+    <div class="w3-panel w3-red">
+        <div class="w3-right-align"><p><a href="#">@ViewBag.user.C_username</a></p></div>
+    </div>
+}
+
+<div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-xxxlarge w3-text-red"><b>Trang Chủ</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
 </div>
 
 <!-- Photo grid (modal) -->
 <div class="w3-row-padding">
-    Trang chu
+    Trang chủ
 </div>

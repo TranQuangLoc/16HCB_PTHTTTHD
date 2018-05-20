@@ -16,6 +16,11 @@ namespace Project_16HCB_View.Controllers
 
         public PartialViewResult PartialViewTrangChu()
         {
+            if (TempData["login"] != null)
+            {
+                ViewBag.user = TempData["login"];
+            }
+
             return PartialView();
         }
 
