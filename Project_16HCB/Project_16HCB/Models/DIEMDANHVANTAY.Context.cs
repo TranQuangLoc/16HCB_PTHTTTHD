@@ -253,5 +253,41 @@ namespace Project_16HCB.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_xemThoiKhoaBieu_Result>("sp_xemThoiKhoaBieu", userIdParameter);
         }
+    
+        public virtual int usp_kiemTraUserDaXoa(Nullable<int> userid)
+        {
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_kiemTraUserDaXoa", useridParameter);
+        }
+    
+        public virtual ObjectResult<usp_layDanhSachMonHoc_Result> usp_layDanhSachMonHoc(ObjectParameter errorMsg)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_layDanhSachMonHoc_Result>("usp_layDanhSachMonHoc", errorMsg);
+        }
+    
+        public virtual ObjectResult<usp_layThongTinMonHocTheoId_Result> usp_layThongTinMonHocTheoId(Nullable<int> monHocId)
+        {
+            var monHocIdParameter = monHocId.HasValue ?
+                new ObjectParameter("monHocId", monHocId) :
+                new ObjectParameter("monHocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_layThongTinMonHocTheoId_Result>("usp_layThongTinMonHocTheoId", monHocIdParameter);
+        }
+    
+        public virtual ObjectResult<usp_login_Result> usp_login(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_login_Result>("usp_login", usernameParameter, passwordParameter);
+        }
     }
 }

@@ -44,7 +44,6 @@ namespace Project_16HCB.Controllers.Account
                 var obj = JObject.Parse(info.ToString());
                 var username = obj["username"].ToObject<string>();
                 var password = obj["password"].ToObject<string>();
-                
 
                 using (var db = new Project_16HCB_CSDLEntities())
                 {

@@ -295,6 +295,15 @@
     <Compile Include="Models\USER.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\usp_layDanhSachMonHoc_Result.cs">
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_layThongTinMonHocTheoId_Result.cs">
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_login_Result.cs">
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VANTAY.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
