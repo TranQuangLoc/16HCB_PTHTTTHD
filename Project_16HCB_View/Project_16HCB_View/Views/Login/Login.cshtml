@@ -1,11 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
     Layout = null;
 }
-
-@using Project_16HCB_View.Models
-@model ACCOUNT
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/Login.js"></script>
@@ -13,6 +9,10 @@
 
 <div class="login-page">
     <div class="form">
+        @if (ViewBag.error != null)
+        {
+            <span class="error-text">@ViewBag.error</span>
+        }
         <form class="register-form">
             <input type="text" placeholder="name" />
             <input type="password" placeholder="password" />
@@ -20,25 +20,14 @@
             <button>create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        @*<form class="login-form" action="/Login/Login" method="post" id="fr_login">
-            <input type="text" placeholder="username" id="lg_user" name="username" />
-            <input type="password" placeholder="password" id="lg_pass" name="password" />
-            <button id="btnLogin" type="button">Login</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
-        </form>*@
+        
         <form class="login-form" action="/Login/Login" method="post" id="fr_login">
             <input type="text" placeholder="username" id="lg_user" name="username" />
             <input type="password" placeholder="password" id="lg_pass" name="password" />
-            <button id="btnLogin" >Login</button>
+            <button id="btnLogin">Login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
     </div>
-
-    @if (ViewBag.error != null)
-    {
-        <span>@ViewBag.error</span>
-    }
-
     <div id="hien">
 
     </div>

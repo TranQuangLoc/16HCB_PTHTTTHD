@@ -79,12 +79,13 @@ namespace Project_16HCB.Controllers
                 }
                 catch (Exception)
                 {
-                    if ((int)param_returnValue.Value == 1)
+                    if (param_returnValue.Value == null) // Internal Sql server error
+                        respMsg = Request.CreateResponse(HttpStatusCode.InternalServerError,
+                            JsonConvert.SerializeObject(new { msg = "SQL Server: " 
+                                + param_errMsg.Value.ToString() }));
+                    else
                         respMsg = Request.CreateResponse(HttpStatusCode.BadRequest,
                             JsonConvert.SerializeObject(new { msg = "Môn học không tồn tại" }));
-                    else
-                        respMsg = Request.CreateResponse(HttpStatusCode.InternalServerError,
-                            JsonConvert.SerializeObject(new { msg = param_errMsg.Value.ToString() }));
                 }
             }
 

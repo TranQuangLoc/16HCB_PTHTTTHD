@@ -4,6 +4,11 @@
     margin: auto;
 }
 
+.error-text {
+    color: red;
+    font-size: 15px;
+}
+
 .form {
     position: relative;
     z-index: 1;

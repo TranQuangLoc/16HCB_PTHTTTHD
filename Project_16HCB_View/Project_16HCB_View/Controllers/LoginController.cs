@@ -1,4 +1,6 @@
-﻿using Project_16HCB_View.Models;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Project_16HCB_View.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Project_16HCB_View.Controllers
 {
@@ -41,29 +44,30 @@ namespace Project_16HCB_View.Controllers
 
             string url = "http://localhost:52740/api/Login";
             
-            password = Md5Hash(password);
+            if (password != null && password != "")
+                password = Md5Hash(password);
 
             var res = hc.PostAsJsonAsync(url, new { username, password }).Result;
 
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                // ACCOUNT
-                var result = res.Content.ReadAsAsync<USER>().Result;
+                var jobj = JObject.Parse(res.Content.ReadAsAsync<string>().Result);
+                USER user = jobj["user"].ToObject<USER>();
 
-                //return View("~/Views/Home/Index",result);
-                TempData["login"] = result;
-                
-                if (result != null)
+                TempData["login"] = user;
+
+                if (user != null)
                 {
-                    Session.Add("userid", result.C_userId);
-                    Session.Add("loaiUS", result.C_loaiUS);
-                    
+                    Session.Add("userid", user.C_userId);
+                    Session.Add("loaiUS", user.C_loaiUS);
+
                     return RedirectToAction("TrangChu", "TrangChu");
                 }
             }
             else
             {
-                ViewBag.error = res.StatusCode; //res.Content.ReadAsAsync<string>().Result;
+                var jObj = JObject.Parse(res.Content.ReadAsAsync<string>().Result);
+                ViewBag.error = jObj["msg"].ToObject<string>();
             }
 
             return View();
