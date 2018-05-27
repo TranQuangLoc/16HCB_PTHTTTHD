@@ -14,35 +14,37 @@ namespace Project_16HCB_View.Controllers
         // GET: ThoiGianBieu
         public ActionResult ThoiKhoaBieu()
         {
-            var hc = new HttpClient();
-            hc.DefaultRequestHeaders.Accept.Clear();
-            hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            int userId = 1;
-            string url = "http://localhost:8080/Project_16HCB_API/rest/thoikhoabieu/thoikhoabieu";
-            var res = hc.PostAsJsonAsync(url, new
+            if (Session["userid"] != null)
             {
-                //userId = Session["userid"]   
-                userId
-            }).Result;
-            
-            if (res.StatusCode == System.Net.HttpStatusCode.OK)
-            {                 
-                var result = res.Content.ReadAsAsync<ListTHOIKHOABIEU>().Result;
+                var hc = new HttpClient();
+                hc.DefaultRequestHeaders.Accept.Clear();
+                hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                int userId = (int)Session["userid"];
+                string url = "http://localhost:8080/Project_16HCB_API/rest/thoikhoabieu/thoikhoabieu";
+                var res = hc.PostAsJsonAsync(url, new
+                {
+                    //userId = Session["userid"]   
+                    userId
+                }).Result;
+
+                if (res.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var result = res.Content.ReadAsAsync<ListTHOIKHOABIEU>().Result;
+
+                    if (result == null)
+                    {
+                        return RedirectToAction("TrangChu", "TrangChu");
+                    }
+                    else
+                    {
+                        return View(result);
+                    }
+                }
                 
-                if (result == null)
-                {
-                    return RedirectToAction("TrangChu", "TrangChu");
-                }
-                else
-                {
-                    return View(result);
-                }
+                
             }
-            else
-            {
-
-            }
+           
             return View();
         }
     }
