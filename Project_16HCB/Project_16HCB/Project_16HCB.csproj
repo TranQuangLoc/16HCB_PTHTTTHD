@@ -235,12 +235,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\GetDanhSachHP_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GetInfoDiemDanh_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
@@ -274,34 +268,10 @@
     <Compile Include="Models\SINHVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_getKhoa_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getLopHoc_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getThongTinSinhVien_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_timkiemThongTinSinhVien_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_xemThoiKhoaBieu_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\usp_layDanhSachMonHoc_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\usp_layThongTinMonHocTheoId_Result.cs">
-      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\usp_login_Result.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VANTAY.cs">

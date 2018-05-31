@@ -16,5 +16,10 @@ namespace Project_16HCB_View.Controllers
         public ActionResult ReportStudent() {
             return View();
         }
+
+        public ActionResult ReportDanhSachHocSinhNghi()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTemp.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Thống kê số lần nghỉ học sinh viên năm học/học kỳ</h2>
+        <p>
+            Vùi lòng chọn các mục và nhấn nút Thống kê để lấy kết quả !
+        </p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="txtTuNgay">Từ Ngày:</label>
+                        <input type="date" id="txtTuNgay" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                        <label for="txtDenNgay">Đến Ngày:</label>
+                        <input type="date" id="txtDenNgay" class="form-control" />
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <button id="btnSubmit" type="submit" class="btn btn-default"> Thống kê</button>
+    </div>
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>MSSV</th>
+                    <th>Username</th>
+                    <th>Lớp</th>
+                    <th>Năm học</th>
+                </tr>
+            </thead>
+            <tbody id="bodyReport"></tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    let data = {};
+    const apiUrl = 'http://localhost:52740/api/';
+    renderRowReport = (data) => `
+        <tr>
+            <td>${data.ma_sv}</td>
+            <td>${data.ten_sv}</td>
+            <td>${data.ma_lop}</td>
+            <td>${data.ngay_nghihoc_text}</td>
+        </tr>
+    `;
+
+   
+    renderReport = (datas) => {
+        let reportRows = '';
+        datas.forEach(data => {
+            reportRows += renderRowReport(data);
+        })
+        return reportRows;
+    }
+   
+    document.addEventListener("DOMContentLoaded", function (event) {
+       
+        $('#btnSubmit').click(() => {
+            let TuNgay = $('#txtTuNgay').val();
+            let DenNgay = $('#txtDenNgay').val();
+
+
+            $.get(`${apiUrl}Report/ReportDanhSachHocSinhNghi?TU_NGAY=${TuNgay}&DEN_NGAY=${DenNgay}`, (results) => {
+                const contentReport = renderReport(results);
+                $('#bodyReport').empty().append(contentReport);
+            });
+        });
+
+     
+    });
+
+
+</script>
