@@ -1,5 +1,6 @@
 package service.export;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -66,12 +67,16 @@ public class PhieuDiemRestful {
 	{
 		
 		PhieuDiemService pd = new PhieuDiemService();
-		List<IPhieuDiem> list;
+		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
 		try
 		{
 			list = pd.DanhSachPhieuDiem();		
+			list.add(new IPhieuDiem());
 			if(list != null)
-				return ResponseConfig.OK(new GenericEntity<List<IPhieuDiem>>(list) {});
+			{
+					return ResponseConfig.OK(new GenericEntity<List<IPhieuDiem>>(list) {});
+			}
+				
 			else
 				return ResponseConfig.NOT_FOUND();
 		}
@@ -130,7 +135,7 @@ public class PhieuDiemRestful {
 			
 			if(listKetqua.size()  > 0){
 				
-				return ResponseConfig.OK(new GenericEntity<List<IKetQuaPhieuDiem_SinhVien>>(listKetqua) {});	
+				return ResponseConfig.OK(new GenericEntity<List<IKetQuaPhieuDiem_SinhVien>>((List<IKetQuaPhieuDiem_SinhVien>)listKetqua) {});	
 				
 							
 			}else{
