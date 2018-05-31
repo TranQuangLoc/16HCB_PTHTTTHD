@@ -442,9 +442,13 @@
     <Content Include="Views\Global\PartialViewChuongTrinhDaoTao.cshtml" />
     <Content Include="Views\Report\ReportStudent.cshtml" />
     <Content Include="Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
+
     <Content Include="Views\PhieuDiem\LayPhieuDiem.cshtml" />
     <Content Include="Views\PhieuDiem\DanhSachPhieuDiem.cshtml" />
     <Content Include="Views\PhieuDiem\NhanPhieuDiem.cshtml" />
+
+    <Content Include="Views\Report\ReportDanhSachHocSinhNghi.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

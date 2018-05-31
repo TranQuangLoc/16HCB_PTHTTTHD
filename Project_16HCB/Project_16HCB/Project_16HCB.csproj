@@ -262,9 +262,12 @@
     <Compile Include="Models\MONHOC_HOCKY.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
+
     <Compile Include="Models\PHIEU_DIEM.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
+
+
     <Compile Include="Models\PHONG.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
@@ -277,9 +280,11 @@
     <Compile Include="Models\THONGTINTRAPHIEUDIEM.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
+
     <Compile Include="Models\USER.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
+
     <Compile Include="Models\VANTAY.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
