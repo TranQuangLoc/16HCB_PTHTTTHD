@@ -10,12 +10,13 @@
 namespace Project_16HCB.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class usp_layThongTinMonHocTheoId_Result
+    public partial class THONGTINTRAPHIEUDIEM
     {
-        public int C_id { get; set; }
-        public string C_tenMH { get; set; }
-        public Nullable<int> C_maKhoa { get; set; }
-        public Nullable<int> C_soBuoi { get; set; }
+        public int C_masv { get; set; }
+        public Nullable<int> C_hocki { get; set; }
+        public Nullable<System.DateTime> C_ngaytao { get; set; }
+        public Nullable<int> C_magv { get; set; }
     }
 }

@@ -150,6 +150,7 @@
     <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PhieuDiemController.cs" />
     <Compile Include="Controllers\SendMailController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -161,6 +162,9 @@
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\HOCPHAN.cs" />
+    <Compile Include="Models\IPhieuDiem.cs" />
+    <Compile Include="Models\KETQUA.cs" />
+    <Compile Include="Models\PhieuDiemSinhVien.cs" />
     <Compile Include="Models\SessionHelpers.cs" />
     <Compile Include="Models\THOIKHOABIEU.cs" />
     <Compile Include="Models\USER.cs" />
@@ -189,6 +193,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\fontawesome-free-5.0.13\README.md" />
     <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-brands.less" />
     <Content Include="Scripts\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-regular.less" />
@@ -277,6 +282,8 @@
     <Content Include="Scripts\Library\notify.js" />
     <Content Include="Scripts\login.css" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Scripts\ticket.js" />
     <Content Include="Scripts\mail.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -435,6 +442,9 @@
     <Content Include="Views\Global\PartialViewChuongTrinhDaoTao.cshtml" />
     <Content Include="Views\Report\ReportStudent.cshtml" />
     <Content Include="Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
+    <Content Include="Views\PhieuDiem\LayPhieuDiem.cshtml" />
+    <Content Include="Views\PhieuDiem\DanhSachPhieuDiem.cshtml" />
+    <Content Include="Views\PhieuDiem\NhanPhieuDiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

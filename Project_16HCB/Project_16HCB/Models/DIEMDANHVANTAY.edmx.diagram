@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="29fc834b4fbd4c86905b00bed773aaf3" Name="Diagram1">
+      <Diagram DiagramId="687258371b154a9c83755948cce345c5" Name="Diagram1">
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.ACCOUNT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.DIEM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.GIAOVIEN" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -16,11 +16,13 @@
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.MAIL" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.MONHOC" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.MONHOC_HOCKY" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.PHONG" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.SINHVIEN" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.THOIKHOABIEU" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.USER" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.VANTAY" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.PHIEU_DIEM" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.PHONG" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.SINHVIEN" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.THOIKHOABIEU" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.THONGTINTRAPHIEUDIEM" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.USER" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_16HCB_CSDLModel.VANTAY" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

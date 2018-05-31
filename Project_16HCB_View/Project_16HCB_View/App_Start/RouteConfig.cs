@@ -19,6 +19,12 @@ namespace Project_16HCB_View
                 defaults: new { controller = "TrangChu", action = "TrangChu", id = UrlParameter.Optional }
             );
 
+            //routes.MapRoute(
+            //    name: "PhieuDiem",
+            //    url: "{controller}/{action}/{id}/{mamh}",
+            //    defaults: new { controller = "TrangChu", action = "TrangChu", id = UrlParameter.Optional }
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

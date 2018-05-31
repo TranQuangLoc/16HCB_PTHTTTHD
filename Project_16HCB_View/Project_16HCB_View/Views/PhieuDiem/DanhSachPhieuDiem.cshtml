@@ -1,0 +1,111 @@
+﻿@using Project_16HCB_View.Models;
+@using Project_16HCB_View.Utilities;
+
+@{
+    ViewBag.Title = "DanhSachPhieuDiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        border-bottom: thin solid #ccc;
+    }
+
+    .tbl-tkb {
+        margin: 30px auto 0;
+        border: thin solid #ccc;
+    }
+
+        .tbl-tkb thead tr th {
+            background: #8300b9;
+            color: #fff;
+        }
+
+        .tbl-tkb tbody tr:nth-child(2n+1) td {
+            background: #f7f7f7;
+        }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table td, .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+</style>
+
+<script src="~/Scripts/ticket.js"></script>
+
+<div class='container'>
+    <table class="table tbl-tkb">
+        <thead>
+            <tr>
+                <th>Mã sinh viên</th>
+                <th>Tên sinh viên</th>
+                <th>Học kì</th>
+                <th>Năm học</th>
+                <th>Phản hồi</th>
+                <th>Tình trạng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*for (int i = 0; i < Model.iThoiKhoaBieu.Count; i++)
+                {
+                  <tr>
+                      <td>@Model.iThoiKhoaBieu[i].thu</td>
+                      <td>@Model.iThoiKhoaBieu[i].ngayBatDau</td>
+                      <td>@Model.iThoiKhoaBieu[i].ngayKetThuc</td>
+                      <td>@Model.iThoiKhoaBieu[i].maPhong</td>
+                  </tr>
+                 }*@
+
+            @foreach (var item in Model.iPhieuDiem)
+            {
+                string data = string.Concat(item.masv, ",", item.hocki,",", SessionProvider.GetUserIdFromSession());
+                <tr>
+                    <td>@item.masv</td>
+                    <td>@item.tensv</td>
+                    <td>@item.hocki</td>
+                    <td>@item.namhoc</td>
+                    <td>
+
+                        @*@Html.ActionLink("Gửi", "TraPhieuDiem", "PhieuDiem", new object[] { new { id = item.masv }, new { mamh = 5 } }, null)*@
+                        @*<a href="" onclick="Traphieudiem(event, '@data','@item.masv')">Gửi</a>*@
+                        <a href="TraPhieuDiem?masv=@item.masv&hocki=@item.hocki&magv=@SessionProvider.GetUserIdFromSession()">Gửi</a>
+                        @*<a href="TraPhieuDiem/1/5">Gửi</a>*@
+                    </td>
+                    @*@if (item.tinhtrang == 0)
+                    {
+                        <td>Đang chờ</td>
+                    }
+                    else
+                    {
+                        <td>Đã xử lý</td>
+                    }*@
+                    <td id="@item.masv">@(item.tinhtrang == 0 ? "Đang chờ" : "Đã xử lý")</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

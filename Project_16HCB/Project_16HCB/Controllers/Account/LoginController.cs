@@ -71,10 +71,13 @@ namespace Project_16HCB.Controllers.Account
                     {
                         user = db.Database.SqlQuery<USER>(sql, pReturnVal, pUsername, pPassword, pErrorMsg)
                             .FirstOrDefault();
+                        var resPhieuDiem = db.PHIEU_DIEM.Count();
+
+                        var resTraPhieuDiemSV = db.THONGTINTRAPHIEUDIEMs.Where(n => n.C_masv == user.C_userId).Count();
                         respMsg = Request.CreateResponse(HttpStatusCode.OK,
-                            JsonConvert.SerializeObject(new { user }));
+                            JsonConvert.SerializeObject(new { user, resPhieuDiem, resTraPhieuDiemSV }));
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         if (pReturnVal.Value == null) // Internal sql server error
                             respMsg = Request.CreateResponse(HttpStatusCode.InternalServerError,

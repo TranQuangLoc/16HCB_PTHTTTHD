@@ -53,14 +53,18 @@ namespace Project_16HCB_View.Controllers
             {
                 var jobj = JObject.Parse(res.Content.ReadAsAsync<string>().Result);
                 USER user = jobj["user"].ToObject<USER>();
-
+                int sores = jobj["resPhieuDiem"].ToObject<int>();
+                int soresSV = jobj["resTraPhieuDiemSV"].ToObject<int>();
+                
                 TempData["login"] = user;
 
                 if (user != null)
                 {
                     Session.Add("userid", user.C_userId);
-                    Session.Add("loaiUS", user.C_loaiUS);
-
+                    Session.Add("loaiUS", user.C_loaiUS);                 
+                    Session.Add("user", user);
+                    Session.Add("resPhieuDiem", sores);
+                    Session.Add("resTraPhieuDiemSV", soresSV);
                     return RedirectToAction("TrangChu", "TrangChu");
                 }
             }

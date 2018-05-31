@@ -10,13 +10,13 @@
 namespace Project_16HCB.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_xemThoiKhoaBieu_Result
+    public partial class PHIEU_DIEM
     {
-        public Nullable<int> thu { get; set; }
-        public Nullable<System.TimeSpan> ngayBatDau { get; set; }
-        public Nullable<System.TimeSpan> ngayKetThuc { get; set; }
-        public Nullable<int> maPhong { get; set; }
-        public int err { get; set; }
+        public int C_masv { get; set; }
+        public Nullable<int> C_tinhtrang { get; set; }
+        public Nullable<int> C_hocki { get; set; }
+        public Nullable<int> C_namhoc { get; set; }
     }
 }

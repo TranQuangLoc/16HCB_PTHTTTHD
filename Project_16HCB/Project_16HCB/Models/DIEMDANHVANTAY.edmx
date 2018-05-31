@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="_id" />
@@ -98,6 +98,7 @@
           <Property Name="_tenMH" Type="nvarchar" MaxLength="50" />
           <Property Name="_maKhoa" Type="int" />
           <Property Name="_soBuoi" Type="int" />
+          <Property Name="_soTC" Type="int" />
         </EntityType>
         <EntityType Name="MONHOC_HOCKY">
           <Key>
@@ -107,6 +108,15 @@
           <Property Name="_stt" Type="int" />
           <Property Name="_maMH" Type="int" />
           <Property Name="_maHK" Type="int" />
+        </EntityType>
+        <EntityType Name="PHIEU_DIEM">
+          <Key>
+            <PropertyRef Name="_masv" />
+          </Key>
+          <Property Name="_masv" Type="int" Nullable="false" />
+          <Property Name="_tinhtrang" Type="int" />
+          <Property Name="_hocki" Type="int" />
+          <Property Name="_namhoc" Type="int" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -128,6 +138,7 @@
           <Property Name="_trangThai" Type="nvarchar" MaxLength="50" />
           <Property Name="_maLop" Type="int" />
           <Property Name="_daXoa" Type="bit" />
+          <Property Name="NGAY_NGHIHOC" Type="date" />
         </EntityType>
         <EntityType Name="THOIKHOABIEU">
           <Key>
@@ -141,6 +152,15 @@
           <Property Name="_idGV_MH" Type="int" />
           <Property Name="_idLop" Type="int" />
           <Property Name="_idPhong" Type="int" />
+        </EntityType>
+        <EntityType Name="THONGTINTRAPHIEUDIEM">
+          <Key>
+            <PropertyRef Name="_masv" />
+          </Key>
+          <Property Name="_masv" Type="int" Nullable="false" />
+          <Property Name="_hocki" Type="int" />
+          <Property Name="_ngaytao" Type="date" />
+          <Property Name="_magv" Type="int" />
         </EntityType>
         <EntityType Name="USERS">
           <Key>
@@ -169,80 +189,6 @@
           <Property Name="_daXoa" Type="bit" />
           <Property Name="_url" Type="varchar" MaxLength="250" />
         </EntityType>
-        <Function Name="ConverUserIDToMSSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userid" Type="int" Mode="In" />
-        </Function>
-        <Function Name="GetDanhSachHP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MSSV" Type="int" Mode="In" />
-        </Function>
-        <Function Name="GetInfoDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MSSV" Type="int" Mode="In" />
-          <Parameter Name="MaTKB" Type="int" Mode="In" />
-        </Function>
-        <Function Name="kiemtraSVTonTai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MSSV" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_dangKyTK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="username" Type="nvarchar" Mode="In" />
-          <Parameter Name="email" Type="varchar" Mode="In" />
-          <Parameter Name="sdt" Type="nchar" Mode="In" />
-          <Parameter Name="cmnd" Type="nchar" Mode="In" />
-          <Parameter Name="ngaysinh" Type="date" Mode="In" />
-          <Parameter Name="diachi" Type="nvarchar" Mode="In" />
-          <Parameter Name="loaiUS" Type="int" Mode="In" />
-          <Parameter Name="password_email" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="sp_getKhoa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="sp_getLopHoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="sp_getThongTinSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MSSV" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_getVanTay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="maVantay" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="sp_guiMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userID" Type="int" Mode="In" />
-          <Parameter Name="irecipients" Type="varchar" Mode="In" />
-          <Parameter Name="isubject" Type="varchar" Mode="In" />
-          <Parameter Name="ibody" Type="nvarchar(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_themBangMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="tieuDe" Type="nvarchar" Mode="In" />
-          <Parameter Name="maNguoiGui" Type="int" Mode="In" />
-          <Parameter Name="maNguoiNhan" Type="int" Mode="In" />
-          <Parameter Name="noiDung" Type="nvarchar(max)" Mode="In" />
-          <Parameter Name="loaiThu" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_themKetQuaDiemDanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="maUser" Type="int" Mode="In" />
-          <Parameter Name="maMH" Type="int" Mode="In" />
-          <Parameter Name="maPhong" Type="int" Mode="In" />
-          <Parameter Name="loaiUS" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_timkiemThongTinSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="KEYSEARCH" Type="nvarchar" Mode="In" />
-          <Parameter Name="SCHOOLCLASSID" Type="int" Mode="In" />
-          <Parameter Name="DIVIONID" Type="int" Mode="In" />
-          <Parameter Name="GETFINGER" Type="int" Mode="In" />
-          <Parameter Name="PAGEINDEX" Type="int" Mode="In" />
-          <Parameter Name="PAGESIZE" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_xemThoiKhoaBieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userId" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_kiemTraUserDaXoa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userid" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_layDanhSachMonHoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="errorMsg" Type="nvarchar" Mode="InOut" />
-        </Function>
-        <Function Name="usp_layThongTinMonHocTheoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="monHocId" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="username" Type="nvarchar" Mode="In" />
-          <Parameter Name="password" Type="nvarchar" Mode="In" />
-        </Function>
         <EntityContainer Name="Project_16HCB_CSDLModelStoreContainer">
           <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
@@ -255,13 +201,16 @@
           <EntitySet Name="MAIL" EntityType="Self.MAIL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEU_DIEM" EntityType="Self.PHIEU_DIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THOIKHOABIEU" EntityType="Self.THOIKHOABIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THONGTINTRAPHIEUDIEM" EntityType="Self.THONGTINTRAPHIEUDIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VANTAY" EntityType="Self.VANTAY" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Project_16HCB_CSDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -358,6 +307,7 @@
           <Property Name="C_tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_maKhoa" Type="Int32" />
           <Property Name="C_soBuoi" Type="Int32" />
+          <Property Name="C_soTC" Type="Int32" />
         </EntityType>
         <EntityType Name="MONHOC_HOCKY">
           <Key>
@@ -367,6 +317,15 @@
           <Property Name="C_stt" Type="Int32" />
           <Property Name="C_maMH" Type="Int32" />
           <Property Name="C_maHK" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PHIEU_DIEM">
+          <Key>
+            <PropertyRef Name="C_masv" />
+          </Key>
+          <Property Name="C_masv" Type="Int32" Nullable="false" />
+          <Property Name="C_tinhtrang" Type="Int32" />
+          <Property Name="C_hocki" Type="Int32" />
+          <Property Name="C_namhoc" Type="Int32" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -402,6 +361,15 @@
           <Property Name="C_idGV_MH" Type="Int32" />
           <Property Name="C_idLop" Type="Int32" />
           <Property Name="C_idPhong" Type="Int32" />
+        </EntityType>
+        <EntityType Name="THONGTINTRAPHIEUDIEM">
+          <Key>
+            <PropertyRef Name="C_masv" />
+          </Key>
+          <Property Name="C_masv" Type="Int32" Nullable="false" />
+          <Property Name="C_hocki" Type="Int32" />
+          <Property Name="C_ngaytao" Type="DateTime" Precision="0" />
+          <Property Name="C_magv" Type="Int32" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
@@ -442,165 +410,14 @@
           <EntitySet Name="MAILs" EntityType="Self.MAIL" />
           <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
           <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" />
+          <EntitySet Name="PHIEU_DIEM" EntityType="Self.PHIEU_DIEM" />
           <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
           <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
           <EntitySet Name="THOIKHOABIEUx" EntityType="Self.THOIKHOABIEU" />
+          <EntitySet Name="THONGTINTRAPHIEUDIEMs" EntityType="Self.THONGTINTRAPHIEUDIEM" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
           <EntitySet Name="VANTAYs" EntityType="Self.VANTAY" />
-          <FunctionImport Name="ConverUserIDToMSSV" ReturnType="Collection(Int32)">
-          <Parameter Name="userid" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="GetDanhSachHP" ReturnType="Collection(Project_16HCB_CSDLModel.GetDanhSachHP_Result)">
-          <Parameter Name="MSSV" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="GetInfoDiemDanh" ReturnType="Collection(Project_16HCB_CSDLModel.GetInfoDiemDanh_Result)">
-            <Parameter Name="MSSV" Mode="In" Type="Int32" />
-            <Parameter Name="MaTKB" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="kiemtraSVTonTai" ReturnType="Collection(Int32)">
-          <Parameter Name="MSSV" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dangKyTK" ReturnType="Collection(Int32)">
-            <Parameter Name="username" Mode="In" Type="String" />
-            <Parameter Name="email" Mode="In" Type="String" />
-            <Parameter Name="sdt" Mode="In" Type="String" />
-            <Parameter Name="cmnd" Mode="In" Type="String" />
-            <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
-            <Parameter Name="diachi" Mode="In" Type="String" />
-            <Parameter Name="loaiUS" Mode="In" Type="Int32" />
-            <Parameter Name="password_email" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_getKhoa" ReturnType="Collection(Project_16HCB_CSDLModel.sp_getKhoa_Result)" />
-          <FunctionImport Name="sp_getLopHoc" ReturnType="Collection(Project_16HCB_CSDLModel.sp_getLopHoc_Result)" />
-          <FunctionImport Name="sp_getThongTinSinhVien" ReturnType="Collection(Project_16HCB_CSDLModel.sp_getThongTinSinhVien_Result)">
-          <Parameter Name="MSSV" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_getVanTay">
-          <Parameter Name="maVantay" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_guiMail">
-            <Parameter Name="userID" Mode="In" Type="Int32" />
-            <Parameter Name="irecipients" Mode="In" Type="String" />
-            <Parameter Name="isubject" Mode="In" Type="String" />
-            <Parameter Name="ibody" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_themBangMail">
-            <Parameter Name="tieuDe" Mode="In" Type="String" />
-            <Parameter Name="maNguoiGui" Mode="In" Type="Int32" />
-            <Parameter Name="maNguoiNhan" Mode="In" Type="Int32" />
-            <Parameter Name="noiDung" Mode="In" Type="String" />
-            <Parameter Name="loaiThu" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_themKetQuaDiemDanh" ReturnType="Collection(Int32)">
-            <Parameter Name="maUser" Mode="In" Type="Int32" />
-            <Parameter Name="maMH" Mode="In" Type="Int32" />
-            <Parameter Name="maPhong" Mode="In" Type="Int32" />
-            <Parameter Name="loaiUS" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_timkiemThongTinSinhVien" ReturnType="Collection(Project_16HCB_CSDLModel.sp_timkiemThongTinSinhVien_Result)">
-            <Parameter Name="KEYSEARCH" Mode="In" Type="String" />
-            <Parameter Name="SCHOOLCLASSID" Mode="In" Type="Int32" />
-            <Parameter Name="DIVIONID" Mode="In" Type="Int32" />
-            <Parameter Name="GETFINGER" Mode="In" Type="Int32" />
-            <Parameter Name="PAGEINDEX" Mode="In" Type="Int32" />
-            <Parameter Name="PAGESIZE" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_xemThoiKhoaBieu" ReturnType="Collection(Project_16HCB_CSDLModel.sp_xemThoiKhoaBieu_Result)">
-          <Parameter Name="userId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="usp_kiemTraUserDaXoa">
-          <Parameter Name="userid" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="usp_layDanhSachMonHoc" ReturnType="Collection(Project_16HCB_CSDLModel.usp_layDanhSachMonHoc_Result)" >
-          <Parameter Name="errorMsg" Mode="InOut" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_layThongTinMonHocTheoId" ReturnType="Collection(Project_16HCB_CSDLModel.usp_layThongTinMonHocTheoId_Result)">
-          <Parameter Name="monHocId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="usp_login" ReturnType="Collection(Project_16HCB_CSDLModel.usp_login_Result)">
-            <Parameter Name="username" Mode="In" Type="String" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="GetDanhSachHP_Result">
-          <Property Type="Int32" Name="idTKB" Nullable="false" />
-          <Property Type="String" Name="TenHP" Nullable="true" MaxLength="135" />
-        </ComplexType>
-        <ComplexType Name="GetInfoDiemDanh_Result">
-          <Property Type="Int32" Name="C_mssv" Nullable="false" />
-          <Property Type="String" Name="C_tenLop" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_maPhong" Nullable="true" />
-          <Property Type="DateTime" Name="C_ngayHoc" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="sp_getKhoa_Result">
-          <Property Type="Int32" Name="C_id" Nullable="false" />
-          <Property Type="String" Name="C_tenKhoa" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_maKhoa" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_getLopHoc_Result">
-          <Property Type="Int32" Name="C_id" Nullable="false" />
-          <Property Type="String" Name="C_tenLop" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_maKhoa" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_getThongTinSinhVien_Result">
-          <Property Type="Int32" Name="C_mssv" Nullable="false" />
-          <Property Type="String" Name="C_username" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_malop" Nullable="true" />
-          <Property Type="String" Name="C_tenlop" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_email" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_sdt" Nullable="true" MaxLength="11" />
-          <Property Type="String" Name="C_cmnd" Nullable="true" MaxLength="11" />
-          <Property Type="Int32" Name="C_userid" Nullable="true" />
-          <Property Type="String" Name="C_ngaysinh" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="C_diachi" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_trangthai" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_hedaotao" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_dalay" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_timkiemThongTinSinhVien_Result">
-          <Property Type="Int32" Name="C_mssv" Nullable="false" />
-          <Property Type="String" Name="C_username" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_tenlop" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_email" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_sdt" Nullable="true" MaxLength="11" />
-          <Property Type="String" Name="C_cmnd" Nullable="true" MaxLength="11" />
-          <Property Type="Int32" Name="C_userid" Nullable="true" />
-          <Property Type="Int32" Name="C_dalay" Nullable="true" />
-          <Property Type="Int32" Name="C_stt" Nullable="true" />
-          <Property Type="Int32" Name="C_sodong" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_xemThoiKhoaBieu_Result">
-          <Property Type="Int32" Name="thu" Nullable="true" />
-          <Property Type="Time" Name="ngayBatDau" Nullable="true" />
-          <Property Type="Time" Name="ngayKetThuc" Nullable="true" />
-          <Property Type="Int32" Name="maPhong" Nullable="true" />
-          <Property Type="Int32" Name="err" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="usp_layDanhSachMonHoc_Result">
-          <Property Type="Int32" Name="C_id" Nullable="false" />
-          <Property Type="String" Name="C_tenMH" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_maKhoa" Nullable="true" />
-          <Property Type="Int32" Name="C_soBuoi" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_layThongTinMonHocTheoId_Result">
-          <Property Type="Int32" Name="C_id" Nullable="false" />
-          <Property Type="String" Name="C_tenMH" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_maKhoa" Nullable="true" />
-          <Property Type="Int32" Name="C_soBuoi" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_login_Result">
-          <Property Type="Int32" Name="C_userId" Nullable="false" />
-          <Property Type="String" Name="C_username" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_email" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="C_sdt" Nullable="true" MaxLength="11" />
-          <Property Type="String" Name="C_cmnd" Nullable="true" MaxLength="11" />
-          <Property Type="DateTime" Name="C_ngaysinh" Nullable="true" />
-          <Property Type="String" Name="C_diachi" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="C_loaiUS" Nullable="true" />
-          <Property Type="String" Name="C_profileName" Nullable="true" MaxLength="250" />
-          <Property Type="String" Name="C_accName" Nullable="true" MaxLength="250" />
-          <Property Type="Boolean" Name="C_daXoa" Nullable="true" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -708,6 +525,7 @@
                 <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
                 <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
                 <ScalarProperty Name="C_soBuoi" ColumnName="_soBuoi" />
+                <ScalarProperty Name="C_soTC" ColumnName="_soTC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -718,6 +536,16 @@
                 <ScalarProperty Name="C_stt" ColumnName="_stt" />
                 <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
                 <ScalarProperty Name="C_maHK" ColumnName="_maHK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEU_DIEM">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.PHIEU_DIEM">
+              <MappingFragment StoreEntitySet="PHIEU_DIEM">
+                <ScalarProperty Name="C_masv" ColumnName="_masv" />
+                <ScalarProperty Name="C_tinhtrang" ColumnName="_tinhtrang" />
+                <ScalarProperty Name="C_hocki" ColumnName="_hocki" />
+                <ScalarProperty Name="C_namhoc" ColumnName="_namhoc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -741,6 +569,7 @@
                 <ScalarProperty Name="C_trangThai" ColumnName="_trangThai" />
                 <ScalarProperty Name="C_maLop" ColumnName="_maLop" />
                 <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+                <ScalarProperty Name="NGAY_NGHIHOC" ColumnName="NGAY_NGHIHOC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -755,6 +584,16 @@
                 <ScalarProperty Name="C_idGV_MH" ColumnName="_idGV_MH" />
                 <ScalarProperty Name="C_idLop" ColumnName="_idLop" />
                 <ScalarProperty Name="C_idPhong" ColumnName="_idPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THONGTINTRAPHIEUDIEMs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.THONGTINTRAPHIEUDIEM">
+              <MappingFragment StoreEntitySet="THONGTINTRAPHIEUDIEM">
+                <ScalarProperty Name="C_masv" ColumnName="_masv" />
+                <ScalarProperty Name="C_hocki" ColumnName="_hocki" />
+                <ScalarProperty Name="C_ngaytao" ColumnName="_ngaytao" />
+                <ScalarProperty Name="C_magv" ColumnName="_magv" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -787,133 +626,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ConverUserIDToMSSV" FunctionName="Project_16HCB_CSDLModel.Store.ConverUserIDToMSSV" />
-          <FunctionImportMapping FunctionImportName="GetDanhSachHP" FunctionName="Project_16HCB_CSDLModel.Store.GetDanhSachHP">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.GetDanhSachHP_Result">
-                <ScalarProperty Name="idTKB" ColumnName="idTKB" />
-                <ScalarProperty Name="TenHP" ColumnName="TenHP" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetInfoDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.GetInfoDiemDanh">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.GetInfoDiemDanh_Result">
-                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
-                <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
-                <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
-                <ScalarProperty Name="C_ngayHoc" ColumnName="_ngayHoc" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="kiemtraSVTonTai" FunctionName="Project_16HCB_CSDLModel.Store.kiemtraSVTonTai" />
-          <FunctionImportMapping FunctionImportName="sp_dangKyTK" FunctionName="Project_16HCB_CSDLModel.Store.sp_dangKyTK" />
-          <FunctionImportMapping FunctionImportName="sp_getKhoa" FunctionName="Project_16HCB_CSDLModel.Store.sp_getKhoa">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_getKhoa_Result">
-                <ScalarProperty Name="C_id" ColumnName="_id" />
-                <ScalarProperty Name="C_tenKhoa" ColumnName="_tenKhoa" />
-                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_getLopHoc" FunctionName="Project_16HCB_CSDLModel.Store.sp_getLopHoc">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_getLopHoc_Result">
-                <ScalarProperty Name="C_id" ColumnName="_id" />
-                <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
-                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_getThongTinSinhVien" FunctionName="Project_16HCB_CSDLModel.Store.sp_getThongTinSinhVien">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_getThongTinSinhVien_Result">
-                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
-                <ScalarProperty Name="C_username" ColumnName="_username" />
-                <ScalarProperty Name="C_malop" ColumnName="_malop" />
-                <ScalarProperty Name="C_tenlop" ColumnName="_tenlop" />
-                <ScalarProperty Name="C_email" ColumnName="_email" />
-                <ScalarProperty Name="C_sdt" ColumnName="_sdt" />
-                <ScalarProperty Name="C_cmnd" ColumnName="_cmnd" />
-                <ScalarProperty Name="C_userid" ColumnName="_userid" />
-                <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
-                <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
-                <ScalarProperty Name="C_trangthai" ColumnName="_trangthai" />
-                <ScalarProperty Name="C_hedaotao" ColumnName="_hedaotao" />
-                <ScalarProperty Name="C_dalay" ColumnName="_dalay" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_getVanTay" FunctionName="Project_16HCB_CSDLModel.Store.sp_getVanTay" />
-          <FunctionImportMapping FunctionImportName="sp_guiMail" FunctionName="Project_16HCB_CSDLModel.Store.sp_guiMail" />
-          <FunctionImportMapping FunctionImportName="sp_themBangMail" FunctionName="Project_16HCB_CSDLModel.Store.sp_themBangMail" />
-          <FunctionImportMapping FunctionImportName="sp_themKetQuaDiemDanh" FunctionName="Project_16HCB_CSDLModel.Store.sp_themKetQuaDiemDanh" />
-          <FunctionImportMapping FunctionImportName="sp_timkiemThongTinSinhVien" FunctionName="Project_16HCB_CSDLModel.Store.sp_timkiemThongTinSinhVien">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_timkiemThongTinSinhVien_Result">
-                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
-                <ScalarProperty Name="C_username" ColumnName="_username" />
-                <ScalarProperty Name="C_tenlop" ColumnName="_tenlop" />
-                <ScalarProperty Name="C_email" ColumnName="_email" />
-                <ScalarProperty Name="C_sdt" ColumnName="_sdt" />
-                <ScalarProperty Name="C_cmnd" ColumnName="_cmnd" />
-                <ScalarProperty Name="C_userid" ColumnName="_userid" />
-                <ScalarProperty Name="C_dalay" ColumnName="_dalay" />
-                <ScalarProperty Name="C_stt" ColumnName="_stt" />
-                <ScalarProperty Name="C_sodong" ColumnName="_sodong" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_xemThoiKhoaBieu" FunctionName="Project_16HCB_CSDLModel.Store.sp_xemThoiKhoaBieu">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.sp_xemThoiKhoaBieu_Result">
-                <ScalarProperty Name="thu" ColumnName="thu" />
-                <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
-                <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
-                <ScalarProperty Name="maPhong" ColumnName="maPhong" />
-                <ScalarProperty Name="err" ColumnName="err" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_kiemTraUserDaXoa" FunctionName="Project_16HCB_CSDLModel.Store.usp_kiemTraUserDaXoa" />
-          <FunctionImportMapping FunctionImportName="usp_layDanhSachMonHoc" FunctionName="Project_16HCB_CSDLModel.Store.usp_layDanhSachMonHoc">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.usp_layDanhSachMonHoc_Result">
-                <ScalarProperty Name="C_id" ColumnName="_id" />
-                <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
-                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
-                <ScalarProperty Name="C_soBuoi" ColumnName="_soBuoi" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_layThongTinMonHocTheoId" FunctionName="Project_16HCB_CSDLModel.Store.usp_layThongTinMonHocTheoId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.usp_layThongTinMonHocTheoId_Result">
-                <ScalarProperty Name="C_id" ColumnName="_id" />
-                <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
-                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
-                <ScalarProperty Name="C_soBuoi" ColumnName="_soBuoi" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_login" FunctionName="Project_16HCB_CSDLModel.Store.usp_login">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Project_16HCB_CSDLModel.usp_login_Result">
-                <ScalarProperty Name="C_userId" ColumnName="_userId" />
-                <ScalarProperty Name="C_username" ColumnName="_username" />
-                <ScalarProperty Name="C_email" ColumnName="_email" />
-                <ScalarProperty Name="C_sdt" ColumnName="_sdt" />
-                <ScalarProperty Name="C_cmnd" ColumnName="_cmnd" />
-                <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
-                <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
-                <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
-                <ScalarProperty Name="C_profileName" ColumnName="_profileName" />
-                <ScalarProperty Name="C_accName" ColumnName="_accName" />
-                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

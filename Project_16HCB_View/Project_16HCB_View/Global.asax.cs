@@ -17,5 +17,13 @@ namespace Project_16HCB_View
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Session["userid"] = 0;
+            Session["loaiUS"] = 0;
+            Session["resPhieuDiem"] = 0;
+            Session["user"] = null;
+        }
     }
 }

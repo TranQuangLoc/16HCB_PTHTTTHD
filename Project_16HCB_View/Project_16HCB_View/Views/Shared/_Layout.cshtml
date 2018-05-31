@@ -56,9 +56,9 @@
 
     <!-- Top menu on small screens -->
     @*<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-        <span>Company Name</span>
-    </header>*@
+            <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+            <span>Company Name</span>
+        </header>*@
 
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -72,7 +72,7 @@
 
     <!-- W3.CSS Container -->
     @*<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>*@
-
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script>
         // Script to open and close sidebar
         function w3_open() {
@@ -92,7 +92,19 @@
             var captionText = document.getElementById("caption");
             captionText.innerHTML = element.alt;
         }
-    </script>
 
+        function getFormData(a) {
+            for (var b = $(a + " input," + a + " select," + a + " textarea," + a + " checkboxchecked"), c = {}, d = 0; d < b.length; d++) {
+                if ($(b[d]).attr('type') != 'checkbox')
+                    c[b[d].name] = b[d].value;
+                else {
+                    c[b[d].name] = $(b[d]).prop('checked');
+                }
+            }
+            return c
+        }
+
+    </script>
+    @RenderSection("js", false)
 </body>
 </html>
