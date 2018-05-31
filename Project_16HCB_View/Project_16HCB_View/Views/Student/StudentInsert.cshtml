@@ -1,0 +1,207 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Thêm sinh viên";
+    Layout = "~/Views/Shared/_LayoutTemp.cshtml";
+}
+
+<style>
+    .choose-item-cus {
+        cursor: pointer;
+        background-color: #efeded;
+        margin-top: 8%;
+    }
+
+    .btn-remove-img-cus {
+        position: absolute;
+        color: red;
+        font-size: x-large;
+        right: 0;
+        cursor: pointer;
+    }
+
+    /*#datepicker {
+        width: 180px;
+        margin: 0 20px 20px 20px;
+    }
+
+    #datepicker > span:hover {
+        cursor: pointer;
+    }*/
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="page-header">Thêm sinh viên</h4>
+    </div>
+</div>
+@using (Html.BeginForm("InsertStudent", "Student", FormMethod.Post, new { @id = "frmStudentInsert" }))
+{
+    <input type="hidden" id="hdFormType" name="hdFormType" value="Insert" />
+    <input type="hidden" id="hdListVanTay" name="hdListVanTay" value="" />
+    <input type="hidden" id="hdCurrentPage" name="hdCurrentPage" value="" />
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-inline">
+                    <label class="header-control col-lg-1">Họ tên</label>
+                    <input type="text" class="form-control col-lg-5" id="txtUserName" name="txtUserName" maxlength="50" style="width: 30%;">
+                    <div class="header-control col-lg-1"></div>
+                    <label class="header-control col-lg-1">Số CMND</label>
+                    <input type="number" class="form-control col-lg-3" id="txtCMND" name="txtCMND" maxlength="11">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 1%;">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-inline">
+                    <label class="header-control col-lg-1">Email</label>
+                    <input type="text" class="form-control col-lg-5" id="txtEmail" name="txtEmail" maxlength="50" style="width: 30%;">
+                    <div class="header-control col-lg-1"></div>
+                    <label class="header-control col-lg-1">Số điện thoại</label>
+                    <input type="number" class="form-control col-lg-3" id="txtSDT" name="txtSDT" maxlength="11">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 1%;">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-inline">
+                    <label class="header-control col-lg-1">Ngày sinh</label>
+                    <div class="input-group date col-lg-5" data-provide="datepicker" data-date-format="dd/mm/yyyy" style="float: left; width: 30%;">
+                        <input type="text" class="form-control" id="txtNgaySinh" name="txtNgaySinh">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                    </div>
+                    @*<div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                            <input class="form-control" readonly="" type="text">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </span>
+                        </div>*@
+                    <div class="header-control col-lg-1"></div>
+                    <label class="header-control col-lg-1">Hệ đào tạo</label>
+                    <select class="form-control col-lg-3" id="cboHDT" name="cboHDT" style="width: 200px;">
+                        <option value="Đại học">Đại học</option>
+                        <option value="Cao đẳng">Cao đẳng</option>
+                        <option value="Hoàn chỉnh đại học">Hoàn chỉnh đại học</option>
+                        <option value="Sau đại học">Sau đại học</option>
+                        <option value="Đào tạo từ xa">Đào tạo từ xa</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 1%;">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-inline">
+                    <label class="header-control col-lg-1">Trạng thái</label>
+                    <select class="form-control col-lg-3" id="cboTrangThai" name="cboTrangThai" style="width: 367px;">
+                        <option value="Đang học">Đang học</option>
+                        <option value="Đình chỉ">Đình chỉ</option>
+                        <option value="Bảo lưu">Bảo lưu</option>
+                        <option value="Đã nghỉ học">Đã nghỉ học</option>
+                    </select>
+                    <div class="header-control col-lg-1"></div>
+                    <label class="header-control col-lg-1">Lớp học</label>
+                    <select class="form-control col-lg-3" id="cboLop" name="cboLop" style="width: 200px;">
+                        @Html.Raw(ViewBag.HTMLLop)
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 1%;">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-inline">
+                    <label class="header-control col-lg-1">Địa chỉ</label>
+                    <input type="text" class="form-control col-lg-11" id="txtDiaChi" name="txtDiaChi" maxlength="50" style="width: 64%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 1%;">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="header-control col-lg-1">Hình ảnh</label>
+                <div class="col-lg-11" style="position: relative; width: fit-content; padding-left: 0;">
+                    <span id="btnRemoveImg01" data-index="1" data-name="btnRemoveImg" class="glyphicon glyphicon-remove-sign btn-remove-img-cus"></span>
+                    <img id="imgChooseFile01" data-index="1" data-name="imgChooseFile" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="150" height="150" class="choose-item-cus">
+                </div>
+                <div class="col-lg-11" style="position: relative; width: fit-content;">
+                    <span id="btnRemoveImg02" data-index="2" data-name="btnRemoveImg" class="glyphicon glyphicon-remove-sign btn-remove-img-cus"></span>
+                    <img id="imgChooseFile02" data-index="2" data-name="imgChooseFile" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="150" height="150" class="choose-item-cus">
+                </div>
+                <div class="col-lg-11" style="position: relative; width: fit-content;">
+                    <span id="btnRemoveImg03" data-index="3" data-name="btnRemoveImg" class="glyphicon glyphicon-remove-sign btn-remove-img-cus"></span>
+                    <img id="imgChooseFile03" data-index="3" data-name="imgChooseFile" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="150" height="150" class="choose-item-cus">
+                </div>
+                <div class="col-lg-11" style="position: relative; width: fit-content;">
+                    <span id="btnRemoveImg04" data-index="4" data-name="btnRemoveImg" class="glyphicon glyphicon-remove-sign btn-remove-img-cus"></span>
+                    <img id="imgChooseFile04" data-index="4" data-name="imgChooseFile" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="150" height="150" class="choose-item-cus">
+                </div>
+                <div class="col-lg-11" style="position: relative; width: fit-content;">
+                    <span id="btnRemoveImg05" data-index="5" data-name="btnRemoveImg" class="glyphicon glyphicon-remove-sign btn-remove-img-cus"></span>
+                    <img id="imgChooseFile05" data-index="5" data-name="imgChooseFile" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="150" height="150" class="choose-item-cus">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="row area-control">
+        <div class="form-inline group-submit">
+            <button type="button" class="btn btn-primary" id="btnInsert" onclick="InsertStudent();" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Đang xử lý"><i class="fa fa-plus"></i>Thêm</button>
+            <button type="button" class="btn btn-default" id="btnBack" onclick="BackManage();" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Đang xử lý"><i class="fa fa-remove"></i>Bỏ qua</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="modalVanTay" tabindex="-1" role="basic" aria-hidden="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Lấy vân tay</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <img id="imgGet" src="~/Content/image/no-picture.png" alt="Hình ảnh" width="268" height="300" class="choose-item-cus">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button class="btn blue start" type="button" id="btnCloseVT">
+                        <i class="fa fa-close"></i>
+                        <span> Hủy </span>
+                    </button>
+                    <button class="btn blue start btn-primary" type="button" id="btnOKVT">
+                        <i class="fa fa-edit"></i>
+                        <span> Đồng ý </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/customscript/student/StudentsManagement/StudentInsertUpdate.js"></script>
+}
+

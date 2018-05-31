@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QLDDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="_id" />
@@ -75,6 +75,7 @@
           </Key>
           <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_tenLop" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maKhoa" Type="int" />
         </EntityType>
         <EntityType Name="MAIL">
           <Key>
@@ -125,16 +126,7 @@
           <Property Name="_ngayBatDau" Type="date" />
           <Property Name="_trangThai" Type="nvarchar" MaxLength="50" />
           <Property Name="_maLop" Type="int" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="_daXoa" Type="bit" />
         </EntityType>
         <EntityType Name="THOIKHOABIEU">
           <Key>
@@ -161,6 +153,7 @@
           <Property Name="_ngaysinh" Type="date" />
           <Property Name="_diachi" Type="nvarchar" MaxLength="50" />
           <Property Name="_loaiUS" Type="int" />
+          <Property Name="_daXoa" Type="bit" />
         </EntityType>
         <EntityType Name="VANTAY">
           <Key>
@@ -170,6 +163,8 @@
           <Property Name="_userID" Type="int" />
           <Property Name="_maVanTay" Type="varchar" MaxLength="250" />
           <Property Name="_ngayTao" Type="date" />
+          <Property Name="_url" Type="varchar" MaxLength="250" />
+          <Property Name="_daXoa" Type="bit" />
         </EntityType>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -235,7 +230,6 @@
           <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THOIKHOABIEU" EntityType="Self.THOIKHOABIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VANTAY" EntityType="Self.VANTAY" Schema="dbo" store:Type="Tables" />
@@ -244,7 +238,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Project_16HCB_CSDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="QLDDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="C_id" />
@@ -315,6 +309,7 @@
           </Key>
           <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_tenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maKhoa" Type="Int32" />
         </EntityType>
         <EntityType Name="MAIL">
           <Key>
@@ -365,16 +360,7 @@
           <Property Name="C_ngayBatDau" Type="DateTime" Precision="0" />
           <Property Name="C_trangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_maLop" Type="Int32" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="C_daXoa" Type="Boolean" />
         </EntityType>
         <EntityType Name="THOIKHOABIEU">
           <Key>
@@ -401,6 +387,7 @@
           <Property Name="C_ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="C_diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="C_loaiUS" Type="Int32" />
+          <Property Name="C_daXoa" Type="Boolean" />
         </EntityType>
         <EntityType Name="VANTAY">
           <Key>
@@ -410,6 +397,8 @@
           <Property Name="C_userID" Type="Int32" />
           <Property Name="C_maVanTay" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="C_ngayTao" Type="DateTime" Precision="0" />
+          <Property Name="C_url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C_daXoa" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="Project_16HCB_CSDLEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
@@ -425,7 +414,6 @@
           <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" />
           <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
           <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="THOIKHOABIEUx" EntityType="Self.THOIKHOABIEU" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
           <EntitySet Name="VANTAYs" EntityType="Self.VANTAY" />
@@ -494,14 +482,15 @@
           <Property Type="Int32" Name="kq" Nullable="false" />
           <Property Type="Int32" Name="err" Nullable="false" />
         </ComplexType>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Project_16HCB_CSDLModelStoreContainer" CdmEntityContainer="Project_16HCB_CSDLEntities">
+        <EntityContainerMapping StorageEntityContainer="QLDDModelStoreContainer" CdmEntityContainer="Project_16HCB_CSDLEntities">
           <EntitySetMapping Name="ACCOUNTs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.ACCOUNT">
+            <EntityTypeMapping TypeName="QLDDModel.ACCOUNT">
               <MappingFragment StoreEntitySet="ACCOUNT">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_username" ColumnName="_username" />
@@ -512,7 +501,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DIEMs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.DIEM">
+            <EntityTypeMapping TypeName="QLDDModel.DIEM">
               <MappingFragment StoreEntitySet="DIEM">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
@@ -524,7 +513,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GIAOVIENs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN">
+            <EntityTypeMapping TypeName="QLDDModel.GIAOVIEN">
               <MappingFragment StoreEntitySet="GIAOVIEN">
                 <ScalarProperty Name="C_maGV" ColumnName="_maGV" />
                 <ScalarProperty Name="C_soNamDay" ColumnName="_soNamDay" />
@@ -533,7 +522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GIAOVIEN_MONHOC">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN_MONHOC">
+            <EntityTypeMapping TypeName="QLDDModel.GIAOVIEN_MONHOC">
               <MappingFragment StoreEntitySet="GIAOVIEN_MONHOC">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_stt" ColumnName="_stt" />
@@ -543,7 +532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOCKies">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.HOCKY">
+            <EntityTypeMapping TypeName="QLDDModel.HOCKY">
               <MappingFragment StoreEntitySet="HOCKY">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenHocKy" ColumnName="_tenHocKy" />
@@ -552,7 +541,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KETQUADIEMDANHs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUADIEMDANH">
+            <EntityTypeMapping TypeName="QLDDModel.KETQUADIEMDANH">
               <MappingFragment StoreEntitySet="KETQUADIEMDANH">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_maUser" ColumnName="_maUser" />
@@ -564,7 +553,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHOAs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KHOA">
+            <EntityTypeMapping TypeName="QLDDModel.KHOA">
               <MappingFragment StoreEntitySet="KHOA">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenKhoa" ColumnName="_tenKhoa" />
@@ -572,15 +561,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOPHOCs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.LOPHOC">
+            <EntityTypeMapping TypeName="QLDDModel.LOPHOC">
               <MappingFragment StoreEntitySet="LOPHOC">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAILs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MAIL">
+            <EntityTypeMapping TypeName="QLDDModel.MAIL">
               <MappingFragment StoreEntitySet="MAIL">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tieuDe" ColumnName="_tieuDe" />
@@ -593,7 +583,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MONHOCs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC">
+            <EntityTypeMapping TypeName="QLDDModel.MONHOC">
               <MappingFragment StoreEntitySet="MONHOC">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
@@ -603,7 +593,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MONHOC_HOCKY">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC_HOCKY">
+            <EntityTypeMapping TypeName="QLDDModel.MONHOC_HOCKY">
               <MappingFragment StoreEntitySet="MONHOC_HOCKY">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_stt" ColumnName="_stt" />
@@ -613,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHONGs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.PHONG">
+            <EntityTypeMapping TypeName="QLDDModel.PHONG">
               <MappingFragment StoreEntitySet="PHONG">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
@@ -623,7 +613,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SINHVIENs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.SINHVIEN">
+            <EntityTypeMapping TypeName="QLDDModel.SINHVIEN">
               <MappingFragment StoreEntitySet="SINHVIEN">
                 <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
                 <ScalarProperty Name="C_userId" ColumnName="_userId" />
@@ -631,22 +621,12 @@
                 <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
                 <ScalarProperty Name="C_trangThai" ColumnName="_trangThai" />
                 <ScalarProperty Name="C_maLop" ColumnName="_maLop" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="THOIKHOABIEUx">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.THOIKHOABIEU">
+            <EntityTypeMapping TypeName="QLDDModel.THOIKHOABIEU">
               <MappingFragment StoreEntitySet="THOIKHOABIEU">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_stt" ColumnName="_stt" />
@@ -660,7 +640,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERS">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.USER">
+            <EntityTypeMapping TypeName="QLDDModel.USER">
               <MappingFragment StoreEntitySet="USERS">
                 <ScalarProperty Name="C_userId" ColumnName="_userId" />
                 <ScalarProperty Name="C_username" ColumnName="_username" />
@@ -670,16 +650,19 @@
                 <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
                 <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
                 <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VANTAYs">
-            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.VANTAY">
+            <EntityTypeMapping TypeName="QLDDModel.VANTAY">
               <MappingFragment StoreEntitySet="VANTAY">
                 <ScalarProperty Name="C_id" ColumnName="_id" />
                 <ScalarProperty Name="C_userID" ColumnName="_userID" />
                 <ScalarProperty Name="C_maVanTay" ColumnName="_maVanTay" />
                 <ScalarProperty Name="C_ngayTao" ColumnName="_ngayTao" />
+                <ScalarProperty Name="C_url" ColumnName="_url" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

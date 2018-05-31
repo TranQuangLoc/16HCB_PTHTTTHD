@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\KHTN\HEHOANCHINH\2017\HocKy3\DoAn\TEST\16HCB_PTHTTTHD\Project_16HCB\BUS\Model\DiemDanhBUS.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\HuuTai\SharedVMWare\HocTap\HCDH\HK4_2016-2017\HTTTHienDai\LyThuyet\BaiNop\Nhom\QLDD_v01\Project_16HCB\BUS\Model\DiemDanhBUS.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

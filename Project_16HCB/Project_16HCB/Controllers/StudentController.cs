@@ -1,5 +1,6 @@
 ﻿using BUS.Interface;
 using BUS.Service;
+using DTO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Project_16HCB.Models;
@@ -138,5 +139,151 @@ namespace Project_16HCB.Controllers
 
             return resmsg;
         }
+
+        #region Quản lý sinh viên
+        [Route("Student/themSV")]
+        [HttpPost]
+        public HttpResponseMessage themSinhVien([FromBody]object info)
+        {
+            HttpResponseMessage resmsg;
+
+            if (info == null)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { error = 0 }));
+            }
+            else
+            {
+                var obj = JObject.Parse(info.ToString());
+                SinhVien objSinhVien = obj.ToObject<SinhVien>();
+
+                SinhVienService objSVSer = new SinhVienService();
+                bool result = objSVSer.ThemSinhVien(objSinhVien);
+                if (result == true)
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                else
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+            }
+
+            return resmsg;
+        }
+
+        [Route("Student/capnhatSV")]
+        [HttpPost]
+        public HttpResponseMessage capnhatSinhVien([FromBody]object info)
+        {
+            HttpResponseMessage resmsg;
+
+            if (info == null)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { error = 0 }));
+            }
+            else
+            {
+                var obj = JObject.Parse(info.ToString());
+                SinhVien objSinhVien = obj.ToObject<SinhVien>();
+
+                SinhVienService objSVSer = new SinhVienService();
+                bool result = objSVSer.CapNhatSinhVien(objSinhVien);
+                if (result == true)
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(result));
+                }
+                else
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+            }
+
+            return resmsg;
+        }
+
+        [Route("Student/xoaSV")]
+        [HttpGet]
+        public HttpResponseMessage xoaSV(int mssv)
+        {
+            HttpResponseMessage resmsg;
+
+            SinhVienService objSVSer = new SinhVienService();
+            bool result = objSVSer.XoaSinhVien(mssv);
+            if (result == true)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(result));
+            }
+            else
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            return resmsg;
+        }
+
+        [Route("Student/layThongTinSV")]
+        [HttpGet]
+        public HttpResponseMessage layThongTinSV(int mssv)
+        {
+            HttpResponseMessage resmsg;
+
+            SinhVienService objSVSer = new SinhVienService();
+            SinhVien objSinhVien = new SinhVien();
+            bool result = objSVSer.LayThongTinSinhVien(mssv, ref objSinhVien);
+            if (result == true)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(objSinhVien));
+            }
+            else
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            return resmsg;
+        }
+
+        [Route("Student/timkiemSV")]
+        [HttpPost]
+        public HttpResponseMessage timkiemSinhVien([FromBody]object info)
+        {
+            HttpResponseMessage resmsg;
+
+            if (info == null)
+            {
+                resmsg = Request.CreateResponse(HttpStatusCode.BadRequest, JsonConvert.SerializeObject(
+                        new { error = 0 }));
+            }
+            else
+            {
+                SinhVien objSinhVien = new SinhVien();
+                var obj = JObject.Parse(info.ToString());
+                string strTuKhoa = obj["tukhoa"].ToObject<string>();
+                objSinhVien._malop = obj["malop"].ToObject<int>();
+                objSinhVien._makhoa = obj["makhoa"].ToObject<int>();
+                objSinhVien._dalay = obj["dalay"].ToObject<int>();
+                int intPageIndex = obj["chisotrang"].ToObject<int>();
+                int intPageSize = obj["sodong"].ToObject<int>();
+
+                List<SinhVien> lstSinhVien = new List<SinhVien>();
+                SinhVienService objSVSer = new SinhVienService();
+                bool result = objSVSer.TimKiemSinhVien(objSinhVien, ref lstSinhVien, strTuKhoa, intPageIndex, intPageSize);
+                if (result == true)
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(lstSinhVien));
+                }
+                else
+                {
+                    resmsg = Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+            }
+
+            return resmsg;
+        }
+        #endregion
     }
 }

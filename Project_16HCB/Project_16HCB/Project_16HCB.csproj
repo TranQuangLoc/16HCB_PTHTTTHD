@@ -206,6 +206,8 @@
     <Compile Include="Controllers\HocKyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LopHocController.cs" />
+    <Compile Include="Controllers\KhoaController.cs" />
+    <Compile Include="Controllers\LopController.cs" />
     <Compile Include="Controllers\MonHocController.cs" />
     <Compile Include="Controllers\MonHocHKController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -234,6 +236,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
+      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
@@ -273,6 +276,7 @@
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
+      <DependentUpon>DiemDanhMain.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
@@ -354,7 +358,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_all-skins.min.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -371,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Khoa\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>

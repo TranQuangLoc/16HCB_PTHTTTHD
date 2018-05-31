@@ -12,8 +12,6 @@ namespace Project_16HCB.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class Project_16HCB_CSDLEntities : DbContext
     {
@@ -40,7 +38,6 @@ namespace Project_16HCB.Models
         public virtual DbSet<MONHOC_HOCKY> MONHOC_HOCKY { get; set; }
         public virtual DbSet<PHONG> PHONGs { get; set; }
         public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THOIKHOABIEU> THOIKHOABIEUx { get; set; }
         public virtual DbSet<USER> USERS { get; set; }
         public virtual DbSet<VANTAY> VANTAYs { get; set; }
@@ -211,5 +208,6 @@ namespace Project_16HCB.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+
     }
 }

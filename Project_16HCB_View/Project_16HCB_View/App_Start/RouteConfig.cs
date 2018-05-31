@@ -13,6 +13,26 @@ namespace Project_16HCB_View
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region Quan ly sinh vien
+            routes.MapRoute(
+                name: "quan-ly-sinh-vien",
+                url: "quan-ly-sinh-vien",
+                defaults: new { controller = "Student", action = "ManageStudent" }
+            );
+
+            routes.MapRoute(
+                name: "quan-ly-sinh-vien/them",
+                url: "quan-ly-sinh-vien/them",
+                defaults: new { controller = "Student", action = "StudentInsert" }
+            );
+
+            routes.MapRoute(
+                name: "quan-ly-sinh-vien/cap-nhat",
+                url: "quan-ly-sinh-vien/cap-nhat/{strStudentID}",
+                defaults: new { controller = "Student", action = "StudentUpdate", strStudentID = UrlParameter.Optional }
+            );
+            #endregion
+
             routes.MapRoute(
                 name: "TrangChu",
                 url: "{controller}/{action}/{id}",

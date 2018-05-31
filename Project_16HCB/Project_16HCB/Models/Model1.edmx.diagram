@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD:Project_16HCB/Project_16HCB/Models/Model1.edmx.diagram
       <Diagram DiagramId="ae1bfa89b9dc454c971e0550f8ef4158" Name="Diagram1">
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.ACCOUNT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.DIEM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
@@ -22,6 +23,25 @@
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.THOIKHOABIEU" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.USER" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_16HCB_CSDLModel.VANTAY" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+=======
+      <Diagram DiagramId="dd1f94d3f11642dba7fff2ed9a83190b" Name="Diagram1">
+        <EntityTypeShape EntityType="QLDDModel.ACCOUNT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.DIEM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.GIAOVIEN" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.GIAOVIEN_MONHOC" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.HOCKY" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.KETQUADIEMDANH" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.KHOA" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.LOPHOC" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.MAIL" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.MONHOC" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.MONHOC_HOCKY" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.PHONG" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.SINHVIEN" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.THOIKHOABIEU" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.USER" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDDModel.VANTAY" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+>>>>>>> Hoàn thành chức năng quản lý sinh viên:Project_16HCB/Project_16HCB/Models/DiemDanhMain.edmx.diagram
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

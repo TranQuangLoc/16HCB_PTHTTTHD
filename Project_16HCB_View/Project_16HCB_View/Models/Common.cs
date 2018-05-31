@@ -22,7 +22,7 @@ namespace Project_16HCB_View.Models
             
             strResult = strResult.Replace("\"C_", "\"_");
 
-            if (strResult.IndexOf('[') == -1)
+            if (strResult.IndexOf('[') == -1 || strResult.IndexOf('[') > 1)
             {
                 strResult = strResult.Insert(1, "[");
                 strResult = strResult.Insert(strResult.Length - 1, "]");
