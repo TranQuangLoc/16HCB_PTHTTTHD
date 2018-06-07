@@ -43,7 +43,17 @@ namespace Project_16HCB.Controllers
                 return respMsg;
             }
         }
-
+        [HttpGet]
+        [Route("api/GetMonHoc")]
+        public List<MONHOC> getMonHoc()
+        {
+            var list = new List<MONHOC>();
+            using (var db = new Project_16HCB_CSDLEntities())
+            {
+                list = db.MONHOCs.ToList();
+            }
+            return list;
+        }
         /* Xem thông tin môn học theo id môn học */
         [HttpGet]
         [Route("api/MonHoc/{monHocId}")]

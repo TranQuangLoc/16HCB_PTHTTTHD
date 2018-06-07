@@ -222,7 +222,7 @@
 
         const fetchDsHocKy = $.get(`${apiUrl}HocKy`);
         const fetchMonHocHK = $.get(`${apiUrl}MonHocHK`);
-        const fetchMonHoc = $.get(`${apiUrl}MonHoc`);
+        const fetchMonHoc = $.get(`${apiUrl}getMonHoc`);
 
         Promise.all([fetchDsHocKy, fetchMonHocHK, fetchMonHoc]).then((results) => {
             data.dsHocKy = results[0];

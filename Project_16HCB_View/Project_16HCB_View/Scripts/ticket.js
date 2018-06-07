@@ -32,15 +32,15 @@ function CreateTicket() {
         //}
         
     }).done(function (data) {
-        if (data.ketqua === "1") {
-            swal("Good job!", "You clicked the button!", "success").then((value) => {
+        if (data.ketqua === 1) {
+            swal("Gửi thành công !", "Nhấn để kết thúc!", "success").then((value) => {
                 $('#myModal').modal('hide');
                 $('#content_diem').html(ObjectToRow(a));
             });
             
         }
         else
-            swal("Good job!", "You clicked the button!", "error");
+            swal("Gửi thất bại !", "Nhấn để kết thúc !", "error");
     }).fail(function (a, b, c) {
         console.log(a, b, c);
     });

@@ -77,7 +77,7 @@
                   </tr>
                  }*@
 
-            @foreach (var item in Model.iPhieuDiem)
+            @foreach (var item in Model)
             {
                 string data = string.Concat(item.masv, ",", item.hocki,",", SessionProvider.GetUserIdFromSession());
                 <tr>

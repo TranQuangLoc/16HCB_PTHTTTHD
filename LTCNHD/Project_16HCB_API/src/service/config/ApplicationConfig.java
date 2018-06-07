@@ -6,7 +6,7 @@ import javax.ws.rs.core.Application;
 
 import service.export.*;
 
-
+/*
 @javax.ws.rs.ApplicationPath("rest")
 public class ApplicationConfig extends Application {
 	
@@ -26,4 +26,4 @@ public class ApplicationConfig extends Application {
 		resources.add(ThoiKhoaBieuRestful.class);
 		resources.add(PhieuDiemRestful.class);
 	}
-}
+}*/

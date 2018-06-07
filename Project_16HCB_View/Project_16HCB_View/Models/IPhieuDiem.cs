@@ -16,6 +16,7 @@ namespace Project_16HCB_View.Models
 
     public class ListObjectPhieuDiem
     {
-        public List<IPhieuDiem> iPhieuDiem;
+        public static List<IPhieuDiem> listPhieuDiem { get; set; }
+  
     }
 }

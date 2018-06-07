@@ -1,5 +1,5 @@
 ﻿@using Project_16HCB_View.Models;
-@model ListPhieuDiemSinhVien
+@using Project_16HCB_View.Utilities;
 @{
     ViewBag.Title = "NhanPhieuDiem";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -73,7 +73,7 @@
                   </tr>
                  }*@
 
-            @foreach (var item in Model.iKetQuaPhieuDiemSinhVien)
+            @foreach (var item in Model)
             {
             <tr>
                 <td>@item.masv</td>

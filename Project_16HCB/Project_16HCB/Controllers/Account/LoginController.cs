@@ -14,7 +14,7 @@ namespace Project_16HCB.Controllers.Account
 {
     public class LoginController : ApiController
     {
-        private string Md5Hash(string text)
+        public string Md5Hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(Encoding.ASCII.GetBytes(text));

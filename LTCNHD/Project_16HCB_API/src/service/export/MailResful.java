@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import backend.entities.IMail;
+import backend.entities.IMailInfo;
 import backend.entities.IVanTay_Properties;
 import backend.entities.KetQuaDiemDanh_Properties;
 import service.config.ResponseConfig;
@@ -36,8 +37,40 @@ public class MailResful {
 				
 				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
 				ketqua_diemdanh.setKetqua(ketquacheck);
-					
+				return ResponseConfig.OK(ketqua_diemdanh);
 				
+					
+			}else{
+				System.out.println("FAILD");
+				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
+				ketqua_diemdanh.setKetqua(ketquacheck);
+				return ResponseConfig.OK(ketqua_diemdanh);
+				
+			}
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return ResponseConfig.SERVER_ERROR();
+		}
+	} 
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/dangkimail")
+	public Response DangKiGuiMail(IMailInfo info)
+	{
+		try
+		{
+		
+			MailService im = new MailService();
+			int ketquacheck = im.DangKiMail(info);
+			if(ketquacheck == 1){
+							
+				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
+				ketqua_diemdanh.setKetqua(ketquacheck);
+						
 				return ResponseConfig.OK(ketqua_diemdanh);
 				
 					

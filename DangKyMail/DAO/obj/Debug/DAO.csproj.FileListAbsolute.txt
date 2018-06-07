@@ -1,0 +1,6 @@
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\bin\Debug\DAO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\bin\Debug\DAO.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\obj\Debug\DAO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DAO\obj\Debug\DAO.pdb

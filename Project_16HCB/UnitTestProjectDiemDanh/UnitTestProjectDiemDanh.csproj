@@ -59,82 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACCOUNT.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DIEM.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DiemDanhModelUnitTest.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhModelUnitTest.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DiemDanhModelUnitTest.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DiemDanhModelUnitTest.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="GIAOVIEN.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GIAOVIEN_MONHOC.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HOCKY.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KETQUADIEMDANH.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KHOA.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LOPHOC.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MAIL.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MONHOC.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MONHOC_HOCKY.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PHONG.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SINHVIEN.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="THOIKHOABIEU.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="USER.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
     <Compile Include="utInfoDiemDanhService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utSinhVienService.cs" />
-    <Compile Include="VANTAY.cs">
-      <DependentUpon>DiemDanhModelUnitTest.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="DiemDanhModelUnitTest.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DiemDanhModelUnitTest.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DiemDanhModelUnitTest.edmx.diagram">
-      <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
-    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -151,18 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DiemDanhModelUnitTest.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
-      <LastGenOutput>DiemDanhModelUnitTest.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DiemDanhModelUnitTest.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiemDanhModelUnitTest.edmx</DependentUpon>
-      <LastGenOutput>DiemDanhModelUnitTest.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

@@ -42,13 +42,18 @@ function Mail(userId) {
         //}
         
     }).done(function (data) {
-        if (data.ketqua === "1") {
+        
+        if (data.ketqua === 1) {
+            console.log(data.ketqua);
             alert("Gửi thành công")
-
         }
-        else
+        else {
+            console.log("aa : " + data.ketqua);
             alert("Gửi thất bại")
-    }).fail(function (a, b, c) {
+        }
+            
+        }).fail(function (a, b, c) {
+            console.log("a : "+data.ketqua);
         console.log(a, b, c);
     });
 

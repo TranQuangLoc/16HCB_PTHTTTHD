@@ -1,6 +1,7 @@
 package service.export;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -10,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.Provider;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -31,25 +33,21 @@ public class PhieuDiemRestful {
 	{
 		try
 		{
-
-
 			ObjectMapper mapper = new ObjectMapper();
 			IPhieuDiem pd = mapper.readValue(jsondata, IPhieuDiem.class);
 			PhieuDiemService im = new PhieuDiemService();
 			int ketquacheck = im.nhanThongTinPhieuDiem(pd);
 			if(ketquacheck == 1){
-				
-				
 				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
 				ketqua_diemdanh.setKetqua(ketquacheck);
-					
-				
 				return ResponseConfig.OK(ketqua_diemdanh);
 				
 					
 			}else{
 				System.out.println("FAILD");
-				return ResponseConfig.NOT_FOUND();
+				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
+				ketqua_diemdanh.setKetqua(ketquacheck);
+				return ResponseConfig.OK(ketqua_diemdanh);
 			}
 			
 		}
@@ -67,14 +65,54 @@ public class PhieuDiemRestful {
 	{
 		
 		PhieuDiemService pd = new PhieuDiemService();
-		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
+		List<IPhieuDiem> list = null;
+		
 		try
 		{
+			list = new ArrayList<IPhieuDiem>();
 			list = pd.DanhSachPhieuDiem();		
-			list.add(new IPhieuDiem());
+			
 			if(list != null)
 			{
-					return ResponseConfig.OK(new GenericEntity<List<IPhieuDiem>>(list) {});
+					
+				return ResponseConfig.OK(list);
+			}
+				
+			else
+				return ResponseConfig.NOT_FOUND();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return ResponseConfig.NOT_FOUND();
+		}
+									
+	}
+	
+	/*@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/danhsachphieudiem")
+	public Response DanhSachPhieuDiem()
+	{
+		
+		PhieuDiemService pd = new PhieuDiemService();
+		List<IPhieuDiem> list;		
+		try
+		{
+		//0 dong
+			list = new ArrayList<IPhieuDiem>();
+			list = pd.DanhSachPhieuDiem();	//list.size = 0	
+			list.add(new IPhieuDiem());//list.size = 1
+			if(list != null)
+			{
+					
+					if(list.size() == 1){						
+						list.add(new IPhieuDiem(-1));		//list.size = 2		==> 1 									
+						return ResponseConfig.OK(new GenericEntity<List<IPhieuDiem>>(list) {});
+					}else{
+						return ResponseConfig.OK(new GenericEntity<List<IPhieuDiem>>(list) {});
+					}
+					
 			}
 				
 			else
@@ -86,7 +124,7 @@ public class PhieuDiemRestful {
 			return ResponseConfig.SERVER_ERROR();
 		}
 									
-	} 
+	}*/
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -100,17 +138,14 @@ public class PhieuDiemRestful {
 			int ketquacheck = im.TraTinPhieuDiem(pd);
 			if(ketquacheck == 1){
 				
-				
 				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
-				ketqua_diemdanh.setKetqua(ketquacheck);
-					
-				
-				return ResponseConfig.OK(ketqua_diemdanh);
-				
-					
+				ketqua_diemdanh.setKetqua(ketquacheck);						
+				return ResponseConfig.OK(ketqua_diemdanh);		
 			}else{
 				System.out.println("FAILD");
-				return ResponseConfig.NOT_FOUND();
+				KetQuaDiemDanh_Properties ketqua_diemdanh = new KetQuaDiemDanh_Properties();
+				ketqua_diemdanh.setKetqua(ketquacheck);						
+				return ResponseConfig.OK(ketqua_diemdanh);		
 			}
 			
 		}
@@ -135,12 +170,13 @@ public class PhieuDiemRestful {
 			
 			if(listKetqua.size()  > 0){
 				
-				return ResponseConfig.OK(new GenericEntity<List<IKetQuaPhieuDiem_SinhVien>>((List<IKetQuaPhieuDiem_SinhVien>)listKetqua) {});	
+				return ResponseConfig.OK(new GenericEntity<List<IKetQuaPhieuDiem_SinhVien>>(listKetqua) {});	
 				
 							
 			}else{
 				System.out.println("FAILD");
-				return ResponseConfig.NOT_FOUND();
+				return ResponseConfig.OK(new GenericEntity<List<IKetQuaPhieuDiem_SinhVien>>(listKetqua) {});	
+				//return ResponseConfig.NOT_FOUND();
 			}
 			
 		}
@@ -151,3 +187,4 @@ public class PhieuDiemRestful {
 		}
 	} 
 }
+

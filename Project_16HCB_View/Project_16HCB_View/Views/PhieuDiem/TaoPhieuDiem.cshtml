@@ -1,0 +1,121 @@
+﻿@using Project_16HCB_View.Utilities;
+@{
+    ViewBag.Title = "TaoPhieuDiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <style>
+
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+
+        th {
+            text-align: inherit;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            border-bottom: thin solid #ccc;
+        }
+
+        .tbl-tkb {
+            margin: 30px auto 0;
+            border: thin solid #ccc;
+        }
+
+            .tbl-tkb thead tr th {
+                background: #8300b9;
+                color: #fff;
+            }
+
+            .tbl-tkb tbody tr:nth-child(2n+1) td {
+                background: #f7f7f7;
+            }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table td, .table th {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+}
+<link href="~/Scripts/css/bootstrap.min.css" rel="stylesheet" />
+@section js {
+    <script src="~/Scripts/sweetalert.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ticket.js"></script>
+}
+
+<div class='container'>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tạo</button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ticket Request</h4>
+                </div>
+                <div class="modal-body">
+                    <h2>FORM</h2>
+                    <form class="form-horizontal" action="" id="fr_ticket">
+                        <input type="hidden" name="masv" value="@SessionProvider.GetUserFromSession().C_userId">
+                        <input type="hidden" name="tensv" value="@SessionProvider.GetUserFromSession().C_username">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="hocki">Học kì:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="hocki">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="namhoc">Năm học:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="namhoc">
+                            </div>
+                        </div>
+                        <input type="hidden" name="date">
+                    </form>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" onclick="CreateTicket()">Tạo</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <table class="table tbl-tkb">
+        <thead>
+            <tr>
+                <th>Mã Sinh Viên</th>
+                <th>Tên Sinh Viên</th>
+                <th>Học kì</th>
+                <th>Năm học</th>
+                <th>Ngày</th>
+            </tr>
+        </thead>
+        <tbody id="content_diem"></tbody>
+    </table>
+</div>
+
+<script>document.getElementsByName("date")[0].value = new Date().toJSON().slice(0, 10)</script>
+

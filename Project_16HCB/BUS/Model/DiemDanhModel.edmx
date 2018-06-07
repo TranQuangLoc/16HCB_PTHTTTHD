@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Project_16HCB_CSDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_username" Type="nvarchar" MaxLength="50" />
+          <Property Name="_password" Type="nvarchar" MaxLength="50" />
+          <Property Name="_userId" Type="int" Nullable="false" />
+          <Property Name="_ngayLap" Type="date" />
+        </EntityType>
+        <EntityType Name="DIEM">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_mssv" Type="int" />
+          <Property Name="_maMH" Type="int" />
+          <Property Name="_maHK" Type="int" />
+          <Property Name="_tinhTrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="_diem" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN">
+          <Key>
+            <PropertyRef Name="_maGV" />
+          </Key>
+          <Property Name="_maGV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_soNamDay" Type="int" />
+          <Property Name="_userID" Type="int" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN_MONHOC">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_stt" Type="int" />
+          <Property Name="_maGV" Type="int" />
+          <Property Name="_idMH_HK" Type="int" />
+        </EntityType>
+        <EntityType Name="HOCKY">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_tenHocKy" Type="nvarchar" MaxLength="50" />
+          <Property Name="_nam" Type="int" />
+        </EntityType>
+        <EntityType Name="KETQUADIEMDANH">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_maUser" Type="int" />
+          <Property Name="_maMH" Type="int" />
+          <Property Name="_maPhong" Type="int" />
+          <Property Name="_ngayHoc" Type="datetime" />
+          <Property Name="_loaiUS" Type="int" />
+        </EntityType>
+        <EntityType Name="KETQUAPHIEUDIEM_SINHVIEN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="masv" Type="int" Nullable="false" />
+          <Property Name="tensv" Type="nvarchar" MaxLength="50" />
+          <Property Name="tenmh" Type="nvarchar" MaxLength="50" />
+          <Property Name="diem" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="sotc" Type="int" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_tenKhoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maKhoa" Type="int" />
+        </EntityType>
+        <EntityType Name="LOPHOC">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_tenLop" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maKhoa" Type="int" />
+        </EntityType>
+        <EntityType Name="MAIL">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_tieuDe" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maNguoiGui" Type="int" />
+          <Property Name="_maNguoiNhan" Type="int" />
+          <Property Name="_noiDung" Type="nvarchar(max)" />
+          <Property Name="_loaiThu" Type="nvarchar" MaxLength="50" />
+          <Property Name="_ngay" Type="date" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_tenMH" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maKhoa" Type="int" />
+          <Property Name="_soBuoi" Type="int" />
+          <Property Name="_soTC" Type="int" />
+        </EntityType>
+        <EntityType Name="MONHOC_HOCKY">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_stt" Type="int" />
+          <Property Name="_maMH" Type="int" />
+          <Property Name="_maHK" Type="int" />
+        </EntityType>
+        <EntityType Name="PHIEU_DIEM">
+          <Key>
+            <PropertyRef Name="_masv" />
+          </Key>
+          <Property Name="_masv" Type="int" Nullable="false" />
+          <Property Name="_tinhtrang" Type="int" />
+          <Property Name="_hocki" Type="int" />
+          <Property Name="_namhoc" Type="int" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_maPhong" Type="int" />
+          <Property Name="_loaiPhong" Type="int" />
+          <Property Name="_trangthai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="_mssv" />
+          </Key>
+          <Property Name="_mssv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_userId" Type="int" />
+          <Property Name="_heDaoTao" Type="nvarchar" MaxLength="50" />
+          <Property Name="_ngayBatDau" Type="date" />
+          <Property Name="_trangThai" Type="nvarchar" MaxLength="50" />
+          <Property Name="_maLop" Type="int" />
+          <Property Name="_daXoa" Type="bit" />
+          <Property Name="NGAY_NGHIHOC" Type="date" />
+        </EntityType>
+        <EntityType Name="THOIKHOABIEU">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_stt" Type="int" />
+          <Property Name="_thu" Type="int" />
+          <Property Name="_ngayBatDau" Type="datetime" />
+          <Property Name="_ngayKetThuc" Type="datetime" />
+          <Property Name="_idGV_MH" Type="int" />
+          <Property Name="_idLop" Type="int" />
+          <Property Name="_idPhong" Type="int" />
+        </EntityType>
+        <EntityType Name="THONGTINTRAPHIEUDIEM">
+          <Key>
+            <PropertyRef Name="_masv" />
+          </Key>
+          <Property Name="_masv" Type="int" Nullable="false" />
+          <Property Name="_hocki" Type="int" />
+          <Property Name="_ngaytao" Type="date" />
+          <Property Name="_magv" Type="int" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="_userId" />
+          </Key>
+          <Property Name="_userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_username" Type="nvarchar" MaxLength="50" />
+          <Property Name="_email" Type="varchar" MaxLength="50" />
+          <Property Name="_sdt" Type="nchar" MaxLength="11" />
+          <Property Name="_cmnd" Type="nchar" MaxLength="11" />
+          <Property Name="_ngaysinh" Type="date" />
+          <Property Name="_diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="_loaiUS" Type="int" />
+          <Property Name="_profileName" Type="varchar" MaxLength="250" />
+          <Property Name="_accName" Type="varchar" MaxLength="250" />
+          <Property Name="_daXoa" Type="bit" />
+        </EntityType>
+        <EntityType Name="VANTAY">
+          <Key>
+            <PropertyRef Name="_id" />
+          </Key>
+          <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_userID" Type="int" />
+          <Property Name="_maVanTay" Type="varchar" MaxLength="250" />
+          <Property Name="_ngayTao" Type="date" />
+          <Property Name="_daXoa" Type="bit" />
+          <Property Name="_url" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="Project_16HCB_CSDLModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIAOVIEN_MONHOC" EntityType="Self.GIAOVIEN_MONHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOCKY" EntityType="Self.HOCKY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KETQUADIEMDANH" EntityType="Self.KETQUADIEMDANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KETQUAPHIEUDIEM_SINHVIEN" EntityType="Self.KETQUAPHIEUDIEM_SINHVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOPHOC" EntityType="Self.LOPHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAIL" EntityType="Self.MAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEU_DIEM" EntityType="Self.PHIEU_DIEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THOIKHOABIEU" EntityType="Self.THOIKHOABIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THONGTINTRAPHIEUDIEM" EntityType="Self.THONGTINTRAPHIEUDIEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VANTAY" EntityType="Self.VANTAY" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project_16HCB_CSDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_userId" Type="Int32" Nullable="false" />
+          <Property Name="C_ngayLap" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="DIEM">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_mssv" Type="Int32" />
+          <Property Name="C_maMH" Type="Int32" />
+          <Property Name="C_maHK" Type="Int32" />
+          <Property Name="C_tinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_diem" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN">
+          <Key>
+            <PropertyRef Name="C_maGV" />
+          </Key>
+          <Property Name="C_maGV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_soNamDay" Type="Int32" />
+          <Property Name="C_userID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GIAOVIEN_MONHOC">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_stt" Type="Int32" />
+          <Property Name="C_maGV" Type="Int32" />
+          <Property Name="C_idMH_HK" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HOCKY">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_tenHocKy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_nam" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KETQUADIEMDANH">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_maUser" Type="Int32" />
+          <Property Name="C_maMH" Type="Int32" />
+          <Property Name="C_maPhong" Type="Int32" />
+          <Property Name="C_ngayHoc" Type="DateTime" Precision="3" />
+          <Property Name="C_loaiUS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KETQUAPHIEUDIEM_SINHVIEN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="masv" Type="Int32" Nullable="false" />
+          <Property Name="tensv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tenmh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diem" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sotc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_tenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maKhoa" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LOPHOC">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_tenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maKhoa" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MAIL">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_tieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maNguoiGui" Type="Int32" />
+          <Property Name="C_maNguoiNhan" Type="Int32" />
+          <Property Name="C_noiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_loaiThu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_ngay" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maKhoa" Type="Int32" />
+          <Property Name="C_soBuoi" Type="Int32" />
+          <Property Name="C_soTC" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MONHOC_HOCKY">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_stt" Type="Int32" />
+          <Property Name="C_maMH" Type="Int32" />
+          <Property Name="C_maHK" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PHIEU_DIEM">
+          <Key>
+            <PropertyRef Name="C_masv" />
+          </Key>
+          <Property Name="C_masv" Type="Int32" Nullable="false" />
+          <Property Name="C_tinhtrang" Type="Int32" />
+          <Property Name="C_hocki" Type="Int32" />
+          <Property Name="C_namhoc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_maPhong" Type="Int32" />
+          <Property Name="C_loaiPhong" Type="Int32" />
+          <Property Name="C_trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="C_mssv" />
+          </Key>
+          <Property Name="C_mssv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_userId" Type="Int32" />
+          <Property Name="C_heDaoTao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_ngayBatDau" Type="DateTime" Precision="0" />
+          <Property Name="C_trangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_maLop" Type="Int32" />
+          <Property Name="C_daXoa" Type="Boolean" />
+          <Property Name="NGAY_NGHIHOC" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="THOIKHOABIEU">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_stt" Type="Int32" />
+          <Property Name="C_thu" Type="Int32" />
+          <Property Name="C_ngayBatDau" Type="DateTime" Precision="3" />
+          <Property Name="C_ngayKetThuc" Type="DateTime" Precision="3" />
+          <Property Name="C_idGV_MH" Type="Int32" />
+          <Property Name="C_idLop" Type="Int32" />
+          <Property Name="C_idPhong" Type="Int32" />
+        </EntityType>
+        <EntityType Name="THONGTINTRAPHIEUDIEM">
+          <Key>
+            <PropertyRef Name="C_masv" />
+          </Key>
+          <Property Name="C_masv" Type="Int32" Nullable="false" />
+          <Property Name="C_hocki" Type="Int32" />
+          <Property Name="C_ngaytao" Type="DateTime" Precision="0" />
+          <Property Name="C_magv" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="C_userId" />
+          </Key>
+          <Property Name="C_userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_sdt" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="C_cmnd" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="C_ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="C_diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_loaiUS" Type="Int32" />
+          <Property Name="C_profileName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C_accName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C_daXoa" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="VANTAY">
+          <Key>
+            <PropertyRef Name="C_id" />
+          </Key>
+          <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_userID" Type="Int32" />
+          <Property Name="C_maVanTay" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C_ngayTao" Type="DateTime" Precision="0" />
+          <Property Name="C_daXoa" Type="Boolean" />
+          <Property Name="C_url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Project_16HCB_CSDLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="DIEMs" EntityType="Self.DIEM" />
+          <EntitySet Name="GIAOVIENs" EntityType="Self.GIAOVIEN" />
+          <EntitySet Name="GIAOVIEN_MONHOC" EntityType="Self.GIAOVIEN_MONHOC" />
+          <EntitySet Name="HOCKies" EntityType="Self.HOCKY" />
+          <EntitySet Name="KETQUADIEMDANHs" EntityType="Self.KETQUADIEMDANH" />
+          <EntitySet Name="KETQUAPHIEUDIEM_SINHVIEN" EntityType="Self.KETQUAPHIEUDIEM_SINHVIEN" />
+          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+          <EntitySet Name="LOPHOCs" EntityType="Self.LOPHOC" />
+          <EntitySet Name="MAILs" EntityType="Self.MAIL" />
+          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
+          <EntitySet Name="MONHOC_HOCKY" EntityType="Self.MONHOC_HOCKY" />
+          <EntitySet Name="PHIEU_DIEM" EntityType="Self.PHIEU_DIEM" />
+          <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+          <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
+          <EntitySet Name="THOIKHOABIEUx" EntityType="Self.THOIKHOABIEU" />
+          <EntitySet Name="THONGTINTRAPHIEUDIEMs" EntityType="Self.THONGTINTRAPHIEUDIEM" />
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+          <EntitySet Name="VANTAYs" EntityType="Self.VANTAY" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project_16HCB_CSDLModelStoreContainer" CdmEntityContainer="Project_16HCB_CSDLEntities">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_username" ColumnName="_username" />
+                <ScalarProperty Name="C_password" ColumnName="_password" />
+                <ScalarProperty Name="C_userId" ColumnName="_userId" />
+                <ScalarProperty Name="C_ngayLap" ColumnName="_ngayLap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIEMs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.DIEM">
+              <MappingFragment StoreEntitySet="DIEM">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+                <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+                <ScalarProperty Name="C_maHK" ColumnName="_maHK" />
+                <ScalarProperty Name="C_tinhTrang" ColumnName="_tinhTrang" />
+                <ScalarProperty Name="C_diem" ColumnName="_diem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIAOVIENs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN">
+              <MappingFragment StoreEntitySet="GIAOVIEN">
+                <ScalarProperty Name="C_maGV" ColumnName="_maGV" />
+                <ScalarProperty Name="C_soNamDay" ColumnName="_soNamDay" />
+                <ScalarProperty Name="C_userID" ColumnName="_userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIAOVIEN_MONHOC">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.GIAOVIEN_MONHOC">
+              <MappingFragment StoreEntitySet="GIAOVIEN_MONHOC">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_stt" ColumnName="_stt" />
+                <ScalarProperty Name="C_maGV" ColumnName="_maGV" />
+                <ScalarProperty Name="C_idMH_HK" ColumnName="_idMH_HK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOCKies">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.HOCKY">
+              <MappingFragment StoreEntitySet="HOCKY">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_tenHocKy" ColumnName="_tenHocKy" />
+                <ScalarProperty Name="C_nam" ColumnName="_nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KETQUADIEMDANHs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUADIEMDANH">
+              <MappingFragment StoreEntitySet="KETQUADIEMDANH">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_maUser" ColumnName="_maUser" />
+                <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+                <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
+                <ScalarProperty Name="C_ngayHoc" ColumnName="_ngayHoc" />
+                <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KETQUAPHIEUDIEM_SINHVIEN">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KETQUAPHIEUDIEM_SINHVIEN">
+              <MappingFragment StoreEntitySet="KETQUAPHIEUDIEM_SINHVIEN">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="masv" ColumnName="masv" />
+                <ScalarProperty Name="tensv" ColumnName="tensv" />
+                <ScalarProperty Name="tenmh" ColumnName="tenmh" />
+                <ScalarProperty Name="diem" ColumnName="diem" />
+                <ScalarProperty Name="sotc" ColumnName="sotc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.KHOA">
+              <MappingFragment StoreEntitySet="KHOA">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_tenKhoa" ColumnName="_tenKhoa" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOPHOCs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.LOPHOC">
+              <MappingFragment StoreEntitySet="LOPHOC">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_tenLop" ColumnName="_tenLop" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAILs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MAIL">
+              <MappingFragment StoreEntitySet="MAIL">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_tieuDe" ColumnName="_tieuDe" />
+                <ScalarProperty Name="C_maNguoiGui" ColumnName="_maNguoiGui" />
+                <ScalarProperty Name="C_maNguoiNhan" ColumnName="_maNguoiNhan" />
+                <ScalarProperty Name="C_noiDung" ColumnName="_noiDung" />
+                <ScalarProperty Name="C_loaiThu" ColumnName="_loaiThu" />
+                <ScalarProperty Name="C_ngay" ColumnName="_ngay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOCs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC">
+              <MappingFragment StoreEntitySet="MONHOC">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_tenMH" ColumnName="_tenMH" />
+                <ScalarProperty Name="C_maKhoa" ColumnName="_maKhoa" />
+                <ScalarProperty Name="C_soBuoi" ColumnName="_soBuoi" />
+                <ScalarProperty Name="C_soTC" ColumnName="_soTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOC_HOCKY">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.MONHOC_HOCKY">
+              <MappingFragment StoreEntitySet="MONHOC_HOCKY">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_stt" ColumnName="_stt" />
+                <ScalarProperty Name="C_maMH" ColumnName="_maMH" />
+                <ScalarProperty Name="C_maHK" ColumnName="_maHK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEU_DIEM">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.PHIEU_DIEM">
+              <MappingFragment StoreEntitySet="PHIEU_DIEM">
+                <ScalarProperty Name="C_masv" ColumnName="_masv" />
+                <ScalarProperty Name="C_tinhtrang" ColumnName="_tinhtrang" />
+                <ScalarProperty Name="C_hocki" ColumnName="_hocki" />
+                <ScalarProperty Name="C_namhoc" ColumnName="_namhoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.PHONG">
+              <MappingFragment StoreEntitySet="PHONG">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_maPhong" ColumnName="_maPhong" />
+                <ScalarProperty Name="C_loaiPhong" ColumnName="_loaiPhong" />
+                <ScalarProperty Name="C_trangthai" ColumnName="_trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SINHVIENs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.SINHVIEN">
+              <MappingFragment StoreEntitySet="SINHVIEN">
+                <ScalarProperty Name="C_mssv" ColumnName="_mssv" />
+                <ScalarProperty Name="C_userId" ColumnName="_userId" />
+                <ScalarProperty Name="C_heDaoTao" ColumnName="_heDaoTao" />
+                <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
+                <ScalarProperty Name="C_trangThai" ColumnName="_trangThai" />
+                <ScalarProperty Name="C_maLop" ColumnName="_maLop" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+                <ScalarProperty Name="NGAY_NGHIHOC" ColumnName="NGAY_NGHIHOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THOIKHOABIEUx">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.THOIKHOABIEU">
+              <MappingFragment StoreEntitySet="THOIKHOABIEU">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_stt" ColumnName="_stt" />
+                <ScalarProperty Name="C_thu" ColumnName="_thu" />
+                <ScalarProperty Name="C_ngayBatDau" ColumnName="_ngayBatDau" />
+                <ScalarProperty Name="C_ngayKetThuc" ColumnName="_ngayKetThuc" />
+                <ScalarProperty Name="C_idGV_MH" ColumnName="_idGV_MH" />
+                <ScalarProperty Name="C_idLop" ColumnName="_idLop" />
+                <ScalarProperty Name="C_idPhong" ColumnName="_idPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THONGTINTRAPHIEUDIEMs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.THONGTINTRAPHIEUDIEM">
+              <MappingFragment StoreEntitySet="THONGTINTRAPHIEUDIEM">
+                <ScalarProperty Name="C_masv" ColumnName="_masv" />
+                <ScalarProperty Name="C_hocki" ColumnName="_hocki" />
+                <ScalarProperty Name="C_ngaytao" ColumnName="_ngaytao" />
+                <ScalarProperty Name="C_magv" ColumnName="_magv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="C_userId" ColumnName="_userId" />
+                <ScalarProperty Name="C_username" ColumnName="_username" />
+                <ScalarProperty Name="C_email" ColumnName="_email" />
+                <ScalarProperty Name="C_sdt" ColumnName="_sdt" />
+                <ScalarProperty Name="C_cmnd" ColumnName="_cmnd" />
+                <ScalarProperty Name="C_ngaysinh" ColumnName="_ngaysinh" />
+                <ScalarProperty Name="C_diachi" ColumnName="_diachi" />
+                <ScalarProperty Name="C_loaiUS" ColumnName="_loaiUS" />
+                <ScalarProperty Name="C_profileName" ColumnName="_profileName" />
+                <ScalarProperty Name="C_accName" ColumnName="_accName" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VANTAYs">
+            <EntityTypeMapping TypeName="Project_16HCB_CSDLModel.VANTAY">
+              <MappingFragment StoreEntitySet="VANTAY">
+                <ScalarProperty Name="C_id" ColumnName="_id" />
+                <ScalarProperty Name="C_userID" ColumnName="_userID" />
+                <ScalarProperty Name="C_maVanTay" ColumnName="_maVanTay" />
+                <ScalarProperty Name="C_ngayTao" ColumnName="_ngayTao" />
+                <ScalarProperty Name="C_daXoa" ColumnName="_daXoa" />
+                <ScalarProperty Name="C_url" ColumnName="_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

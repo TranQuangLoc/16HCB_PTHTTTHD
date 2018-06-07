@@ -59,7 +59,7 @@ namespace Project_16HCB_View.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("TrangChu", "TrangChu");
                     }
 
 
@@ -94,9 +94,9 @@ namespace Project_16HCB_View.Controllers
         #region Quan ly sinh vien
         public ActionResult ManageStudent()
         {
-            if (Session["userid"] != null)
+            if (Session["userid"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("TrangChu", "TrangChu");
             }
             else
             {
@@ -141,7 +141,7 @@ namespace Project_16HCB_View.Controllers
         {
             try
             {
-                if (Session["userid"] != null)
+                if (Session["userid"] == null)
                 {
                     return RedirectToAction("Index", "Home");
                 }
@@ -205,7 +205,7 @@ namespace Project_16HCB_View.Controllers
 
         public ActionResult StudentInsert()
         {
-            if (Session["userid"] != null)
+            if (Session["userid"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -286,7 +286,7 @@ namespace Project_16HCB_View.Controllers
 
         public ActionResult StudentUpdate(string strStudentID)
         {
-            if (Session["userid"] != null)
+            if (Session["userid"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -334,7 +334,7 @@ namespace Project_16HCB_View.Controllers
         {
             try
             {
-                if (Session["userid"] != null)
+                if (Session["userid"] == null)
                 {
                     return RedirectToAction("Index", "Home");
                 }

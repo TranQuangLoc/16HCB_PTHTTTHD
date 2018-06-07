@@ -25,8 +25,7 @@ namespace Project_16HCB_View.Controllers
             }
            
                 return View();
-            
-           
+             
         }
 
         //GiaoVien
@@ -46,12 +45,13 @@ namespace Project_16HCB_View.Controllers
             
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var result = res.Content.ReadAsAsync<ListObjectPhieuDiem>().Result;
+                
+                var result = res.Content.ReadAsAsync<List<IPhieuDiem>>().Result;
 
                 //result.iPhieuDiem.GetType().IsGenericType; // kiem tra co phai danh sach ko
                 if (result != null)
                 {
-                    result.iPhieuDiem.RemoveAll(n => n.masv == 0);
+                    
                     return View(result);
                 }
             }
@@ -90,7 +90,7 @@ namespace Project_16HCB_View.Controllers
                 var result = res.Content.ReadAsAsync<KETQUA>().Result;
                 if (result.ketqua == 1)
                 {
-                    return RedirectToAction("DanhSachPhieuDiem", "PhieuDiem",new { ketqua= result.ketqua });
+                    return RedirectToAction("DanhSachPhieuDiem", "PhieuDiem");
                 }
                 
             }
@@ -122,7 +122,7 @@ namespace Project_16HCB_View.Controllers
             // var res = hc.PostAsJsonAsync(url, resquestParam).Result;
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var result = res.Content.ReadAsAsync<dynamic>().Result;
+                var result = res.Content.ReadAsAsync<List<PhieuDiemSinhVien>>().Result;
                 //Type tp = ;
                 if (result != null)
                 {

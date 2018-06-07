@@ -18,5 +18,6 @@ namespace BUS.Model
         public string C_tenMH { get; set; }
         public Nullable<int> C_maKhoa { get; set; }
         public Nullable<int> C_soBuoi { get; set; }
+        public Nullable<int> C_soTC { get; set; }
     }
 }

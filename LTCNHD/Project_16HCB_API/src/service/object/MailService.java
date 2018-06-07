@@ -4,6 +4,7 @@ import java.util.List;
 
 import backend.dal.MailDAL;
 import backend.entities.IMail;
+import backend.entities.IMailInfo;
 import service.interfaces.IMailService;
 
 public class MailService implements IMailService{
@@ -43,6 +44,12 @@ public class MailService implements IMailService{
 		// TODO Auto-generated method stub
 		int ketqua = MailDAL.themNoiDungGuiMail(im);
 		return ketqua;
+	}
+
+	@Override
+	public int DangKiMail(IMailInfo info) throws Exception {
+		// TODO Auto-generated method stub
+		return MailDAL.DangKiMail(info);
 	}
 
 	

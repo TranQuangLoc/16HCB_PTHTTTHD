@@ -162,14 +162,12 @@
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\HOCPHAN.cs" />
-
     <Compile Include="Models\IPhieuDiem.cs" />
     <Compile Include="Models\KETQUA.cs" />
     <Compile Include="Models\PhieuDiemSinhVien.cs" />
     <Compile Include="Models\SessionHelpers.cs" />
     <Compile Include="Models\THOIKHOABIEU.cs" />
     <Compile Include="Models\USER.cs" />
-
     <Compile Include="Models\Khoa.cs" />
     <Compile Include="Models\LopHoc.cs" />
     <Compile Include="Models\SinhVien.cs" />
@@ -455,16 +453,14 @@
     <Content Include="Views\Global\PartialViewChuongTrinhDaoTao.cshtml" />
     <Content Include="Views\Report\ReportStudent.cshtml" />
     <Content Include="Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
-
     <Content Include="Views\PhieuDiem\LayPhieuDiem.cshtml" />
     <Content Include="Views\PhieuDiem\DanhSachPhieuDiem.cshtml" />
     <Content Include="Views\PhieuDiem\NhanPhieuDiem.cshtml" />
-
     <Content Include="Views\Report\ReportDanhSachHocSinhNghi.cshtml" />
     <Content Include="Views\Student\ManageStudent.cshtml" />
     <Content Include="Views\Student\StudentInsert.cshtml" />
     <Content Include="Views\Student\StudentUpdate.cshtml" />
-
+    <Content Include="Views\PhieuDiem\TaoPhieuDiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

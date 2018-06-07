@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 
 import backend.config.DBContext;
 import backend.entities.IMail;
+import backend.entities.IMailInfo;
 
 public class MailDAL {
 	private static Connection conn = DBContext.getConnect();
 	public static int themNoiDungGuiMail(IMail imail)
-
 	{
 		int ketqua = 0;
 		try
@@ -90,5 +90,47 @@ public class MailDAL {
 		return ketqua;
 
 	}*/
+	
+	public static int DangKiMail(IMailInfo info)
+	{
+		int ketqua = 0;
+		try
+		{
+			
+			
+			String sql = "{call sp_dangKyTK (?,?,?,?,?,?,?,?)}";
+			
+			CallableStatement pre = conn.prepareCall(sql);            
+            pre.setString(1, info.getUsername());
+            pre.setString(2, info.getEmail());
+            pre.setString(3, info.getSdt());
+            pre.setString(4, info.getCmnd());
+            pre.setString(5, info.getNgaysinh());
+            pre.setString(6, info.getDiachi());
+            pre.setInt(7, info.getLoaiUS());
+            pre.setString(8, info.getPassword_email());
+	        ResultSet rs = pre.executeQuery();
+	        
+	        while(rs.next())
+	        {
+	        	if (rs.getInt("err") == 0)
+	        	{
+	        		 
+	        		ketqua = rs.getInt("kq");
+	        			         	            		           
+	        	}
+	        	      
+	        }
+		}
+		catch(Exception ex)
+		{
+			//System.out.println("exc");
+			ex.printStackTrace();
+			
+		}
+		
+		return ketqua;
+
+	}
 	
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -79,6 +80,7 @@ namespace BUS.Service
                         objVanTay.C_url = sv._lstVanTay[i]._url;
                         objVanTay.C_ngayTao = DateTime.Now;
                         objVanTay.C_daXoa = false;
+                        objVanTay.C_maVanTay = Md5Hash(Convert.ToString(sv._userid));
 
                         db.VANTAYs.Add(objVanTay);
                     }
@@ -91,6 +93,21 @@ namespace BUS.Service
             {
                 return false;
             }
+        }
+
+        private string Md5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(Encoding.ASCII.GetBytes(text));
+            byte[] md5Bytes = md5.Hash;
+            StringBuilder sb = new StringBuilder();
+
+            foreach (byte b in md5Bytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+
+            return sb.ToString();
         }
 
         //public bool ThemSinhVien(SinhVien sv)
@@ -189,6 +206,7 @@ namespace BUS.Service
                         objVanTay.C_maVanTay = sv._lstVanTay[i]._mavantay;
                         objVanTay.C_url = sv._lstVanTay[i]._url;
                         objVanTay.C_ngayTao = DateTime.Now;
+                        objVanTay.C_maVanTay = Md5Hash(Convert.ToString(sv._userid));
                     }
                     db.SaveChanges();
                 }

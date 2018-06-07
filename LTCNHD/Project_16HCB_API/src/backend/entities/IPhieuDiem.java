@@ -1,9 +1,10 @@
 package backend.entities;
 
+import javax.ws.rs.Path;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "phieudiem")
 public class IPhieuDiem {
 	private int masv;
 	private int magv;
@@ -26,6 +27,19 @@ public class IPhieuDiem {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
+	public IPhieuDiem(int masv) {
+		super();
+		this.masv = masv;
+		this.magv = 0;
+		this.tensv = "";
+		this.hocki = 0;
+		this.namhoc = 0;
+		this.date = "";
+		this.tinhtrang = 0;
+	}
+
 	@XmlElement
 	public int getMasv() {
 		return masv;

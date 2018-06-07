@@ -1,0 +1,17 @@
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\DangKyMail.exe.config
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\DangKyMail.exe
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\DangKyMail.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.csprojResolveAssemblyReference.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.Form1.resources
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.Properties.Resources.resources
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.csproj.GenerateResource.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.csproj.CoreCompileInputs.cache
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.exe
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\DAO.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\DAO.pdb
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\LOCTQ\Desktop\DoAnChuNhat1\DangKyMail\DangKyMail\obj\Debug\DangKyMail.csproj.CopyComplete

@@ -29,7 +29,7 @@ namespace UnitTestProjectDiemDanh
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
             bool result = false;
-            int resultget = idds.convertUserId(5);
+            int resultget = idds.convertUserId(1);
             if (resultget > 0)
             {
                 result = true;
@@ -56,7 +56,7 @@ namespace UnitTestProjectDiemDanh
         public void TestGetDanhSachHP_CoKetQua()
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
-            var danhsach = idds.GetDanhSachHP(5);
+            var danhsach = idds.GetDanhSachHP(1);
             bool result = false;
             if (danhsach.Count > 0)
             {
@@ -82,7 +82,7 @@ namespace UnitTestProjectDiemDanh
         public void TestGetInfoDiemDanh_CoKetQua()
         {
             IInfoDiemDanhService idds = new InfoDiemDanhService();
-            var danhsach = idds.GetInfoDiemDanh(5,3);
+            var danhsach = idds.GetInfoDiemDanh(1,3);
             bool result = false;
             if (danhsach.Count > 0)
             {

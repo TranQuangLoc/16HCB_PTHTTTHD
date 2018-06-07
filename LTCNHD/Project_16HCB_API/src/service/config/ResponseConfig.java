@@ -1,9 +1,12 @@
 package service.config;
 
+import java.util.List;
+
 import javax.ws.rs.core.Response;
 
 
 public class ResponseConfig {
+	
 	
 	public static Response OK(Object val)
 	{
@@ -13,6 +16,8 @@ public class ResponseConfig {
 				.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
 				.build();
 	}
+	
+	
 	
 	public static Response OK()
 	{
