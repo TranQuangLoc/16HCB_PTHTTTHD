@@ -30,7 +30,7 @@ namespace Project_16HCB_View.Controllers
 
                 if (res.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var result = res.Content.ReadAsAsync<ListTHOIKHOABIEU>().Result;
+                    var result = res.Content.ReadAsAsync<List<THOIKHOABIEU>>().Result;
 
                     if (result == null)
                     {

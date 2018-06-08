@@ -1,6 +1,6 @@
 ﻿
 @using Project_16HCB_View.Models;
-@model ListTHOIKHOABIEU
+@model List<THOIKHOABIEU>
 
 @{
     ViewBag.Title = "ThoiKhoaBieu";
@@ -73,7 +73,7 @@
                   </tr>
                  }*@
 
-            @foreach (var item in Model.iThoiKhoaBieu)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@item.thu</td>
