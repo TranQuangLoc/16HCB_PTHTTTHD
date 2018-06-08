@@ -13,7 +13,7 @@ public class ThoiKhoaBieuDAL {
 	private static Connection conn = DBContext.getConnect();
 	public static List<IThoiKhoaBieu> layThoiKhoaBieu(int userId)
 	{
-			List<IThoiKhoaBieu> list = new ArrayList<IThoiKhoaBieu>();
+		List<IThoiKhoaBieu> list = new ArrayList<IThoiKhoaBieu>();
 		try
 		{
 			

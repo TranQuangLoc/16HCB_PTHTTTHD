@@ -9,6 +9,7 @@ import org.junit.Test;
 import backend.dal.*;
 import backend.entities.*;
 
+
 public class unitTestDAL {
 	//MailDAL
 	/*@Test
@@ -69,11 +70,19 @@ public class unitTestDAL {
 	}
 	*/
 	
-	@Test
+	/*@Test
 	public void testTraPhieuDiem(){
 		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
 		list = PhieuDiemDAL.DanhSachPhieuDiem();	
 	    Assert.assertEquals(1, list.size());
+	}*/
+	
+	//ThoiKhoaBieu DAL
+	@Test 
+	public void layThoiKhoaBieu(){
+		List<IThoiKhoaBieu> list = new ArrayList<IThoiKhoaBieu>();
+		list = ThoiKhoaBieuDAL.layThoiKhoaBieu(1);	
+	    Assert.assertEquals(2, list.size());
 	}
 	
 	
