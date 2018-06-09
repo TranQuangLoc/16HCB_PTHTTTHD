@@ -2,7 +2,7 @@ package backend.helpers;
 import java.security.*;
 
 
-public class JavaHelpers {
+/*public class JavaHelpers {
 
 	public static String getMD5(String yourString)
 	{
@@ -30,3 +30,4 @@ public class JavaHelpers {
 		}
 	}
 }
+*/

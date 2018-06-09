@@ -31,12 +31,12 @@ public class VanTayRestful {
 			if(ketqua == 1)
 			{				
 				
-				System.out.println("Lấy thành công");
+				
 				return ResponseConfig.OK(ketqua_diemdanh);
 			}				
 			else
 			{
-				System.out.println("Lấy thất bại");
+				
 				return ResponseConfig.OK(ketqua_diemdanh);
 				//return ResponseConfig.NOT_FOUND();
 			}

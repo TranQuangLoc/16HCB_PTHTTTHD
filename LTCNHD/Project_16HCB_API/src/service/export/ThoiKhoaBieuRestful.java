@@ -11,7 +11,6 @@ import javax.ws.rs.core.Response;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import backend.entities.Atm;
 import backend.entities.IMail;
 import backend.entities.IThoiKhoaBieu;
 import backend.entities.IThoiKhoaBieu_Properties;
@@ -34,10 +33,7 @@ public class ThoiKhoaBieuRestful {
 			ThoiKhoaBieuService im = new ThoiKhoaBieuService();
 			List<IThoiKhoaBieu> listTKB = im.DSThoiKhoaBieu(thoikhoabieu.getUserId());
 			
-			if(listTKB != null){
-				
-				
-			
+			if(listTKB != null){	
 				return ResponseConfig.OK(new GenericEntity<List<IThoiKhoaBieu>>(listTKB) {});		
 					
 			}else{

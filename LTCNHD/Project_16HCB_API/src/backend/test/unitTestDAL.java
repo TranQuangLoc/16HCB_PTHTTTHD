@@ -11,8 +11,9 @@ import backend.entities.*;
 
 
 public class unitTestDAL {
+	
 	//MailDAL
-	/*@Test
+	@Test
 	public void testthemNoiDungGuiMail(){
 		IMail im = new IMail();
 		im.setUserID(2);
@@ -21,10 +22,10 @@ public class unitTestDAL {
 		im.set_noiDung("đuổi học");
 		int ketqua = MailDAL.themNoiDungGuiMail(im);
 	    Assert.assertEquals(1, ketqua);
-	}*/
+	}
 		
 	
-	/*@Test
+	@Test
 	public void testDangKiMail(){
 		IMailInfo info = new IMailInfo();
 		info.setUsername("Nguyễn An Bình");
@@ -36,20 +37,12 @@ public class unitTestDAL {
 		info.setLoaiUS(1);
 		info.setPassword_email("quangloc@@290694");
 		int ketqua = MailDAL.DangKiMail(info);
-	    Assert.assertEquals(1, ketqua);
-	}*/
-	
-
-	//ThoiKhoaBieuDAL	
-	/*@Test
-	public void testlayThoiKhoaBieu(){
-		List<IThoiKhoaBieu> list = ThoiKhoaBieuDAL.layThoiKhoaBieu(1);		
-	    Assert.assertEquals(1, list.size());
-	}*/
-	
+	    Assert.assertEquals(0, ketqua);
+	}
+		
 	
 	//PhieuDiemDAL
-	/*@Test
+	@Test
 	public void testnhanThongTinPhieuDiem(){
 		IPhieuDiem pd = new IPhieuDiem();
 		pd.setMasv(1);
@@ -60,31 +53,52 @@ public class unitTestDAL {
 		int ketqua = PhieuDiemDAL.nhanThongTinPhieuDiem(pd);
 	    Assert.assertEquals(1, ketqua);
 	}
-	*/
 	
-	/*@Test
+	
+	@Test
 	public void testDanhSachPhieuDiem(){
 		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
 		list = PhieuDiemDAL.DanhSachPhieuDiem();	
 	    Assert.assertEquals(1, list.size());
 	}
-	*/
 	
-	/*@Test
+	@Test
+	public void testDanhSachPhieuDiem_2(){
+		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
+		list = PhieuDiemDAL.DanhSachPhieuDiem();	
+	    Assert.assertEquals(0, list.size());
+	}
+	
+	
+	@Test
 	public void testTraPhieuDiem(){
 		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
 		list = PhieuDiemDAL.DanhSachPhieuDiem();	
 	    Assert.assertEquals(1, list.size());
-	}*/
+	}
+	
+	@Test
+	public void testTraPhieuDiem_2(){
+		List<IPhieuDiem> list = new ArrayList<IPhieuDiem>();
+		list = PhieuDiemDAL.DanhSachPhieuDiem();	
+	    Assert.assertEquals(0, list.size());
+	}
 	
 	//ThoiKhoaBieu DAL
 	@Test 
-	public void layThoiKhoaBieu(){
+	public void testlayThoiKhoaBieu(){
 		List<IThoiKhoaBieu> list = new ArrayList<IThoiKhoaBieu>();
 		list = ThoiKhoaBieuDAL.layThoiKhoaBieu(1);	
-	    Assert.assertEquals(2, list.size());
+	    Assert.assertEquals(5, list.size());
 	}
 	
+	
+	//VanTayDAL
+	@Test 
+	public void testlayVanTay(){
+		int ketqua = VanTayDAL.layVanTay("81dc9bdb52d04dc20036dbd8313ed055");
+		Assert.assertEquals(1, ketqua);
+	}
 	
 	
 	

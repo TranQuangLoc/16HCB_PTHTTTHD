@@ -15,13 +15,11 @@ import javax.ws.rs.ext.Provider;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import backend.entities.Atm;
 import backend.entities.IKetQuaPhieuDiem_SinhVien;
 import backend.entities.IPhieuDiem;
 import backend.entities.IThoiKhoaBieu;
 import backend.entities.KetQuaDiemDanh_Properties;
 import service.config.ResponseConfig;
-import service.object.AtmService;
 import service.object.PhieuDiemService;
 
 @Path("phieudiem")

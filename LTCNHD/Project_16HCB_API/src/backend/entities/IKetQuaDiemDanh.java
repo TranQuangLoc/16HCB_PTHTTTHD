@@ -1,13 +1,13 @@
 package backend.entities;
-
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @XmlRootElement
 public class IKetQuaDiemDanh {
-	private int _id;
+	/*private int _id;
 	private int _maUser;
 	private int _maMH;
 	private int _maPhong;
@@ -55,6 +55,6 @@ public class IKetQuaDiemDanh {
 	}
 	public void set_loaiUS(int _loaiUS) {
 		this._loaiUS = _loaiUS;
-	}
+	}*/
 	
 }

@@ -7,7 +7,7 @@ import com.sun.jersey.api.json.JSONJAXBContext;
 
 import backend.entities.*;
 
-public class JAXBContextResolver implements ContextResolver<JAXBContext> {
+/*public class JAXBContextResolver implements ContextResolver<JAXBContext> {
 
 	private JAXBContext context;
     private Class[] types = {
@@ -33,4 +33,4 @@ public class JAXBContextResolver implements ContextResolver<JAXBContext> {
         return null;
 	}
 
-}
+}*/

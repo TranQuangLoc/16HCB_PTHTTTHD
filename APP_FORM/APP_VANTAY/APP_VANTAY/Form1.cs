@@ -28,7 +28,18 @@ namespace APP_VANTAY
             vantay.mavanTay = CreateMD5.MD5Hash(txt_ma.Text);
             String url = localhost + "rest/vantay/getvantaybyid";
             ResultAPI rs = CreateProductAsync(url,vantay);
-
+            if (rs != null)
+            {
+                if (Int32.Parse(rs.ketqua) >= 3)
+                {
+                    MessageBox.Show("Đã check thẻ quá 3 lần!");
+                }
+                else
+                {
+                    MessageBox.Show("OK!");
+                }
+            }
+            
             /////
         }
 
@@ -37,11 +48,13 @@ namespace APP_VANTAY
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             ResultAPI rs = new ResultAPI() ;
-            var res = client.PostAsJsonAsync(url, vantay).Result;
+            var res = client.PostAsJsonAsync(url, new { maVanTay = vantay.mavanTay}).Result;
           
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 rs = res.Content.ReadAsAsync<ResultAPI>().Result;
+               
+                
                 //DataUserLogin.MaTaiKhoan = res.Content.ReadAsAsync<string>().Result;
 
                 //if (DataUserLogin.MaTaiKhoan.Equals("-1"))
@@ -63,5 +76,7 @@ namespace APP_VANTAY
             }
             return rs;
         }
+
+        
     }
 }

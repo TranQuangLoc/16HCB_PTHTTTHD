@@ -1,11 +1,8 @@
 package service.object;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import backend.dal.AtmDAL;
+import java.util.List;
 import backend.dal.ThoiKhoaBieuDAL;
-import backend.entities.Atm;
 import backend.entities.IThoiKhoaBieu;
 import service.interfaces.IThoiKhoaBieuService;
 

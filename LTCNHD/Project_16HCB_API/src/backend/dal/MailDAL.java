@@ -16,7 +16,6 @@ public class MailDAL {
 		try
 		{
 			
-			
 			String sql = "{call sp_guiMail (?,?,?,?)}";
 			
 			CallableStatement pre = conn.prepareCall(sql);            

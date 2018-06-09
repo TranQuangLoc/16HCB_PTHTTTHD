@@ -19,7 +19,6 @@ public class PhieuDiemDAL {
 		try
 		{
 			
-			
 			String sql = "{call sp_taophieudiem (?,?,?)}";
 			
 			CallableStatement pre = conn.prepareCall(sql);            
