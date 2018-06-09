@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IInfoDiemDanhService.cs" />
+    <Compile Include="Interface\IMonHocService.cs" />
     <Compile Include="Interface\ISinhVienService.cs" />
     <Compile Include="Model\ACCOUNT.cs">
       <DependentUpon>DiemDanhModel.tt</DependentUpon>
@@ -126,6 +127,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\InfoDiemDanhService.cs" />
+    <Compile Include="Service\MonHocService.cs" />
     <Compile Include="Service\SinhVienService.cs" />
   </ItemGroup>
   <ItemGroup>

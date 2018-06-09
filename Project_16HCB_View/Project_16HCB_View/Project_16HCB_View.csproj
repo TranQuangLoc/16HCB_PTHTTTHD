@@ -150,6 +150,7 @@
     <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MonHocController.cs" />
     <Compile Include="Controllers\PhieuDiemController.cs" />
     <Compile Include="Controllers\SendMailController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Models\HOCPHAN.cs" />
     <Compile Include="Models\IPhieuDiem.cs" />
     <Compile Include="Models\KETQUA.cs" />
+    <Compile Include="Models\MonHoc.cs" />
     <Compile Include="Models\PhieuDiemSinhVien.cs" />
     <Compile Include="Models\SessionHelpers.cs" />
     <Compile Include="Models\THOIKHOABIEU.cs" />
@@ -461,6 +463,7 @@
     <Content Include="Views\Student\StudentInsert.cshtml" />
     <Content Include="Views\Student\StudentUpdate.cshtml" />
     <Content Include="Views\PhieuDiem\TaoPhieuDiem.cshtml" />
+    <Content Include="Views\MonHoc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

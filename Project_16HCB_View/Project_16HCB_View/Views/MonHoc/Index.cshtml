@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Danh sách môn học";
+    Layout = "~/Views/Shared/_LayoutTemp.cshtml";
+}
+
+@section Heads
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+}
+
+    <form action="/MonHoc/Search" method="post">
+        <div class="row area-control">
+            <div class="col-sm-12">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <input class="form-control input-sm" id="txtSearch" type="text" name="tenMH">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSearch" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Đang xử lý"><i class="fa fa-search"></i>Tìm kiếm</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-blue">
+            <div class="panel-heading">
+                Danh sách môn học
+            </div>
+
+            <table width="100%" class="table table-striped table-bordered table-hover" id="tblContent">
+                <thead>
+                    <tr>
+                        <th>Tên môn học</th>
+                        <th>Số tín chỉ</th>
+                        <th>Số buổi học</th>
+                        <th>Mã khoa</th>
+                    </tr>
+                </thead>
+                <tbody id="tblContentRow">
+                    @if (ViewBag.lstMonHoc != null && ViewBag.lstMonHoc.Count > 0)
+                    {
+                        foreach (var m in ViewBag.lstMonHoc)
+                        {
+                            <tr>
+                                <td>@m.C_tenMH</td>
+                                <td>@m.C_soTC</td>
+                                <td>@m.C_soBuoi</td>
+                                <td>@m.C_maKhoa</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="12" class="table-content-null">Hiện không có nội dung</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+}

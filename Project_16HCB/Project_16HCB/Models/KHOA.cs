@@ -16,5 +16,6 @@ namespace Project_16HCB.Models
     {
         public int C_id { get; set; }
         public string C_tenKhoa { get; set; }
+        public Nullable<int> C_maKhoa { get; set; }
     }
 }
