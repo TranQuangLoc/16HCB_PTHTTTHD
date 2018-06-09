@@ -237,7 +237,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
-      <DependentUpon>DiemDanhMain.edmx</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GIAOVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
@@ -274,7 +274,7 @@
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
-      <DependentUpon>DiemDanhMain.tt</DependentUpon>
+      <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THOIKHOABIEU.cs">
       <DependentUpon>DIEMDANHVANTAY.tt</DependentUpon>
